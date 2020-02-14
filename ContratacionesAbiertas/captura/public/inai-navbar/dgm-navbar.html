@@ -146,17 +146,7 @@ and (max-device-width: 736px) {
 			<div class="col-xs-4 text-center logoCAtop" onclick="dashboard()">			       
                 <a href="/contratacionesabiertas/contratos/" target="_blank" id="conLog"><img src="/images/CONTRATACIONES_LOGOTIPO-29.png" height="55px"></a>
             </div>
-			<div class="col-sm-4 navbar-header diagButtonTop">
-                <a href="http://comisionesabiertas.inai.org.mx/comisiones-abiertas/#/" target="_blank" class="diagButton" title="Comisiones Abiertas" onmouseover="changeComi()" onmouseout="changeComiBack()" id="diagButtonC">
-                    <img src="/images/COMISIONES_ICONO.png" alt="" width="40px" height="40px" id="comiIc">
-                </a>
-                <a href="http://publicidadabierta.inai.org.mx/index.php/tpov1" target="_blank" class="diagButton" title="Publicidad Abierta" onmouseover="changePubli()" onmouseout="changePubliBack()" id="diagButtonP">
-                    <img src="/images/PUBLICIDAD_ICONO.png" alt="" width="40px" height="40px" id="publiIc">
-                </a>
-                <a href="http://catalogodepoliticas.inai.org.mx/" target="_blank" class="diagButton" title="Políticas Abiertas" onmouseover="changePoli()" onmouseout="changePoliBack()" id="diagButtonPO">
-                    <img src="/images/POLITICAS_ICONO.png" alt="" width="40px" height="40px" id="poliIc">
-                </a>
-            </div>   
+			
             </div>
 		</div>		
     </nav>
@@ -198,33 +188,7 @@ and (max-device-width: 736px) {
 
         }
     })
-    
-    function changePubli(){
-        document.getElementById("publiIc").setAttribute("src","/images/PUBLICIDAD_ICONO_HOVER.png");
-        document.getElementById("diagButtonP").style.backgroundColor = "#0277bd";
-    }
-    function changePubliBack(){
-        document.getElementById("publiIc").setAttribute("src","/images/PUBLICIDAD_ICONO.png");
-        document.getElementById("diagButtonP").style.backgroundColor = "#4d4d4d";
-    }
-
-    function changeComi(){
-        document.getElementById("comiIc").setAttribute("src","/images/COMISIONES_ICONO_HOVER.png");
-        document.getElementById("diagButtonC").style.backgroundColor = "#512da8";
-    }
-    function changeComiBack(){
-        document.getElementById("comiIc").setAttribute("src","/images/COMISIONES_ICONO.png");
-        document.getElementById("diagButtonC").style.backgroundColor = "#4d4d4d";
-    }
-
-    function changePoli(){
-        document.getElementById("poliIc").setAttribute("src","/images/POLITICAS_ICONO_HOVER.png");
-        document.getElementById("diagButtonPO").style.backgroundColor = "#ed6d05";
-    }
-    function changePoliBack(){
-        document.getElementById("poliIc").setAttribute("src","/images/POLITICAS_ICONO.png");
-        document.getElementById("diagButtonPO").style.backgroundColor = "#4d4d4d";
-    }
+	
 	function dashboard(){        
         document.getElementById("conLog").port="4000";
     }
