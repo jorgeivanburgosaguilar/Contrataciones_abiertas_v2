@@ -13,7 +13,7 @@
     </div>
     <div class="col-sm-3">
         <label>Unidad Administrativa</label>
-        <input type="text" name="buyer_name" value="<%=body.buyer_name%>"  class="form-control"  autocomplete="Off">
+        <input type="text" name="requestingunit_name" value="<%=body.requestingunit_name%>"  class="form-control"  autocomplete="Off">
     </div>
     <div class="col-sm-2">
         <button class="btn btn-default" style="margin-top:24px">Buscar</button>
@@ -36,8 +36,8 @@
         <% if (cp[i].tender_id) {%>
         <p class="list-group-item-text">Identificador de la licitación: <%= cp[i].tender_id %></p>
         <%} %>
-        <% if (cp[i].buyer_name) {%>
-        <p class="list-group-item-text">Unidad administrativa: <%=cp[i].buyer_name%></p>
+        <% if (cp[i].requestingunit_name) {%>
+        <p class="list-group-item-text">Unidad administrativa: <%=cp[i].requestingunit_name%></p>
         <%} %>
     </a>
     <%}%>

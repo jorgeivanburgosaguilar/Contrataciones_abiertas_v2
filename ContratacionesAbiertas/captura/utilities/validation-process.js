@@ -42,10 +42,11 @@ function ValidateProcess(cpid, db) {
             json.parties.map((party, index) => {
                 let message = {id: party.id || index};
                 addError(message,'Identificador del actor', party.id && !validateUniqueId(party.id, json.parties), 'Existen varios actores con el mismo identificador', party.id);
-                addError(message,'Identificador del actor', party.id &&  party.identifier && party.id !== `${party.identifier.scheme}-${party.identifier.id}`, 'La entrada de datos no corresponde con la estructura solicitada. Utilizar los atributos "Esquema" e "Identificador" del apartado "Identificador principal"', party.id);
-                addError(message,'Esquema', party.identifier && isNotNullOrEmpty(party.identifier.scheme) && !/^RFC|CUA$/.test(party.identifier.scheme.toUpperCase()) , 'La entrada de datos no tiene la longitud esperada según el esquema de identificación definido. Esto puede deberse a que faltan caracteres en el RFC o la CUA.', party.identifier ? party.identifier.scheme : '');
+                addError(message,'Identificador del actor', party.id &&  party.identifier && party.id !== `${party.identifier.scheme}-${party.identifier.id}`, 'La entrada de datos no corresponde con la estructura solicitada. Utilizar los atributos \'Esquem\' e \'Identificador\' del apartado \'Identificador principal\'', party.id);
+                addError(message,'Esquema', party.identifier && isNotNullOrEmpty(party.identifier.scheme) && !/^(MX\-RFC|MX\-INAI|MX\-UNAM)$/.test(party.identifier.scheme.toUpperCase()) , 'La entrada de datos no tiene la longitud esperada según el esquema de identificación definido. Esto puede deberse a que faltan caracteres en el RFC o la CUA', party.identifier ? party.identifier.scheme : '');
                 addError(message,'Esquema', !party.identifier|| !isNotNullOrEmpty(party.identifier.scheme), 'Obligatorio');
-                addError(message,'Identificador', party.identifier && party.identifier.id && (party.identifier.scheme && party.identifier.scheme.toUpperCase() === 'RFC' && party.identifier.id ? !(party.identifier.id.length >= 11 && party.identifier.id.length < 14) : party.identifier.id.length !== 3), 'La entrada de datos no tiene la longitud esperada según el esquema de identificación definido. Esto puede deberse a que faltan caracteres en el RFC o la CUA.', party.identifier ? party.identifier.id: '');
+                addError(message,'Identificador',party.identifier && party.identifier.id && ((party.identifier.scheme && party.identifier.scheme.toUpperCase()==='MX-RFC' && !(party.identifier.id.length >= 12 && party.identifier.id.length <14)) || (party.identifier.scheme && party.identifier.scheme.toUpperCase()==='MX-INAI' && !(party.identifier.id.length === 3 )) || (party.identifier.scheme && party.identifier.scheme.toUpperCase()==='MX-UNAM' && !(party.identifier.id.length === 6)) ),'La entrada de datos no tiene la longitud esperada según el esquema de identificación definido. Esto puede deberse a que faltan caracteres en el RFC, INAI o UNAM', party.identifier ? party.identifier.id: '');
+                // addError(message,'Identificador', party.identifier && party.identifier.id && (party.identifier.scheme && party.identifier.scheme.toUpperCase() === 'MX-RFC' && party.identifier.id ? !(party.identifier.id.length >= 11 && party.identifier.id.length < 14) : party.identifier.id.length !== 3), 'La entrada de datos no tiene la longitud esperada según el esquema de identificación definido. Esto puede deberse a que faltan caracteres en el RFC o la CUA.2', party.identifier ? party.identifier.id: '');
                 addError(message,'Código postal', party.address && party.address.postalCode && !/\d{5}/.test(party.address.postalCode), 'La entrada de datos no tiene la longitud esperada para ser un código postal. En México, los códigos postales son de cinco dígitos.', party.address ? party.address.postalCode: '');     
                 if(Object.keys(message).length > 1) data['Actores'].push(clean(message));
                 
@@ -53,15 +54,15 @@ function ValidateProcess(cpid, db) {
                 addWarning(message,'Nombre común', !isNotNullOrEmpty(party.name), 'Obligatorio');
                 addWarning(message,'Identificador del actor', !isNotNullOrEmpty(party.id), 'Obligatorio');
                 addWarning(message,'Identificador', !party.identifier || !isNotNullOrEmpty(party.identifier.id), 'Obligatorio');
-                addWarning(message,'Nombre o razón social', !party.identifier || !isNotNullOrEmpty(party.identifier.legalName), 'Obligatorio');
-                addWarning(message,'Calle y número', !party.address || !isNotNullOrEmpty(party.address.streetAddress), 'Obligatorios');            
-                addWarning(message,'Delegación o municipio', !party.address || !isNotNullOrEmpty(party.address.locality), 'Obligatorio');
-                addWarning(message,'Entidad federativa', !party.address || !isNotNullOrEmpty(party.address.region), 'Obligatoria');
-                addWarning(message,'País', !party.address || !isNotNullOrEmpty(party.address.countryName), 'Obligatorio');
-                addWarning(message,'Código postal', !party.address || !party.address.postalCode, 'Obligatorio');
-                addWarning(message,'Nombre del punto de contacto', !party.contactPoint || !isNotNullOrEmpty(party.contactPoint.name), 'Obligatorio');
-                addWarning(message,'Correo electrónico', !party.contactPoint || !isNotNullOrEmpty(party.contactPoint.email), 'Obligatorio');
-                addWarning(message,'Teléfono', !party.contactPoint || !isNotNullOrEmpty(party.contactPoint.telephone), 'Obligatorio');
+                addWarning(message,'Nombre o razón social', !party.identifier || !isNotNullOrEmpty(party.identifier.legalName), 'No se ha especificado el nombre o razón social del actor en cuestión.');
+                addWarning(message,'Calle y número', !party.address || !isNotNullOrEmpty(party.address.streetAddress), 'No se ha indicado la calle y número del domicilio fiscal del participante. Por ejemplo: Insurgentes sur 3211. En caso de no contar con el dato DEJAR EL CAMPO EN BLANCO. No colocar datos como \'N/A\', \'N/D\' o  \'Sin Dato\'.');            
+                addWarning(message,'Delegación o municipio', !party.address || !isNotNullOrEmpty(party.address.locality), 'No se ha señalado la alcaldía o municipio del domicilio fiscal del participante. Por ejemplo: Coyoacán. En caso de no contar con el dato DEJAR EL CAMPO EN BLANCO. No colocar datos como \'N/A\', \'N/D\' o  \'Sin Dato\'.');
+                addWarning(message,'Entidad federativa', !party.address || !isNotNullOrEmpty(party.address.region), 'No se ha especificado la entidad federativa del domicilio fiscal del participante. Por ejemplo: Ciudad de México. En caso de no contar con el dato DEJAR EL CAMPO EN BLANCO. No colocar datos como \'N/A\', \'N/D\' o  \'Sin Dato\'.');
+                addWarning(message,'País', !party.address || !isNotNullOrEmpty(party.address.countryName), 'No se ha indicado el nombre del país del domicilio fiscal del participante. Por ejemplo: México. En caso de no contar con el dato DEJAR EL CAMPO EN BLANCO. No colocar datos como \'N/A\', \'N/D\' o  \'Sin Dato\'.');
+                addWarning(message,'Código postal', !party.address || !party.address.postalCode, 'No se ha capturado el código postal del domicilio fiscal del participante. Por ejemplo 04530. En caso de no contar con el dato DEJAR EL CAMPO EN BLANCO. No colocar datos como \'N/A\', \'N/D\' o  \'Sin Dato\'.');
+                addWarning(message,'Nombre del punto de contacto', !party.contactPoint || !isNotNullOrEmpty(party.contactPoint.name), 'No se ha especificado el nombre de la persona de contacto, departamento o punto de contacto en relación a este proceso de contratación. En caso de no contar con el dato DEJAR EL CAMPO EN BLANCO. No colocar datos como \'N/A\', \'N/D\' o  \'Sin Dato\'.');
+                addWarning(message,'Correo electrónico', !party.contactPoint || !isNotNullOrEmpty(party.contactPoint.email), 'No se ha señalado la dirección de correo del punto o persona de contacto. En caso de no contar con el dato DEJAR EL CAMPO EN BLANCO. No colocar datos como \'N/A\', \'N/D\' o  \'Sin Dato\'.');
+                addWarning(message,'Teléfono', !party.contactPoint || !isNotNullOrEmpty(party.contactPoint.telephone), 'No se ha capturado el número de teléfono del punto o persona de contacto. Este debe de incluir el código de marcación internacional. En caso de no contar con el dato DEJAR EL CAMPO EN BLANCO. No colocar datos como \'N/A\', \'N/D\' o  \'Sin Dato\'.');
                 addWarning(message,'Roles', !party.roles, 'Debe tener por lo menos un rol');
                 if(Object.keys(message).length > 1) capture['Actores'].push(clean(message));
             });
@@ -77,11 +78,11 @@ function ValidateProcess(cpid, db) {
 
         addError(planningData, 'Justificación', json.planning && json.planning.rationale && json.planning.rationale.length > 900, 'La justificación de la contratación no debe extenderse más allá de 900 caracteres.', json.planning ? json.planning.rationale : '');
         
-        addWarning(planningCapture, 'Identificador', !json.planning || !json.planning.budget || !isNotNullOrEmpty(json.planning.budget.id), 'Obligatorio');
-        addWarning(planningCapture, 'Denominación de los componentes de la clave presupuestaria', !json.planning || !json.planning.budget || !isNotNullOrEmpty(json.planning.budget.description), 'Obligatoria');
-        addWarning(planningCapture, 'Monto', !json.planning || !json.planning.budget || !json.planning.budget.amount ||  !json.planning.budget.amount.amount, 'Obligatorio');
-        addWarning(planningCapture, 'Moneda', !json.planning || !json.planning.budget || !json.planning.budget.amount ||  !json.planning.budget.amount.currency, 'Obligatoria');
-        addWarning(planningCapture, 'Justificación', !json.planning || !isNotNullOrEmpty(json.planning.rationale), 'Obligatoria');
+        // addWarning(planningCapture, 'Identificador', !json.planning || !json.planning.budget || !isNotNullOrEmpty(json.planning.budget.id), 'Obligatorio');
+        // addWarning(planningCapture, 'Denominación de los componentes de la clave presupuestaria', !json.planning || !json.planning.budget || !isNotNullOrEmpty(json.planning.budget.description), 'Obligatoria');
+        // addWarning(planningCapture, 'Monto', !json.planning || !json.planning.budget || !json.planning.budget.amount ||  !json.planning.budget.amount.amount, 'Obligatorio');
+        // addWarning(planningCapture, 'Moneda', !json.planning || !json.planning.budget || !json.planning.budget.amount ||  !json.planning.budget.amount.currency, 'Obligatoria');
+        addWarning(planningCapture, 'Justificación', !json.planning || !isNotNullOrEmpty(json.planning.rationale), 'No se ha capturado la justificación de la contratación, misma que no debería extenderse más allá de 900 caracteres.');
         
         addDocuments(planningData, planningCapture, json.planning ? json.planning.documents : [], 'planning');
 
@@ -89,9 +90,9 @@ function ValidateProcess(cpid, db) {
         let dataTender = data['Licitación'] = {},
             captureTender = capture['Licitación'] = {};
             
-        addError(dataTender, 'Detalles del método de contratación', json.tender && !validateRelationBetweenProcurementMethodDetailsAndProcurementMethod(json.tender.procurementMethodDetails, json.tender.procurementMethod), 'La selección del método de contratación no coincide con el tipo de procedimiento elegido en "Detalles del método de contratación". Para más información, consultar la tabla de equivalencias en la presentación: http://bit.ly/OrientacionEDCA.', json.tender ? json.tender.procurementMethodDetails : '');
+        addError(dataTender, 'Detalles del método de contratación', json.tender && !validateRelationBetweenProcurementMethodDetailsAndProcurementMethod(json.tender.procurementMethodDetails, json.tender.procurementMethod), 'La selección del método de contratación no coincide con el tipo de procedimiento elegido en \'Detalles del método de contratación\'. Para más información, consultar la tabla de equivalencias en la presentación: http://bit.ly/OrientacionEDCA.', json.tender ? json.tender.procurementMethodDetails : '');
         addError(dataTender, 'Categoría principal de la contratación', json.tender && json.tender.additionalProcurementCategories && !validateRelationBetweenAdditionalProcurementCategoriesAndMainProcurementCategory(json.tender.additionalProcurementCategories[0],json.tender.mainProcurementCategory), 'La categoría principal de la contratación especificada no coincide con la categoría adicional especificada.' ,json.tender ? json.tender.additionalProcurementCategories : []);
-        addError(dataTender, 'Número de licitantes', json.tender && json.parties && (json.tender.numberOfTenderers !== json.parties.filter(p =>  p.roles && p.roles.indexOf('tenderer') !== - 1).length), 'La cantidad de licitantes especificada no coincide con los registros en la sección "Actores involucrados". Considerar que en adjudicación directa los licitantes serán aquellos que presentaron una oferta.', json.tender ? json.tender.numberOfTenderers : 0);   
+        addError(dataTender, 'Número de licitantes', json.tender && json.parties && (json.tender.numberOfTenderers !== json.parties.filter(p =>  p.roles && p.roles.indexOf('tenderer') !== - 1).length), 'La cantidad de licitantes especificada no coincide con los registros en la sección \'Actores involucrados\'. Considerar que en adjudicación directa los licitantes serán aquellos que presentaron una oferta.', json.tender ? json.tender.numberOfTenderers : 0);   
 
         addWarning(captureTender, 'Identificador de la licitación', !json.tender || !isNotNullOrEmpty(json.tender.id), 'Obligatorio');
         addWarning(captureTender, 'Denominación de la licitación', !json.tender || !isNotNullOrEmpty(json.tender.title), 'Obligatoria');
@@ -101,21 +102,21 @@ function ValidateProcess(cpid, db) {
         addWarning(captureTender, 'Moneda', !json.tender || !json.tender.value || !isNotNullOrEmpty(json.tender.value.currency), 'Obligatoria');
         addWarning(captureTender, 'Método de contratación', !json.tender || !isNotNullOrEmpty(json.tender.procurementMethod), 'Obligatorio');
         addWarning(captureTender, 'Detalles del método de contratación', !json.tender || !isNotNullOrEmpty(json.tender.procurementMethodDetails), 'Obligatorios');
-        addWarning(captureTender, 'Justificación del método de contratación', !json.tender || !isNotNullOrEmpty(json.tender.procurementMethodRationale), 'Obligatoria');
+        addWarning(captureTender, 'Justificación del método de contratación', !json.tender || !isNotNullOrEmpty(json.tender.procurementMethodRationale), 'No se ha especificado la justificación del método de contratación.');
         addWarning(captureTender, 'Categoría principal de la contratación', !json.tender || !isNotNullOrEmpty(json.tender.mainProcurementCategory), 'Obligatoria');
         addWarning(captureTender, 'Categorías adicionales de contratación', !json.tender || !json.tender.additionalProcurementCategories, 'Obligatorias');
-        addWarning(captureTender, 'Criterio de evaluación de proposiciones', !json.tender || !isNotNullOrEmpty(json.tender.awardCriteria), 'Obligatorio');
-        addWarning(captureTender, 'Detalles sobre el criterio de evaluación de proposiciones', !json.tender || !isNotNullOrEmpty(json.tender.awardCriteriaDetails), 'Obligatorios');
+        addWarning(captureTender, 'Criterio de evaluación de proposiciones', !json.tender || !isNotNullOrEmpty(json.tender.awardCriteria), 'Obligatorios');
+        addWarning(captureTender, 'Detalles sobre el criterio de evaluación de proposiciones', !json.tender || !isNotNullOrEmpty(json.tender.awardCriteriaDetails), 'No se ha señalado la descripción del mecanismo de evaluación de proposiciones a utilizar en el procedimiento de contratación.');
         addWarning(captureTender, 'Medios para la recepción de las proposiciones', !json.tender || !json.tender.submissionMethod, 'Obligatorios');
-        addWarning(captureTender, 'Descripción de los medios para la recepción de las proposiciones', !json.tender || !isNotNullOrEmpty(json.tender.submissionMethodDetails), 'Obligatoria');
-        addWarning(captureTender, 'Fecha de inicio de Período de entrega de proposiciones', !json.tender || !json.tender.tenderPeriod || !json.tender.tenderPeriod.startDate, 'Obligatoria');
-        addWarning(captureTender, 'Fecha de fin de Período de entrega de proposiciones', !json.tender || !json.tender.tenderPeriod || !json.tender.tenderPeriod.endDate, 'Obligatoria');
-        addWarning(captureTender, 'Fecha de inicio de Período para presentar solicitudes de aclaración', !json.tender || !json.tender.enquiryPeriod || !json.tender.enquiryPeriod.startDate, 'Obligatoria');
-        addWarning(captureTender, 'Fecha de fin de Período para presentar solicitudes de aclaración', !json.tender || !json.tender.enquiryPeriod || !json.tender.enquiryPeriod.endDate, 'Obligatoria');
+        addWarning(captureTender, 'Descripción de los medios para la recepción de las proposiciones', !json.tender || !isNotNullOrEmpty(json.tender.submissionMethodDetails), 'No se ha especificado el método por el cual las proposiciones deben de ser enviadas. Por ejemplo: electrónica, presencial, mixto o subasta electrónica.');
+        addWarning(captureTender, 'Fecha de inicio de Período de entrega de proposiciones', !json.tender || !json.tender.tenderPeriod || !json.tender.tenderPeriod.startDate, 'No se ha indicado la fecha de inicio del periodo de entrega de proposiciones.');
+        addWarning(captureTender, 'Fecha de fin de Período de entrega de proposiciones', !json.tender || !json.tender.tenderPeriod || !json.tender.tenderPeriod.endDate, 'No se ha indicado la fecha de fin del periodo de entrega de proposiciones.');
+        addWarning(captureTender, 'Fecha de inicio de Período para presentar solicitudes de aclaración', !json.tender || !json.tender.enquiryPeriod || !json.tender.enquiryPeriod.startDate, 'No se ha indicado la fecha de inicio del periodo para presentar solicitudes de aclaración.');
+        addWarning(captureTender, 'Fecha de fin de Período para presentar solicitudes de aclaración', !json.tender || !json.tender.enquiryPeriod || !json.tender.enquiryPeriod.endDate, 'No se ha indicado la fecha de fin del periodo para presentar solicitudes de aclaración.');
         addWarning(captureTender, '¿Hubo solicitudes de aclaración?', !json.tender || json.tender.hasEnquiries === undefined, 'Obligatorio');
-        addWarning(captureTender, 'Criterios de elegibilidad', !json.tender || !isNotNullOrEmpty(json.tender.eligibilityCriteria), 'Obligatoria');
-        addWarning(captureTender, 'Fecha de inicio de Período de evaluación y adjudicación', !json.tender || !json.tender.awardPeriod || !json.tender.awardPeriod.startDate, 'Obligatoria');
-        addWarning(captureTender, 'Fecha de fin de Período de evaluación y adjudicación', !json.tender || !json.tender.awardPeriod || !json.tender.awardPeriod.endDate, 'Obligatoria');
+        addWarning(captureTender, 'Criterios de elegibilidad', !json.tender || !isNotNullOrEmpty(json.tender.eligibilityCriteria), 'No se han indicado los requisitos y condiciones que deben cumplir los interesados para participar en el procedimiento de contratación. ');
+        addWarning(captureTender, 'Fecha de inicio de Período de evaluación y adjudicación', !json.tender || !json.tender.awardPeriod || !json.tender.awardPeriod.startDate, 'No se ha indicado la fecha de incio del periodo de evaluación y adjudicación.');
+        addWarning(captureTender, 'Fecha de fin de Período de evaluación y adjudicación', !json.tender || !json.tender.awardPeriod || !json.tender.awardPeriod.endDate, 'No se ha indicado la fecha de fin del periodo de evaluación y adjudicación.');
         addWarning(captureTender, 'Número de licitantes', !json.tender || !json.tender.numberOfTenderers, 'Obligatorio');
         
         addAmendment(dataTender, captureTender, json.tender ? json.tender.amendments : []);
@@ -139,15 +140,20 @@ function ValidateProcess(cpid, db) {
                 addError(messageData, 'Monto sin impuestos', !award.value || award.value.netAmount <= 0 , 'El monto especificado no puede ser cero.', award.value ? award.value.netAmount : '');
                 
                 addWarning(messageCapture, 'Identificador de la adjudicación', !isNotNullOrEmpty(award.id), 'Obligatorio');
-                addWarning(messageCapture, 'Título', !isNotNullOrEmpty(award.title), 'Obligatorio');
-                addWarning(messageCapture, 'Descripción',!isNotNullOrEmpty(award.description), 'Obligatorio');
-                addWarning(messageCapture, 'Estatus de adjudicación', !isNotNullOrEmpty(award.status), 'Obligatorio');
-                addWarning(messageCapture, 'Fecha de la adjudicación', !award.date, 'Obligatoria');
+                addWarning(messageCapture, 'Título', !isNotNullOrEmpty(award.title), 'No se ha capturado el título de la adjudicación.');
+                addWarning(messageCapture, 'Descripción',!isNotNullOrEmpty(award.description), 'No se ha capturado la descripción de la adjudicación.');
+                addWarning(messageCapture, 'Estatus de adjudicación', !isNotNullOrEmpty(award.status), 'No se ha indicado el estatus de la adjudicación.');
+                addWarning(messageCapture, 'Fecha de la adjudicación', !award.date, 'No se ha señalado la fecha en que se realizó la adjudicación o fallo.');
                 addWarning(messageCapture, 'Monto', !award.value || !award.value.amount , 'Obligatorio');
                 addWarning(messageCapture, 'Moneda', !award.value || !isNotNullOrEmpty(award.value.currency) , 'Obligatoria');
                 addWarning(messageCapture, 'Proveedores', !award.suppliers, 'No ha seleccionado ningún proveedor');
-                addWarning(messageCapture, 'Fecha de inicio', !award.contractPeriod || !award.contractPeriod.startDate, 'Obligatoria');
-                addWarning(messageCapture, 'Fecha de fin', !award.contractPeriod || !award.contractPeriod.endDate, 'Obligatoria');
+                addWarning(messageCapture, 'Fecha de inicio', !award.contractPeriod || !award.contractPeriod.startDate, 'No se ha señalado la fecha de inicio del contrato.');
+                addWarning(messageCapture, 'Fecha de fin', !award.contractPeriod || !award.contractPeriod.endDate, 'No se ha señalado la fecha de fin del contrato.');
+
+                //
+                addWarning(messageCapture, 'Monto', !award.value || award.value.netAmount > award.value.amount, 'El monto sin impuestos no puede ser mayor al monto total');
+                //
+
 
                 addAmendment(messageData,messageCapture, award.amendments);
                 addDocuments(messageData,messageCapture, award.documents, 'award');
@@ -180,15 +186,20 @@ function ValidateProcess(cpid, db) {
                 
                 addWarning(messageCapture, 'Identificador del contrato', !isNotNullOrEmpty(contract.id), 'Obligatorio');
                 addWarning(messageCapture, 'Identificador de la adjudicación', !isNotNullOrEmpty(contract.awardID), 'Obligatorio');
-                addWarning(messageCapture, 'Título del contrato', !isNotNullOrEmpty(contract.title), 'Obligatorio');
-                addWarning(messageCapture, 'Objeto del contrato', !isNotNullOrEmpty(contract.description), 'Obligatorio');
-                addWarning(messageCapture, 'Estatus del contrato', !isNotNullOrEmpty(contract.status), 'Obligatorio');
-                addWarning(messageCapture, 'Fecha de inicio', !contract.period || !contract.period.startDate, 'Obligatoria');
-                addWarning(messageCapture, 'Fecha de fin', !contract.period || !contract.period.endDate, 'Obligatoria');
+                addWarning(messageCapture, 'Título del contrato', !isNotNullOrEmpty(contract.title), 'No se ha especificado el título del contrato.');
+                addWarning(messageCapture, 'Objeto del contrato', !isNotNullOrEmpty(contract.description), 'No se ha especificado el objeto del contrato.');
+                addWarning(messageCapture, 'Estatus del contrato', !isNotNullOrEmpty(contract.status), 'No se ha indicado el estatus del contrato.');
+                addWarning(messageCapture, 'Fecha de inicio', !contract.period || !contract.period.startDate, 'No se ha señalado la fecha de inicio de la vigencia del contrato.');
+                addWarning(messageCapture, 'Fecha de fin', !contract.period || !contract.period.endDate, 'No se ha señalado la fecha de fin de la vigencia del contrato.');
                 addWarning(messageCapture, 'Monto sin impuestos', !contract.value || !contract.value.netAmount, 'Obligatorio');
                 addWarning(messageCapture, 'Monto total', !contract.value || !contract.value.amount, 'Obligatorio');
                 addWarning(messageCapture, 'Moneda', !contract.value || !isNotNullOrEmpty(contract.value.currency), 'Obligatoria');
-                addWarning(messageCapture, 'Fecha de firma del contrato', !contract.dateSigned, 'Obligatoria');
+                addWarning(messageCapture, 'Fecha de firma del contrato', !contract.dateSigned, 'No se ha especificado la fecha en que se firmó el contrato.');
+
+                //
+                addWarning(messageCapture, 'Monto', !contract.value || contract.value.netAmount > contract.value.amount,'El monto sin impuestos no puede ser mayor que el monto total');
+                //
+
                 addAmendment(messageData, messageCapture, contract.amendments);
                 addDocuments(messageData, messageCapture, contract.documents, 'contract');
                 addItems(messageData, messageCapture, contract.items, codeList);
@@ -197,7 +208,7 @@ function ValidateProcess(cpid, db) {
                 if(contract.implementation) {
                     let dataImplementation = messageData['Implementación'] = {};
                     let captureImplementation = messageCapture['Implementación'] = {};
-                    addWarning(captureImplementation, 'Estatus de la implementación', !contract.implementation.status, 'Obligatorio');
+                    addWarning(captureImplementation, 'Estatus de la implementación', !contract.implementation.status, 'No se ha indicado el estatus de la implementación.');
                     addDocuments(dataImplementation,captureImplementation , contract.implementation.documents, 'implementation');
                     addTransactions(dataImplementation, captureImplementation, contract.implementation.transactions);
                 } else {
@@ -267,7 +278,7 @@ function ValidateProcess(cpid, db) {
                 let message = {id: doc.id || index};
                 addError(message,'Identificador', doc.id && !validateUniqueId(doc.id, documents), 'Existen varios documentos con el mismo identificador');
                 addError(message, 'Tipo de documento', doc.documentType && validateTypeOfDocument(doc.documentType, stage), 'Obligatorio', doc.documentType);
-                addError(message, 'Formato', doc.format && !/PDF|XLSX|DOCX|DOC|PNG|JPEG|JPG|XLS|CSV/.test(doc.format.toUpperCase()), 'La entrada de datos no coincide con un formato reconocido. En el caso de documentos ".pdf" especificar PDF.', doc.format);
+                addError(message, 'Formato', doc.format && !/PDF|XLSX|DOCX|DOC|PNG|JPEG|JPG|XLS|CSV/.test(doc.format.toUpperCase()), 'La entrada de datos no coincide con un formato reconocido. En el caso de documentos \'.pdf\' especificar PDF.', doc.format);
                 if(Object.keys(message).length > 1) docsData.push(message);
                 message = {id: doc.id || index};
 
@@ -275,9 +286,9 @@ function ValidateProcess(cpid, db) {
                 addWarning(message, 'Tipo de documento', !isNotNullOrEmpty(doc.documentType), 'Obligatorio');
                 addWarning(message, 'Título', !isNotNullOrEmpty(doc.title), 'Obligatorio');
                 addWarning(message, 'URL', !isNotNullOrEmpty(doc.url), 'Obligatorio');
-                addWarning(message, 'Fecha de publicación', !doc.datePublished, 'Obligatorio');
-                addWarning(message, 'Formato', !isNotNullOrEmpty(doc.format), 'Obligatorio');
-                addWarning(message, 'Idioma', !isNotNullOrEmpty(doc.language), 'Obligatorio');
+                addWarning(message, 'Fecha de publicación', !doc.datePublished, 'No se ha especificado la fecha de publicación del documento.');
+                addWarning(message, 'Formato', !isNotNullOrEmpty(doc.format), 'No se ha especificado el formato del documento. Por ejemplo \'PDF\'.');
+                // addWarning(message, 'Idioma', !isNotNullOrEmpty(doc.language), 'Obligatorio');
                 if(Object.keys(message).length > 1) docCapture.push(message);
             });
             if(docsData.length > 0) data['Documentos'] = docsData;
@@ -315,7 +326,7 @@ function ValidateProcess(cpid, db) {
                 addError(message,'Identificador', i.id && !validateUniqueId(i.id, items), 'Existen varios items con el mismo identificador', i.id);
                 addError(message, 'Nombre de la unidad de medida', i.unit && i.unit.name && codeList.filter(x => x.classificationid === i.unit.name) === -1, 'El nombre de la unidad de medida no coincide con la clave CUCOP introducida. Para mayor información, utilizar la herramienta de apoyo para obtener los valores de la clave CUCOP en http://bit.ly/ApoyoEDCA.', i.unit ? i.unit.name : '');
                 addError(message, 'Identificador de Clasificación', i.classification && i.classification.id && i.classification.id.length !== 8, 'La entrada de datos no tiene la longitud esperada según el esquema de identificación CUCOP. La clave CUCOP consta de ocho caracteres.',  i.classification ? i.classification.id : '');
-                addError(message, 'Esquema', i.classification && i.classification.scheme !== 'CUCOP', 'El esquema de identificación seleccionado no es el correcto. Utilizar la opción "CUCOP".', i.classification ? i.classification.scheme : '');  
+                addError(message, 'Esquema', i.classification && i.classification.scheme !== 'CUCOP', 'El esquema de identificación seleccionado no es el correcto. Utilizar la opción \'CUCOP\'.', i.classification ? i.classification.scheme : '');  
                 if(Object.keys(message).length > 1) dataItems.push(message);
 
                 message = {id: i.id || index};
@@ -325,8 +336,9 @@ function ValidateProcess(cpid, db) {
                 addWarning(message, 'Identificador de Clasificación', !i.classification || !isNotNullOrEmpty(i.classification.id), 'Obligatorio');
                 addWarning(message, 'Descripción del identificador', !i.classification || !isNotNullOrEmpty(i.classification.description), 'Obligatoria');
                 addWarning(message, 'Cantidad por tipo de bien, servicio u obra pública', !i.quantity, 'Obligatoria');
-                addWarning(message, 'Nombre de la unidad de medida', !i.unit || !isNotNullOrEmpty(i.unit.name), 'Obligatorio');
+                // addWarning(message, 'Nombre de la unidad de medida', !i.unit || !isNotNullOrEmpty(i.unit.name), 'Obligatorio');
                 addWarning(message, 'Monto sin impuestos', !i.unit || !i.unit.netAmount, 'Obligatorio');
+                //addWarning(message, 'Monto sin impuestos2', i.unit.netAmount > i.unit.amount, 'El monto sin impuestos no puede ser mayor al monto total');
                 addWarning(message, 'Monto total', !i.unit || !i.unit.amount, 'Obligatorio');
                 addWarning(message, 'Moneda', !i.unit || !isNotNullOrEmpty(i.unit.currency), 'Obligatoria');
                 if(Object.keys(message).length > 1) captureItems.push(message);

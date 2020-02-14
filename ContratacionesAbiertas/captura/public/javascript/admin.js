@@ -132,6 +132,12 @@ $("#adminModal").on('show.bs.modal', function (event) {
                                             <code id="errors"></code>`);
             importGDMX(modal, 'document');
         break;
+        case 'gdmx_folders': 
+            modal.find('.modal-title').text('Configuración de Carpetas del FTP');
+            modal.find('#modal_content').load('/gdmx-folders', () => {
+                initGDMXFolders();
+            });
+        break;
     }
 });
 
@@ -182,4 +188,102 @@ let importGDMX = (modal, type) => {
         }
 
     });
+}
+
+
+
+let initGDMXFolders = () => {
+    const $rowform = $('.row-form').addClass('hide');
+    const $rowNoResults = $('.row-no-results').addClass('hide');
+    const $rowLoading = $('.row-loading').addClass('hide');
+    const $tbody = $('#tbodyFolders');
+    const $rowData = $('.row-data');
+
+    // mostrar formulario para agregar folder
+    $('#btnAddFolder').click(() => {
+        $rowform.find('[name="id"]').val('');
+        $rowform.find('[name="active"]').val(true);
+        $rowform.find('[name="name"]').val('');
+        $rowform.removeClass('hide');
+        $rowNoResults.addClass('hide');
+        $rowform.find('form input:text').focus();
+    });
+
+    // cancelar accion de registrar folder
+    $('#btnCancelFolder').click(() => {
+        listFolders();
+    });
+
+    // guardar carpeta
+    $rowform.find('form').submit(function(e) {
+        e.preventDefault();
+
+        const values = $(this).serialize();
+
+        $.post('/gdmx-folders', values)
+        .done(res => {
+            if(res === true) {
+                listFolders();
+            } else {
+                alert(res);
+            }
+        });
+
+
+    });
+
+    let listFolders = () => {
+        $rowLoading.removeClass('hide');
+        $rowform.addClass('hide');
+        $rowNoResults.addClass('hide');
+        $tbody.find('tr:not(.template)').remove();
+        
+        $.get('/gdmx-folders/list', (res) => {
+            $rowLoading.addClass('hide');
+            if (res.length === 0) {
+                $rowNoResults.removeClass('hide');
+            } else {
+                
+                res.forEach(folder => {
+                    let html = $rowData.html();
+                  
+                    html = html.replace(/{name}/g, folder.name)
+                                .replace(/{id}/g, folder.id)
+                                .replace(/{active}/g, folder.active);
+                    
+
+                    $('<tr>' + html + '</tr>').prependTo($tbody)
+                           .find('[data-action="edit"]')
+                                .click(editFolder)
+                                .end()
+                            .find('[data-action="delete"]')
+                            .click(deleteFolder);
+                });
+            }
+           
+        });
+    }
+
+    let editFolder = function() {
+        $rowform.find('[name="id"]').val($(this).data('id'));
+        $rowform.find('[name="active"]').val($(this).data('active') || true);
+        $rowform.find('[name="name"]').val($(this).data('name'));
+        $rowform.removeClass('hide');
+        $rowform.find('form input:text').focus();
+    }
+
+    let deleteFolder = function() {
+        if(confirm('¿Desea eliminar esta carpeta?')) {
+            $.post(`/gdmx-folders/${$(this).data('id')}/delete`, res => {
+                listFolders();
+                if (res) {
+                    alert('Se ha eliminado la carpeta');
+                } else {
+                    alert('No se ha podido eliminar');
+                }
+            });
+        }
+    }
+
+    listFolders();
 }

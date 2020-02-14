@@ -24,6 +24,20 @@
         <label>Dirección</label>
         <input class="form-control" type="text" value="<%= user.address%>" name="address">
     </p>
+    <p>
+        <label>¿Es administrador?</label><br>
+        <select class="form-control" name="isAdmin" required>
+            <option value="false" <%= !user.isAdmin ? 'selected' : ''%>>No</option>
+            <option value="true" <%= user.isAdmin ? 'selected' : ''%>>Sí</option>
+        </select>
+    </p>
+    <p>
+        <label>¿Puede modificar estatus de procesos?</label><br>
+        <select class="form-control" name="modificaEstatus" required>
+            <option value="false" <%= !user.modificaEstatus ? 'selected' : ''%>>No</option>
+            <option value="true" <%= user.modificaEstatus ? 'selected' : ''%>>Sí</option>
+        </select>
+    </p>
     <hr>
     <h4>Datos de Publicador</h4>
     <p>

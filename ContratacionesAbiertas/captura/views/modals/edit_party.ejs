@@ -31,7 +31,22 @@
     
     <p>
         <label data-tooltip="crear_proceso">¿Es persona física?</label>
-        <select name="naturalperson" class="form-control" required>
+        <select name="naturalperson" id="naturalperson" class="form-control" required
+        onchange="if(getElementById('naturalperson').selectedIndex == 0) 
+            {document.getElementById('givenname').value = ''; 
+             document.getElementById('givenname').disabled = true; 
+             document.getElementById('surname').value = ''; 
+             document.getElementById('surname').disabled = true; 
+             document.getElementById('additionalsurname').value = '';
+             document.getElementById('additionalsurname').disabled = true;
+             document.getElementById('identifier_legalname').disabled = false;} 
+            else
+            {document.getElementById('identifier_legalname').value = '';
+             document.getElementById('identifier_legalname').disabled = true;
+             document.getElementById('givenname').disabled = false; 
+             document.getElementById('surname').disabled = false; 
+             document.getElementById('additionalsurname').disabled = false;}">
+
             <option value="<%= data.naturalperson %>"
               	parties.naturalperson === 'selected'
                 > <%= data.naturalperson? 'Si':'No' %> </option>
@@ -51,7 +66,7 @@
     		<h4>Persona moral</h4></label>
     		
     		<p><label>Nombre o razón social<!--Identifier legal name--></label>
-        <input name = "identifier_legalname" class="form-control" type="text" value="<%= data.identifier_legalname %>" ></p>
+        <input id="identifier_legalname" name = "identifier_legalname" class="form-control" type="text" value="<%= data.identifier_legalname %>" required <%= data.naturalperson? 'disabled' : '' %>></p>
         
         </div>
     	
@@ -60,26 +75,37 @@
     		<h4>Persona física</h4></label>
      <p>
         <label>Nombre<!--Name--></label>
-        <input name="givenname" type="text" class="form-control" value="<%= data.givenname %>"></p>
+        <input id= "givenname" name="givenname" type="text" class="form-control" value="<%= data.givenname %>" required <%= !data.naturalperson ? 'disabled' : '' %>></p>
 
     <p>
     <p>
         <label>
         Primer Apellido</label>
-        <input name="surname" type="text" class="form-control"  value="<%= data.surname %>">
+        <input id="surname" name="surname" type="text" class="form-control"  value="<%= data.surname %>" required <%= !data.naturalperson ? 'disabled' : '' %>>
     </p>
     <p>
         <label>
         Segundo Apellido</label>
-        <input name="additionalsurname" type="text" class="form-control"  value="<%= data.additionalsurname %>">
+        <input id="additionalsurname" name="additionalsurname" type="text" class="form-control" value="<%= data.additionalsurname %>" required <%= !data.naturalperson ? 'disabled' : '' %>>
     </p>
     </div>
 </div>
 
+
+<!-- ########################################################################## MODIFICADO ##################################### -->
     <p><label>Esquema <!--Identifier scheme--></label>
-        <input name = "identifier_scheme" class="form-control" type="text" value="<%= data.identifier_scheme %>" onChange="validarVacio(this);" required></p>
+        <select name="identifier_scheme" class="form-control" onChange="validarVacio(this);" id='identifier_scheme' requires>
+            <option value="" <%= '' == data.identifier_scheme ? 'selected' : '' %>>Seleccionar un esquema</option>
+            <option value="MX-RFC" <%= 'MX-RFC' == data.identifier_scheme ? 'selected' : '' %>>MX-RFC</option>
+            <option value="MX-INAI" <%= 'MX-INAI' == data.identifier_scheme ? 'selected' : '' %>>MX-INAI</option>
+            <option value="MX-UNAM" <%= 'MX-UNAM' == data.identifier_scheme ? 'selected' : '' %>>MX-UNAM</option>
+        </select>
+        <!-- <input name = "identifier_scheme" class="form-control" type="text" value="<%= data.identifier_scheme %>" onChange="validarVacio(this);" required></p> -->
+<!-- ########################################################################## MODIFICADO ##################################### -->
+
+
     <p><label>Identificador<!--Identifier ID--></label>
-        <input name = "identifier_id" class="form-control" type="text" value="<%= data.identifier_id %>" onChange="validarVacio(this);" required></p>
+        <input name = "identifier_id" class="form-control" type="text" value="<%= data.identifier_id %>" onChange="validarIdentificador(this);" required></p>
 
     <hr>
     
@@ -144,19 +170,22 @@
 <br><br><br>
         <label>Papeles del actor</label>
     <div class="well">
-        <label class="checkbox-inline"><input name="buyer" type="checkbox" <%= roles.buyer?'checked':'' %>> Área requirente</label><br>
-        <label class="checkbox-inline"><input name="clarificationMeetingAttendee" type="checkbox" <%= roles.clarificationmeetingattendee?'checked':'' %>> Asistente a junta de aclaraciones</label><br>
-        <label class="checkbox-inline"><input name="reviewBody" type="checkbox" <%= roles.reviewbody?'checked':'' %>> Auditor</label><br>
-        <label class="checkbox-inline"><input name="payer" type="checkbox" <%= roles.payer?'checked':'' %>> Emisor del pago</label><br>
-        <label class="checkbox-inline"><input name="procuringEntity" type="checkbox" <%= roles.procuringentity?'checked':'' %>> Entidad contratante</label><br>
-        <label class="checkbox-inline"><input name="guarantor" type="checkbox" <%= roles.guarantor?'checked':'' %>> Institución que expide la garantía</label><br>
-        <label class="checkbox-inline"><input name="tenderer" type="checkbox" <%= roles.tenderer?'checked':'' %>> Licitante</label><br>
-        <label class="checkbox-inline"><input name="enquirer" type="checkbox" <%= roles.enquirer?'checked':'' %>> Persona física o moral que solicita aclaraciones</label><br>
-        <label class="checkbox-inline"><input name="issuingSupplier" type="checkbox" <%= roles.issuingsupplier?'checked':'' %>> Persona física o moral que envía cotización (investigación de mercado)</label><br>
-    	<label class="checkbox-inline"><input name="invitedSupplier" type="checkbox" <%= roles.invitedsupplier?'checked':'' %>> Persona física o moral invitada a cotizar (investigación de mercado)</label><br>
-    	<label class="checkbox-inline"><input name="supplier" type="checkbox" <%= roles.supplier?'checked':'' %>> Proveedor o contratista</label><br>
-    	<label class="checkbox-inline"><input name="payee" type="checkbox" <%= roles.payee?'checked':'' %>> Receptor de pago</label><br>
-        <label class="checkbox-inline"><input name="clarificationMeetingOfficial" type="checkbox" <%= roles.clarificationmeetingofficial?'checked':'' %>> Servidor público asistente a junta de aclaraciones</label><br>
+        <label class="checkbox-inline"><input name="contractingunit" type="checkbox"  <%= roles.contractingunit?'checked':'' %>>Área contratante</label><br>
+        <label class="checkbox-inline"><input name="requestingunit" type="checkbox"  <%= roles.requestingunit?'checked':'' %>>Área requirente</label><br>
+        <label class="checkbox-inline"><input name="technicalunit" type="checkbox"  <%= roles.technicalunit?'checked':'' %>>Área técnica</label><br>
+        <label class="checkbox-inline"><input name="clarificationMeetingAttendee" type="checkbox"  <%= roles.clarificationmeetingattendee?'checked':'' %>>Asistente a junta de aclaraciones</label><br>
+        <label class="checkbox-inline"><input name="reviewBody" type="checkbox"  <%= roles.reviewbody?'checked':'' %>>Auditor</label><br>
+        <label class="checkbox-inline"><input name="payer" type="checkbox"  <%= roles.payer?'checked':'' %>>Emisor del pago</label><br>
+        <label class="checkbox-inline"><input name="buyer" type="checkbox"  <%= roles.buyer?'checked':'' %>>Entidad compradora</label><br>
+        <label class="checkbox-inline"><input name="procuringEntity" type="checkbox"  <%= roles.procuringentity?'checked':'' %>>Entidad contratante</label><br>
+        <label class="checkbox-inline"><input name="guarantor" type="checkbox"  <%= roles.guarantor?'checked':'' %>>Institución que expide la garantía</label><br>
+        <label class="checkbox-inline"><input name="tenderer" type="checkbox"  <%= roles.tenderer?'checked':'' %>>Licitante</label><br>
+        <label class="checkbox-inline"><input name="enquirer" type="checkbox"  <%= roles.enquirer?'checked':'' %>>Persona física o moral que solicita aclaraciones</label><br>
+        <label class="checkbox-inline"><input name="issuingSupplier" type="checkbox"  <%= roles.issuingsupplier?'checked':'' %>>Persona física o moral que envía cotización (investigación de mercado)</label><br>
+    	<label class="checkbox-inline"><input name="invitedSupplier" type="checkbox"  <%= roles.invitedsupplier?'checked':'' %>>Persona física o moral invitada a cotizar (investigación de mercado)</label><br>
+    	<label class="checkbox-inline"><input name="supplier" type="checkbox"  <%= roles.supplier?'checked':'' %>>Proveedor o contratista</label><br>
+    	<label class="checkbox-inline"><input name="payee" type="checkbox"  <%= roles.payee?'checked':'' %>>Receptor de pago</label><br>
+        <label class="checkbox-inline"><input name="clarificationMeetingOfficial" type="checkbox"  <%= roles.clarificationmeetingofficial?'checked':'' %>>Servidor público asistente a junta de aclaraciones</label><br>
     </div>
 
     <div class="row">
@@ -173,6 +202,32 @@
 <script>
     function validarVacio (input) {
         input.value = input.value.trim();
+    }
+
+    function validarIdentificador(input){
+        input.value = input.value.trim();
+        if(document.getElementById('identifier_scheme').selectedIndex == 1){
+            if(input.value.length == 12 || input.value.length ==13){
+                //No modifica el dato
+            }else{
+                alert("La longitud del identificador no coincide con el esquema seleccionado. Considerar que el RFC consta de 12 caracteres en caso de personas físicas y 13 en caso de personas morales.")
+                input.value = "";
+            }
+        }else if(document.getElementById('identifier_scheme').selectedIndex == 2){
+            if(input.value.length == 3){
+                //No mofica el dato
+            }else{
+                alert("La longitud del identificador no coincide con el esquema seleccionado. Considerar que la clave interna de las unidades administrativas de INAI consta de 3 carateres.")
+                input.value = "";
+            }
+        }else if(document.getElementById('identifier_scheme').selectedIndex == 3){
+            if(input.value.length == 6){
+                //No modifica el dato
+            }else{
+                alert("La longitud del identificador no coincide con el esquema seleccionado. Considerar que los identificadores internos de la UNAM constan de 6 caracteres.")
+                input.value = "";
+            }
+        }
     }
 
     $('[name="identifier_scheme"], [name="identifier_id"]').on('change', function() {

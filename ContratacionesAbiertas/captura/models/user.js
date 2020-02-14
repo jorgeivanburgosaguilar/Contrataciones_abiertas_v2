@@ -11,7 +11,8 @@ const shema = mongoose.model('User',{
     publisherName: String,
     publisherScheme: String,
     publisherUid: String,
-    publisherUri: String
+    publisherUri: String,
+    modificaEstatus: Boolean
 });
 
 module.exports = shema;

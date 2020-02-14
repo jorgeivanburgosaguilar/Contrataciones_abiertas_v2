@@ -162,7 +162,7 @@ var estatusContrato = [
                 <input type="hidden" name="stage" value="2" />
                 <label data-tooltip="crear_proceso" title='El estado actual del procedimiento de contratación obtenido de la lista de códigos "Estatus de la licitación.' class="col-xs-3 control-label">Estatus</label>
                 <div class="col-sm-9 input-group">
-                    <select class="form-control" name="status" required>
+                    <select class="form-control" name="status" required <%= !(user.modificaEstatus || user.isAdmin) ? 'disabled' : '' %>>
                         <option value ="" <%= (tender.status == null)?'selected':''%> >Seleccione una opción</option>
                         <option value="planning" <%= tender.status == 'planning'?'selected':''%> >En planeación</option>
                         <option value="planned" <%= tender.status == 'planned'?'selected':''%> >Planeada</option>
@@ -173,7 +173,7 @@ var estatusContrato = [
                         <option value="withdrawn" <%= tender.status == 'withdrawn'?'selected':''%> >Retirada</option>
                     </select>
                     <div class="input-group-btn">
-                        <button class="btn btn-primary"><span class="fa fa-save"></span></button>
+                        <button class="btn btn-primary" <%= !(user.modificaEstatus || user.isAdmin) ? 'disabled' : '' %> ><span class="fa fa-save"></span></button>
                     </div>
                 </div>  
             </form>
@@ -545,7 +545,7 @@ var estatusContrato = [
                     Estatus</label>
                     <div class="col-xs-9">
                      <div class="input-group">
-                        <select class="form-control" name="status" required>
+                        <select class="form-control" name="status" required <%= !(user.modificaEstatus || user.isAdmin) ? 'disabled' : '' %>> 
                             <option value="">Seleccione una opción</option>
                             <option value="pending">Pendiente</option>
                             <option value="active">Activo</option>
@@ -553,7 +553,7 @@ var estatusContrato = [
                             <option value="unsuccessful">No exitoso</option>
                         </select>
                         <div class="input-group-btn">
-                            <button class="btn btn-primary"><span class="fa fa-save"></span></button>
+                            <button class="btn btn-primary" <%= !(user.modificaEstatus || user.isAdmin) ? 'disabled' : '' %>><span class="fa fa-save"></span></button>
                         </div>
                     </div>
                     </div>
@@ -596,7 +596,7 @@ var estatusContrato = [
                 <input type="hidden" name="stage" value="4" />
                 <label data-tooltip="crear_proceso" title='Estado actual del contrato.' class="col-xs-3 control-label">Estatus</label>
                 <div class="col-sm-9 input-group">
-                    <select class="form-control" name="status" required>
+                    <select class="form-control" name="status" required <%= !(user.modificaEstatus || user.isAdmin) ? 'disabled' : '' %>>
                             <option value="">Seleccione una opción</option>
                             <option value="pending">Pendiente</option>
                             <option value="active">Activo</option>
@@ -604,7 +604,7 @@ var estatusContrato = [
                             <option value="terminated">Terminado</option>
                         </select>
                     <div class="input-group-btn">
-                        <button class="btn btn-primary"><span class="fa fa-save"></span></button>
+                        <button class="btn btn-primary" <%= !(user.modificaEstatus || user.isAdmin) ? 'disabled' : '' %>><span class="fa fa-save"></span></button>
                     </div>
                 </div>  
             </form>
@@ -644,14 +644,14 @@ var estatusContrato = [
                 <input type="hidden" name="stage" value="5" />
                 <label data-tooltip="crear_proceso" title='Estado actual de la ejecución.' class="col-xs-3 control-label">Estatus</label>
                 <div class="col-sm-9 input-group">
-                    <select class="form-control" name="status" required>
+                    <select class="form-control" name="status" required <%= !(user.modificaEstatus || user.isAdmin) ? 'disabled' : '' %>>
                             <option value="">Seleccione una opción</option>
                             <option value="planning">En planeación</option>
                             <option value="ongoing">En progreso</option>
                             <option value="concluded">Terminado</option>
                     </select>
                     <div class="input-group-btn">
-                        <button class="btn btn-primary"><span class="fa fa-save"></span></button>
+                        <button class="btn btn-primary" <%= !(user.modificaEstatus || user.isAdmin) ? 'disabled' : '' %>><span class="fa fa-save"></span></button>
                     </div>
                 </div>  
             </form>

@@ -522,6 +522,8 @@ function release(db) {
                     case 'issuingsupplier': rol = 'issuingSupplier'; break;
                     case 'reviewbody': rol = 'reviewBody'; break;
                     case 'contractingunit': rol = 'contractingUnit'; break;
+                    case 'requestingunit': rol = 'requestingUnit'; break;
+                    case 'technicalunit': rol = 'technicalUnit'; break;
                 }
                 return rol;
             });
@@ -1141,40 +1143,40 @@ function release(db) {
         return result;
     }
 
-    /**
-     * Generar items de cotizaciones
-     */
-    let generateQuotesItems = async function () {
-        let items = await _db.manyOrNone('select * from quotesitems where quotes_id  in (select id from quotes where requestforquotes_id  in (select id from requestforquotes where contractingprocess_id = $1))', [this._cpid]);
-        if (!items || items.length === 0) return [];
-        let result = {};
-        let classfitications = await _db.manyOrNone('select classificationid, unit, description  from item where classificationid in ($1:csv) or classificationid in ($2:csv) ', 
-        items.map(x => x.itemid ),items.map(x => x.item));
 
+	/**
+	* Generar items de cotizaciones
+	*/
+	let generateQuotesItems = async function () {
+		let items = await _db.manyOrNone('select * from quotesitems where quotes_id  in (select id from quotes where requestforquotes_id  in (select id from requestforquotes where contractingprocess_id = $1))', [this._cpid]);
+		if (!items || items.length === 0) return [];
+		let result = {};
+		let classfitications = await _db.manyOrNone('select classificationid, unit, description from item where classificationid in ($1:csv)', items.map(x => x.itemid));
 
-        items.map(x => {
-            if (!result[x.quotes_id]) result[x.quotes_id] = [];
-            let item = classfitications.find(c => c.classificationid === x.itemid || c.classificationid === x.item)
-            result[x.quotes_id].push(clean({
-                id: x.itemid,
-                description: x.item,
-                classification: item ? clean({
-                    id: item.classificationid,
-                    description: item.description
-                }) : undefined,
-                unit: clean({ 
-                    name: item ? item.unit : undefined,
-                    value: {
-                        amount: parseFloat(x.quantity)
-                    }
-                }),
-                name: item ? item.name : undefined
-            }));
-        });
-        return result;
-    }
-
-
+		items.map(x => {
+			if (!result[x.quotes_id]) result[x.quotes_id] = [];
+			let item = classfitications.find(c => c.classificationid === x.itemid || c.classificationid === x.item)
+			result[x.quotes_id].push(clean({
+				id: x.itemid,
+				description: x.item,
+				classification: item ? clean({
+					id: item.classificationid,
+					description: item.description
+				}) : undefined,
+				unit: clean({
+					name: item ? item.unit : undefined,
+					value: {
+						amount: parseFloat(x.quantity)
+					}
+				}),
+				name: item ? item.name : undefined
+			}));
+		});
+		return result;
+	}
+	
+	
+	
     /**
      * Generar juntas de aclaraciones
      */

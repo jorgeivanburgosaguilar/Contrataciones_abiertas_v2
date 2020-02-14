@@ -79,6 +79,9 @@ Date.prototype.toString = function() {
     return result;
 }
 
+const implementationStatus = [ {title_esp: 'En planeación', code: 'planning'},
+{title_esp: 'En progreso', code: 'ongoing'},
+{title_esp: 'Terminado', code: 'concluded'},];
 
 
 passport.use('login', new LocalStrategy({
@@ -117,55 +120,6 @@ var isValidPassword = function(user, password){
     return bCrypt.compareSync(password, user.password);
 };
 
-// No usamos este código
-/*
-passport.use('signup', new LocalStrategy({
-        passReqToCallback : true // allows us to pass back the entire request to the callback
-      },
-      function(req, username, password, done) {
-
-        findOrCreateUser = function(){
-          // find a user in Mongo with provided username
-          User.findOne({ 'username' :  username }, function(err, user) {
-            // In case of any error, return using the done method
-            if (err){
-              console.log('Error in SignUp: '+err);
-              return done(err);
-            }
-            // already exists
-            if (user) {
-              console.log('User already exists with username: '+username);
-              return done(null, false, req.flash('message','User Already Exists'));
-            } else {
-              // if there is no user with that email
-              // create the user
-              var newUser = new User();
-
-              // set the user's local credentials
-              newUser.username = username;
-              newUser.password = createHash(password);
-              newUser.email = req.param('email');
-              newUser.firstName = req.param('firstName');
-              newUser.lastName = req.param('lastName');
-
-              // save the user
-              newUser.save(function(err) {
-                if (err){
-                  console.log('Error in Saving user: '+err);
-                  throw err;
-                }
-                console.log('User Registration succesful');
-                return done(null, newUser);
-              });
-            }
-          });
-        };
-        // Delay the execution of findOrCreateUser and execute the method
-        // in the next tick of the event loop
-        process.nextTick(findOrCreateUser);
-      })
-  );
-*/
 // Generates hash using bCrypt
 const createHash = (password) => bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
 
@@ -223,14 +177,14 @@ router.get('/admin/contrataciones.html', isAuthenticated, async function (req, r
     
     try{
         let select = 'select c.*, t.title tender_name, t.tenderid tender_id, ' +
-                    "((select string_agg(name, ', ') from parties p  join roles r on r.parties_id = p.id where p.contractingprocess_id = c.id and buyer = true)) buyer_name from contractingprocess c " +
+                    "((select string_agg(name, ', ') from parties p  join roles r on r.parties_id = p.id where p.contractingprocess_id = c.id and requestingunit = true)) requestingunit_name from contractingprocess c " +
                     ' left join tender t on t.contractingprocess_id = c.id ';
         let where = [];
 
         if (req.query.ocid) where.push(" lower(c.ocid) like lower('%' || ${ocid} || '%')");
         if (req.query.tender_name) where.push(" lower(t.title) like lower('%' || ${tender_name} || '%')");
         if (req.query.tender_id) where.push(" lower(t.tenderid) like lower('%' || ${tender_id} || '%')");
-        if (req.query.buyer_name) where.push(" c.id in (select p.contractingprocess_id from parties p  join roles r on r.parties_id = p.id where p.contractingprocess_id = c.id and buyer = true and lower(name) like lower('%' || ${buyer_name} || '%'))");
+        if (req.query.requestingunit_name) where.push(" c.id in (select p.contractingprocess_id from parties p  join roles r on r.parties_id = p.id where p.contractingprocess_id = c.id and requestingunit = true and lower(name) like lower('%' || ${requestingunit_name} || '%'))");
 
         const cp = await db_conf.edca_db.manyOrNone( select + (where.length > 0 ? 'where ' + where.join(' and ') : ''), req.query);
 
@@ -363,6 +317,7 @@ router.post('/user', isAuthenticated, function (req, res) {
                 newUser.publisherScheme = req.body.publisherScheme;
                 newUser.publisherUid = req.body.publisherUid;
                 newUser.publisherUri = req.body.publisherUri;
+                newUser.modificaEstatus = req.body.modificaEstatus;
 
                 // save the user
                 newUser.save(function (err) {
@@ -447,6 +402,8 @@ router.post('/update/user/',isAuthenticated, function (req, res) {
         data.publisherScheme = publisherScheme;
         data.publisherUid = publisherUid;
         data.publisherUri = publisherUri;
+        data.isAdmin = req.body.isAdmin;
+        data.modificaEstatus = req.body.modificaEstatus;
 
         if (password != null && password != '') {
             data.password = bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
@@ -585,7 +542,7 @@ router.get('/main/:contractingprocess_id', isAuthenticated, async function (req,
                     contracts: data[5],
                     implementations: data[6],
                     currencies : data[7],
-                    implementation_status: data[8],
+                    implementation_status: implementationStatus,
                     award: data[9] || {}, // ultimo editado
                     contract: data[10] || {}, // ultimo editado
                     implementation: data[11] || {}, // utimo editado
@@ -736,7 +693,6 @@ router.post('/new-process', isAuthenticated, function (req, res) {
                     t.one("insert into Tender (ContractingProcess_id) values ($1) returning id as tender_id", [process.id]),
                     t.one("insert into Award (ContractingProcess_id) values ($1) returning id as award_id", [process.id]),
                     t.one("insert into Contract (ContractingProcess_id) values ($1) returning id as contract_id", [process.id]),
-                    //t.one("insert into Buyer (ContractingProcess_id) values ($1) returning id as buyer_id",[process.id]),
                     t.one("insert into Publisher (ContractingProcess_id, name, scheme, uid, uri) values ($1, $2, $3, $4, $5) returning id as publisher_id", [
                         process.id,
                         req.user.publisherName,
@@ -745,22 +701,19 @@ router.post('/new-process', isAuthenticated, function (req, res) {
                         req.user.publisherUri
                     ]),
                     t.one("insert into user_contractingprocess(user_id, contractingprocess_id) values ($1,$2) returning id", [req.user.id, process.id]),
-                    //t.one("insert into tags values (default, $1, true, false, false, false, false, false, false, false, false, false,false, false, false, false, false, false) returning id", [ process.id ]),
                     t.one("insert into links(contractingprocess_id) values ($1) returning id", [process.id])
                 ]);
 
             }).then(function (info) {
                 return t.batch([
-                    //process, planning, tender, award, contract, buyer, publisher,
+                    //process, planning, tender, award, contract, publisher,
                     { contractingprocess : { id: info[0].id } },
                     { planning : { id: info[1].planning_id } },
                     { tender : { id: info[2].tender_id } },
                     { awards: [{ id:info[3].award_id }] },
                     { contracts: [{ id:info[4].contract_id }] },
-                    //{ buyer : { id: info[5].buyer_id } },
                     { publisher: { id: info[6].publisher_id } },
                     t.one("insert into Budget (ContractingProcess_id, Planning_id) values ($1, $2 ) returning id as budget_id", [info[0].id, info[1].planning_id]),
-                    //t.one("insert into ProcuringEntity (contractingprocess_id, tender_id) values ($1, $2) returning id as procuringentity_id",[info[0].id, info[2].tender_id]),
                     t.one("insert into Implementation (ContractingProcess_id, Contract_id ) values ($1, $2) returning id as implementation_id", [info[0].id, info[4].contract_id])
                 ]);
             });
@@ -812,6 +765,9 @@ var updateStageGlobal = async (cpid) => {
 // update status of contractingprocess
 router.post('/process/status', isAuthenticated, async (req, res) => {
     try{
+        if(!req.user.isAdmin && !req.user.modificaEstatus){
+            return res.send('No tienes permiso para realizar esta acción');
+        }
        let stage = 0;
         switch(req.body.type){
             case 'award':
@@ -1331,14 +1287,20 @@ router.post('/new-document', isAuthenticated, function(req,res){
             req.body.fkid // valor de la llave foranea
         ]).then(async function (data) {
 
+        let cambiarEstatusPorDocumento = require('../utilities/changeStatus');
+        let cambio = await cambiarEstatusPorDocumento(req.body.ocid, req.body.document_type, req.body.fkname, req.body.fkid);
+
         updateHisitory(req.body.ocid, req.user, stage, getHost(req));
+        
 
         res.json({
             status: 'Ok',
-            description:"Se ha creado un nuevo documento"
+            description:"Se ha creado un nuevo documento",
+            cambio: cambio
         });
         console.log("new "+ req.body.table + ": ", data);
 
+       
     }).catch(function (error) {
         res.json({
             status : "Error",
@@ -1347,6 +1309,7 @@ router.post('/new-document', isAuthenticated, function(req,res){
         console.log("Error: ", error);
     });
 });
+
 
 router.post('/newdoc-fields', function (req,res) {
     db_conf.edca_db.task(function (t) {
@@ -2819,13 +2782,13 @@ router.post('/search-process-by-date', function (req, res) {
 
 router.post('/search-process-by-ocid',function(req, res){
     let select = 'select c.*, t.title tender_name, t.tenderid tender_id, ' +
-    "((select string_agg(name, ', ') from parties p  join roles r on r.parties_id = p.id where p.contractingprocess_id = c.id and buyer = true)) buyer_name from contractingprocess c " +
+    "((select string_agg(name, ', ') from parties p  join roles r on r.parties_id = p.id where p.contractingprocess_id = c.id and requestingunit = true)) requestingunit_name from contractingprocess c " +
     ' left join tender t on t.contractingprocess_id = c.id ';
     let where = [];
 
     if (req.body.tender_name) where.push(" lower(t.title) like lower('%' || ${tender_name} || '%')");
     if (req.body.tender_id) where.push(" lower(t.tenderid) like lower('%' || ${tender_id} || '%')");
-    if (req.body.buyer_name) where.push(" c.id in (select p.contractingprocess_id from parties p join roles r on r.parties_id = p.id where p.contractingprocess_id = c.id and buyer = true and lower(name) like lower('%' || ${buyer_name} || '%'))");
+    if (req.body.requestingunit_name) where.push(" c.id in (select p.contractingprocess_id from parties p join roles r on r.parties_id = p.id where p.contractingprocess_id = c.id and requestingunit = true and lower(name) like lower('%' || ${requestingunit_name} || '%'))");
     if (req.body.ocid) where.push(" ocid like '%' || ${ocid} || '%'");
 
     db_conf.edca_db.manyOrNone(select + (where.length > 0 ? ' where ' + where.join(' and ') : ''), req.body).then(function (data) {
@@ -3563,12 +3526,16 @@ router.post('/uploadfile-fields', function (req,res) {
 
 // partial list selector implementations
 router.get('/implementation-list/:cpid', isAuthenticated, async (req, res) => {
-    const status = await db_conf.edca_db.manyOrNone('select * from implementationstatus');
+    const status = [
+        {text: 'En planeación', code: 'planning'},
+        {text: 'En progreso', code: 'ongoing'},
+        {text: 'Terminado', code: 'concluded'},
+    ];
     let implementations = await db_conf.edca_db.manyOrNone('select id, status, contract_id from implementation where  contractingprocess_id = ${cpid} order by id', req.params);
     for(let i = 0, x = implementations[i]; i < implementations.length; i++, x = implementations[i]){
         const i = status.findIndex(y => y.code == x.status);
         if(i !== -1){
-            x.status = status[i].title_esp;
+            x.status = status[i].text;
         }
         const {contractid} = await db_conf.edca_db.oneOrNone('select contractid from contract where id = ${contract_id}', x);
         x.contractid = contractid;
@@ -3660,7 +3627,7 @@ router.post('/1.1/parties.html', function (req, res) {
             party.roles = [];
 
             if(rol){
-                if (rol.buyer) party.roles.push('Área requirente');
+                if (rol.buyer) party.roles.push('Entidad compradora');
                 if (rol.procuringentity) party.roles.push('Entidad contratante');
                 if (rol.supplier) party.roles.push('Proveedor o contratista');
                 if (rol.tenderer) party.roles.push('Licitante');
@@ -3673,6 +3640,9 @@ router.post('/1.1/parties.html', function (req, res) {
                 if (rol.clarificationmeetingofficial) party.roles.push('Servidor público asistente a junta de aclaraciones');
                 if (rol.invitedsupplier) party.roles.push('Persona física o moral invitada a cotizar (investigación de mercado)');
                 if (rol.issuingsupplier) party.roles.push('Persona física o moral que envía cotización (investigación de mercado)');
+                if (rol.requestingunit) party.roles.push('Área requirente');
+                if (rol.contractingunit) party.roles.push('Área contratante');
+                if (rol.technicalunit) party.roles.push('Área técnica');
             }
         });
 
@@ -3750,7 +3720,10 @@ router.put('/1.1/party/', function (req,res) {
         !isChecked(req.body.clarificationMeetingAttendee) &&
         !isChecked(req.body.clarificationMeetingOfficial) &&
         !isChecked(req.body.invitedSupplier) &&
-        !isChecked(req.body.issuingSupplier)){
+        !isChecked(req.body.issuingSupplier) &&
+        !isChecked(req.body.requestingunit) &&
+        !isChecked(req.body.contractingunit) &&
+        !isChecked(req.body.technicalunit)){
         res.json({
             status: 'Error',
             description: 'Debes seleccionar al menos un rol'
@@ -3796,7 +3769,7 @@ router.put('/1.1/party/', function (req,res) {
             const result = await db_conf.edca_db.one('insert into roles(id, contractingprocess_id, parties_id, ' +
                 'buyer, procuringentity, supplier, tenderer, guarantor, enquirer,' +
                 'payer, payee, reviewbody, clarificationMeetingAttendee, clarificationMeetingOfficial, invitedSupplier, ' +
-                'issuingSupplier) values (default,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15) returning id, parties_id', [
+                'issuingSupplier,requestingunit,contractingunit,technicalunit) values (default,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18) returning id, parties_id', [
                 req.body.contractingprocess_id,
                 party.id,
                 isChecked(req.body.buyer),
@@ -3811,7 +3784,10 @@ router.put('/1.1/party/', function (req,res) {
                 isChecked(req.body.clarificationMeetingAttendee),
                 isChecked(req.body.clarificationMeetingOfficial),
                 isChecked(req.body.invitedSupplier),
-                isChecked(req.body.issuingSupplier)
+                isChecked(req.body.issuingSupplier),
+                isChecked(req.body.requestingunit),
+                isChecked(req.body.contractingunit),
+                isChecked(req.body.technicalunit)
             ]);
 
             result.total = await getNumberOfTenderes(req.body.contractingprocess_id);
@@ -3904,7 +3880,7 @@ router.post('/1.1/party', function(req,res){
             ]),
             this.one('update roles set buyer=$2, procuringentity=$3, supplier=$4, tenderer=$5, guarantor=$6,' +
                 'enquirer=$7, payer=$8, payee=$9, reviewbody=$10, clarificationMeetingAttendee=$11, ' +
-                'clarificationMeetingOfficial=$12, invitedSupplier=$13, issuingSupplier=$14  where parties_id = $1 returning id', [
+                'clarificationMeetingOfficial=$12, invitedSupplier=$13, issuingSupplier=$14, requestingunit=$15, contractingunit=$16, technicalunit=$17  where parties_id = $1 returning id', [
                 req.body.parties_id,
                 isChecked(req.body.buyer),
                 isChecked(req.body.procuringEntity),
@@ -3918,7 +3894,10 @@ router.post('/1.1/party', function(req,res){
                 isChecked(req.body.clarificationMeetingAttendee),
                 isChecked(req.body.clarificationMeetingOfficial),
                 isChecked(req.body.invitedSupplier),
-                isChecked(req.body.issuingSupplier)
+                isChecked(req.body.issuingSupplier),
+                isChecked(req.body.requestingunit),
+                isChecked(req.body.contractingunit),
+                isChecked(req.body.technicalunit)
             ]),
             this.none('update tender set numberoftenderers = (select count(*) from roles where contractingprocess_id = $1 and tenderer = true) ' + 
             'where contractingprocess_id = $1 ', [req.body.contractingprocess_id])
@@ -3985,7 +3964,7 @@ router.delete('/1.1/parties', function (req, res) {
 
 });
 
-//debe existir una restricción para que asignar no más de un party como buyer o procuringEntity
+//debe existir una restricción para que asignar no más de un party como requestingunit o procuringEntity
 
 //get amenments
 router.get('/1.1/:path/amendments', function (req, res) {
@@ -5332,5 +5311,82 @@ router.post('/validate-process/pnt/:id', async (req, res) => {
         return res.status(500).json( {message: e.message});
     }
 });
+
+
+// vista de configuracion de carpetas de gdmx
+router.get('/gdmx-folders', async (req, res) => {
+
+    const existe = await db_conf.edca_db.oneOrNone(`SELECT EXISTS 
+    (
+        SELECT 1 
+        FROM pg_tables
+        WHERE schemaname = 'public'
+        AND tablename = 'gdmx_folders'
+    )`);
+    if (!existe.exists) {
+        await db_conf.edca_db.none('CREATE TABLE gdmx_folders(id serial primary key, name text, active bool)');
+    }
+
+
+    return res.render('modals/gdmx-folders')
+});
+
+// listado de carpetas
+router.get('/gdmx-folders/list', async (req,res) => {
+    try{
+        
+        const results = await db_conf.edca_db.manyOrNone('SELECT * FROM gdmx_folders ORDER BY name desc');
+
+        return res.json(results);
+    }
+    catch(e) {
+        return res.json([]);
+    }
+    
+});
+
+// registrar/actualizar carpeta
+router.post('/gdmx-folders', async (req, res) => {
+    try{
+        
+        const existe = await db_conf.edca_db.oneOrNone('SELECT * FROM gdmx_folders WHERE name like ${name} AND (${id} IS NULL OR id != ${id})', {
+            name: req.body.name,
+            id: req.body.id || 0
+        });
+        if (existe) {
+            return res.json('Ya existe una carpeta con la misma ruta');
+        }
+
+        if(!req.body.id) {
+            await db_conf.edca_db.none('INSERT INTO gdmx_folders(name, active) VALUES(${name}, true)', req.body);
+        } else {
+            await db_conf.edca_db.none('UPDATE gdmx_folders SET name = ${name}, active = ${active} WHERE id = ${id}', req.body);
+        }
+
+        return res.json(true);
+    }
+    catch(e) {
+        return res.json(e.message);
+    }
+    
+});
+
+// eliminar carpeta
+router.post('/gdmx-folders/:id/delete', async (req, res) => {
+    try{
+        
+        await db_conf.edca_db.none('DELETE FROM gdmx_folders WHERE id = ${id}', req.params);
+
+        return res.json(true);
+    }
+    catch(e) {
+        return res.json(false);
+    }
+});
+
+
+// actualizar estatus al subir documento
+
+
 
 module.exports = router;

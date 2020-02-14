@@ -177,7 +177,7 @@ $('#btnAddAward').click(function() {
 });
 
 // actualiza estados de las listas de adjudicacion
-let updateListAwards = (cpid, refresh) => {
+let updateListAwards = (cpid, refresh, callback) => {
     const id = $('#award_form [name="id"]').val();
 
     $('#award').attr('data-actual', id || '');
@@ -188,6 +188,7 @@ let updateListAwards = (cpid, refresh) => {
             $(`#list-awards a[data-id="${id}"]`).addClass('active');
             $('#award_form #actual-text').html($(`#list-awards a[data-id="${id}"] .list-group-item-heading`).text());
             generateAwardSelector();
+            if (callback) callback();
         });
        
     } else {
@@ -300,7 +301,7 @@ $('#btnAddContract').click(function() {
 });
 
 // actualiza estados de las listas de contratos
-let updateListContracts = (cpid, refresh) => {
+let updateListContracts = (cpid, refresh, callback) => {
     const id = $('#contract_form [name="id"]').val();
 
     $('#contract').attr('data-actual', id || '');
@@ -310,8 +311,9 @@ let updateListContracts = (cpid, refresh) => {
         $('#list-contracts').load(`/contract-list/${cpid}`, () => {
             $(`#list-contracts a[data-id="${id}"]`).addClass('active');
             $('#contract_form #actual-text').html($(`#list-contracts a[data-id="${id}"] .list-group-item-heading`).text());
+            if(callback)callback();
         });
-        updateListImplementations(cpid, true);
+        updateListImplementations(cpid, true, callback);
     } else {
         $('#contract_form #actual-text').html($(`#list-contracts a[data-id="${id}"] .list-group-item-heading`).text());
         $(`#list-contracts a[data-id="${id}"]`).addClass('active');
@@ -400,7 +402,7 @@ $('#list-implementations').on('click', 'a', function() {
 });
 
 // actualiza estados de la lista de ejecuciones
-let updateListImplementations = (cpid, refresh) => {
+let updateListImplementations = (cpid, refresh, callback) => {
     const id = $('#implementation_form [name="id"]').val();
 
     $('#implementation').attr('data-actual', id || '');
@@ -410,6 +412,7 @@ let updateListImplementations = (cpid, refresh) => {
         $('#list-implementations').load(`/implementation-list/${cpid}`, () => {
             $(`#list-implementations a[data-id="${id}"]`).addClass('active');
             $('#implementation_form #actual-text').html($(`#list-implementations a[data-id="${id}"] .list-group-item-heading`).text());
+            if(callback)callback();
         });
     } else {
         $('#implementation_form #actual-text').html($(`#list-implementations a[data-id="${id}"] .list-group-item-heading`).text());
@@ -699,6 +702,37 @@ $('#genericModal').on('show.bs.modal', function (event) {
                     $.post('/new-document/', $(this).serialize()).done(function (data) {
                         alert(data.description);
                         if (data.status === 'Ok'){ modal.modal('hide');}
+                        if(data.cambio){
+                            const cambio = data.cambio;
+                            if(cambio.tender) {
+                                $('#frmTenderStatus select').val(cambio.tender);
+                                $('#tenderStatus').html($('#frmTenderStatus select option:selected').text());
+                            }
+                            if(cambio.award) {
+                                updateListAwards( button.data('contractingprocess_id'), true, () => {
+                                    $('#frmAwardStatus select').val(cambio.award);
+                                    $('#awardStatus').html($('#frmAwardStatus select option:selected').text());
+                                });
+                                
+                               
+                            }
+                            if(cambio.contract) {
+                                updateListContracts( button.data('contractingprocess_id'), true, () => {
+                                    $('#frmContractStatus select').val(cambio.contract);
+                                    $('#contractStatus').html($('#frmContractStatus select option:selected').text());
+                                });
+                                
+                                
+                            }
+                            if(cambio.implementation) {
+                                updateListImplementations( button.data('contractingprocess_id'), true, () => {
+                                    $('#frmImplementationStatus select').val(cambio.implementation);
+                                    $('#implementationStatus').html($('#frmImplementationStatus select option:selected').text());
+                                });
+                               
+                                
+                            }
+                        }
                     });
                     event.preventDefault();
                 });

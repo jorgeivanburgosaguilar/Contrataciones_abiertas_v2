@@ -12,7 +12,7 @@ module.exports = {
                     t.one("select * from planning where contractingprocess_id = $1", [localid]),    //1
                     t.one("select * from budget where contractingprocess_id = $1", [localid]),         //2
                     t.one("select * from tender where contractingprocess_id = $1", [localid]),        //3
-                    t.oneOrNone("select * from parties, roles where roles.parties_id = parties.id and roles.buyer = true and parties.contractingprocess_id = $1 limit 1", [localid]),    //4
+                    t.oneOrNone("select * from parties, roles where roles.parties_id = parties.id and roles.requestingunit = true and parties.contractingprocess_id = $1 limit 1", [localid]),    //4
                     t.one("select * from award where contractingprocess_id = $1", [localid]),           //5
                     t.one("select * from contract where contractingprocess_id = $1", [localid]),     //6
                     t.one('select * from implementation where contractingprocess_id = $1', [localid]), //7
@@ -132,7 +132,8 @@ module.exports = {
                         party.contactPoint = {};
                         party.roles = [];
                         var roles = ["buyer","procuringEntity","supplier","tenderer","funder", "enquirer",
-                            "payer","payee","reviewBody", "clarificationMeetingAttendee", "clarificationMeetingOfficial", "invitedSupplier", "issuingSupplier"];
+                            "payer","payee","reviewBody", "clarificationMeetingAttendee", "clarificationMeetingOfficial", "invitedSupplier", "issuingSupplier",
+							"requestingunit", "contractingunit", "technicalunit"];
 
                         if( checkValue(array[i].naturalperson) ){
 				        if(array[i].naturalperson == true) { 
@@ -375,11 +376,11 @@ module.exports = {
 
                 release.parties = getFullParties(data[0].parties);
 
-                //BUYER
-                if (data[0].buyer !== null){
-                    release.buyer = {
-                        name: data[0].buyer.name,
-                        id: data[0].buyer.partyid
+                //requestingunit antes BUYER
+                if (data[0].requestingunit !== null){
+                    release.requestingunit = {
+                        name: data[0].requestingunit.name,
+                        id: data[0].requestingunit.partyid
                     }
                 }
 

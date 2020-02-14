@@ -121,18 +121,6 @@ if ( fs.existsSync(file_path) ){
         contracting_process.publisher = {};
     }
 
-
-    //buyer
-    /*let buyer = {};
-    if ( typeof release.buyer !== 'undefined'){
-        buyer = findPartiesById( release.buyer.id, release.parties);
-    }
-
-    //buyer -> address identifier contactPoint
-    if (typeof buyer.address === 'undefined'){ buyer.address = {}}
-    if (typeof buyer.identifier === 'undefined'){ buyer.identifier = {}}
-    if (typeof buyer.contactPoint === 'undefined'){ buyer.contactPoint = {}}
-*/
     //awards
     let award = {};
     if ( typeof release.awards !== 'undefined'){
@@ -306,13 +294,12 @@ if ( fs.existsSync(file_path) ){
 
         }).then(function (info) {
             return t.batch([
-                //process, planning, tender, award, contract, buyer, publisher,
+                //process, planning, tender, award, contract, publisher
                 { contractingprocess : { id: info[0].id }},
                 { planning : { id: info[1].planning_id }},
                 { tender : { id: info[2].tender_id }},
                 { award: { id:info[3].award_id }},
                 { contract: { id:info[4].contract_id }},
-                //{ buyer : { id: info[5].buyer_id } },
                 { publisher: { id: info[5].publisher_id }},
                 t.one("insert into Budget (ContractingProcess_id, Planning_id, " +
                     "budget_source,"+
@@ -358,7 +345,7 @@ if ( fs.existsSync(file_path) ){
                     procuringEntity: false ,
                     supplier: false ,
                     tenderer: false ,
-                    funder: false ,
+                    guarantor: false ,
                     enquirer: false,
                     payer: false ,
                     payee: false ,
@@ -366,7 +353,10 @@ if ( fs.existsSync(file_path) ){
                     clarificationMeetingAttendee: false,
                     clarificationMeetingOfficial: false,
                     invitedSupplier: false ,
-                    issuingSupplier: false
+                    issuingSupplier: false,
+                    contractingunit: false,
+                    requestingunit: false,
+                    technicalunit: false
                 };
 
                 if (!Array.isArray(party.roles)){
@@ -392,8 +382,8 @@ if ( fs.existsSync(file_path) ){
                         case "tenderer":
                             roles.tenderer = true;
                             break;
-                        case "funder":
-                            roles.funder = true;
+                        case "guarantor":
+                            roles.guarantor = true;
                             break;
                         case "enquirer":
                             roles.enquirer = true;
@@ -418,6 +408,15 @@ if ( fs.existsSync(file_path) ){
                             break;
                         case "issuingsupplier":
                             roles.issuingSupplier = true;
+                            break;
+                        case "contractingunit":
+                            roles.contractingunit = true;
+                            break;
+                        case "requestingunit":
+                            roles.requestingunit = true;
+                            break;
+                        case "technicalunit":
+                            roles.technicalunit = true;
                             break;
                     }
 
@@ -460,16 +459,17 @@ if ( fs.existsSync(file_path) ){
                     getValue(party.contactPoint.faxNumber),
                     getValue(party.contactPoint.url)
                 ]).then(function (inserted_row) {
-                    return t.one("insert into roles (contractingprocess_id, parties_id, buyer, procuringEntity,supplier,tenderer,funder,enquirer," +
+                    return t.one("insert into roles (contractingprocess_id, parties_id, buyer, procuringEntity,supplier,tenderer,guarantor,enquirer," +
                         "payer,payee,reviewBody,clarificationMeetingAttendee, clarificationMeetingOfficial, " +
-                        "invitedSupplier, issuingSupplier) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15) returning id as rol_id", [
+                        "invitedSupplier, issuingSupplier, requestingunit, " +
+						"contractingunit, technicalunit) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18) returning id as rol_id", [
                         data[0].contractingprocess.id,
                         inserted_row.party_id,
                         roles.buyer,
                         roles.procuringEntity,
                         roles.supplier,
                         roles.tenderer,
-                        roles.funder,
+                        roles.guarantor,
                         roles.enquirer,
                         roles.payer,
                         roles.payee,
@@ -477,7 +477,10 @@ if ( fs.existsSync(file_path) ){
                         roles.clarificationMeetingAttendee,
                         roles.clarificationMeetingOfficial,
                         roles.invitedSupplier,
-                        roles.issuingSupplier
+                        roles.issuingSupplier,
+						roles.requestingunit,
+						roles.contractingunit, 
+						roles.technicalunit
                     ])
                 }));
             }
