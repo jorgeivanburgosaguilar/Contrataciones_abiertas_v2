@@ -248,7 +248,7 @@ var icons = [
                         </div>
                         <div class="col-3" style="pointer-events:none;">
                             <p class="legend">Área requirente</p>
-                            <a class="small" style="color:#000000"><%= header.name %></a>
+                            <a class="small" style="color:#000000"><%= header.identifier_legalname_requestingunit %></a>
                         </div>
                         <div class="col-2" style="pointer-events:none;">
                             <p class="legend">Fecha de firma</p>
@@ -298,10 +298,14 @@ var icons = [
                 </div>
             </div>
             <div class="row">
-                <div class="col-12">
+                <div class="col-7">
                     <p><small>Comprador</small></p>
                     <p><%= planning.buyer != null ? planning.buyer : 'No disponible' %></p>
                 </div>
+				<div class="col-5">
+					<p><small>Área requirente</small></p>
+					<p><%= planning.requestingunit != null ? planning.requestingunit : 'No disponible' %></p>
+				</div>
             </div>
             <div class="row">
                 <p><small>Procesos</small></p>
@@ -422,10 +426,14 @@ var icons = [
                 </div>
             </div>
             <div class="row">
-                <div class="col-12">
+                <div class="col-7">
                     <p><small>Comprador</small></p>
                     <p><%= tender.buyer != null ? tender.buyer : 'No disponible' %></p>
                 </div>
+				<div class="col-5">
+					<p><small>Área requirente</small></p>
+					<p><%= tender.requestingunit != null ? tender.requestingunit : 'No disponible' %></p>
+				</div>
             </div>
             <div class="row">
                 <p><small>Procesos</small></p>
@@ -569,10 +577,14 @@ var icons = [
                 </div>
             </div>
             <div class="row">
-                <div class="col-12">
+                <div class="col-7">
                     <p><small>Comprador</small></p>
                     <p><%= awards[x].buyer != null ? awards[x].buyer : 'No disponible' %></p>
                 </div>
+				<div class="col-5">
+					<p><small>Área requirente</small></p>
+					<p><%= awards[x].requestingunit != null ? awards[x].requestingunit : 'No disponible' %></p>
+				</div>
             </div>
             <div class="row">
                 <p><small>Procesos</small></p>
@@ -703,10 +715,14 @@ var icons = [
                 </div>
             </div>
             <div class="row">
-                <div class="col-12">
+                <div class="col-7">
                     <p><small>Comprador</small></p>
                     <p><%= contracts[x].buyer != null ? contracts[x].buyer : 'No disponible' %></p>
                 </div>
+				<div class="col-5">
+					<p><small>Área requirente</small></p>
+					<p><%= contracts[x].requestingunit != null ? contracts[x].requestingunit : 'No disponible' %></p>
+				</div>
             </div>
             <div class="row">
                 <p><small>Procesos</small></p>
@@ -793,10 +809,14 @@ var icons = [
                 </div>
             </div>
             <div class="row">
-                <div class="col-12">
+                <div class="col-7">
                     <p><small>Comprador</small></p>
                     <p><%= implementations[x].buyer != null ? implementations[x].buyer : 'No disponible' %></p>
                 </div>
+				<div class="col-5">
+					<p><small>Área requirente</small></p>
+					<p><%= implementations[x].requestingunit != null ? implementations[x].requestingunit : 'No disponible' %></p>
+				</div>
             </div>
             <div class="row">
                 <p><small>Procesos</small></p>

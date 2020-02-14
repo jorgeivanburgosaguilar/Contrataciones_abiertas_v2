@@ -54,7 +54,6 @@ router.get('/contratos/:year?',function (req, res) {
     var where2 = ' ';
 
     if (req.params.year != null) {
-        //where += " and date_part('year', contractingprocess.fecha_creacion) = " + req.params.year;
         where += " and date_part('year', contract.datesigned) = " + req.params.year;
         where2 += " and (select id from contract where contractingprocess_id = contractingprocess.id and date_part('year', datesigned) = " + req.params.year + " limit 1) is not null";
     }
@@ -110,13 +109,9 @@ router.post('/pagination', function (req, res) {
     }
 
     edca_db.task(function (t) {
-        var where = ` 1=1 `; /*`1 = 1 and (planning.hasquotes is not null or tender.status is not null or
-            (select id from award where contractingprocess_id = contractingprocess.id and status is not null limit 1) is not null or
-            (select id from contract where contractingprocess_id = contractingprocess.id and status is not null limit 1) is not null or
-            (select id from implementation where contractingprocess_id = contractingprocess.id and status is not null limit 1) is not null)`*/;
+        var where = ` 1=1 `; 
         var whereExterno = ' where 1=1 ';
         if (req.body.year !== "" && req.body.year !== undefined) {
-            //where += " and date_part('year', contractingprocess.fecha_creacion) = $5";
             where += " and (select id from contract where contractingprocess_id = contractingprocess.id and date_part('year', datesigned) = $5 limit 1) is not null";
         }
 
@@ -181,7 +176,7 @@ router.post('/pagination', function (req, res) {
             (select name
                 from parties
                 join roles r on r.parties_id = parties.id
-                where parties.contractingprocess_id = contractingprocess.id and r.buyer = true limit 1) as name,
+                where parties.contractingprocess_id = contractingprocess.id and r.requestingunit = true limit 1) as name,
             (select status from award where contractingprocess_id = contractingprocess.id and status is not null order by datelastupdate desc limit 1) as award_status,
             (select status from contract where contractingprocess_id = contractingprocess.id and status is not null order by datelastupdate desc limit 1) as contract_status,
             (select status from implementation where contractingprocess_id = contractingprocess.id and status is not null order by datelastupdate desc limit 1) as implementation_status,
@@ -258,33 +253,38 @@ router.get('/contrato/:cpid/download', function (req, res) {
     };
 
     var planningQuery = `select 'Planeación' as stage, planning.hasquotes, planning.rationale,
-        (select parties.identifier_legalname from parties inner join roles on roles.parties_id = parties.id where parties.contractingprocess_id = planning.contractingprocess_id and roles.buyer = true limit 1) as buyer
+        (select parties.identifier_legalname from parties inner join roles on roles.parties_id = parties.id where parties.contractingprocess_id = planning.contractingprocess_id and roles.buyer = true limit 1) as buyer,
+		(select parties.identifier_legalname from parties inner join roles on roles.parties_id = parties.id where parties.contractingprocess_id = planning.contractingprocess_id and roles.requestingunit = true limit 1) as requestingunit       
         from planning
         where planning.contractingprocess_id = $1 order by id`;
 
     var tenderQuery = `select 'Licitación' as stage, tender.status, tender.tenderid, tender.title, tender.value_amount, tender.value_currency, tender.description, tender.procurementmethod_details, tender.additionalprocurementcategories,
         (date_part('day', tender.tenderperiod_startdate) || '/' || date_part('month', tender.tenderperiod_startdate) || '/' || date_part('year', tender.tenderperiod_startdate)) as tender_startdate,
         (date_part('day', tender.tenderperiod_enddate) || '/' || date_part('month', tender.tenderperiod_enddate) || '/' || date_part('year', tender.tenderperiod_enddate)) as tender_enddate,
-        (select parties.identifier_legalname from parties inner join roles on roles.parties_id = parties.id where parties.contractingprocess_id = tender.contractingprocess_id and roles.buyer = true limit 1) as buyer
+        (select parties.identifier_legalname from parties inner join roles on roles.parties_id = parties.id where parties.contractingprocess_id = tender.contractingprocess_id and roles.buyer = true limit 1) as buyer,
+		(select parties.identifier_legalname from parties inner join roles on roles.parties_id = parties.id where parties.contractingprocess_id = tender.contractingprocess_id and roles.requestingunit = true limit 1) as requestingunit
         from tender
         where tender.contractingprocess_id = $1 order by id`;
 
     var awardQuery = `select 'Adjudicación' as stage, award.id, award.status, award.awardid, award.title, award.value_amount, award.value_currency, award.rationale,
         (date_part('day', award.award_date) || '/' || date_part('month', award.award_date) || '/' || date_part('year', award.award_date)) as award_date,
-        (select parties.identifier_legalname from parties inner join roles on roles.parties_id = parties.id where parties.contractingprocess_id = award.contractingprocess_id and roles.buyer = true limit 1) as buyer
+        (select parties.identifier_legalname from parties inner join roles on roles.parties_id = parties.id where parties.contractingprocess_id = award.contractingprocess_id and roles.buyer = true limit 1) as buyer,
+		(select parties.identifier_legalname from parties inner join roles on roles.parties_id = parties.id where parties.contractingprocess_id = award.contractingprocess_id and roles.requestingunit = true limit 1) as requestingunit
         from award
         where award.contractingprocess_id = $1 order by id`;
 
     var contractQuery = `select 'Contratación' as stage, contract.id, contract.status, contract.contractid, contract.title, contract.value_amount, contract.value_currency, contract.description,
         (date_part('day', contract.datesigned) || '/' || date_part('month', contract.datesigned) || '/' || date_part('year', contract.datesigned)) as datesigned,
-        (select parties.identifier_legalname from parties inner join roles on roles.parties_id = parties.id where parties.contractingprocess_id = contract.contractingprocess_id and roles.buyer = true limit 1) as buyer
+        (select parties.identifier_legalname from parties inner join roles on roles.parties_id = parties.id where parties.contractingprocess_id = contract.contractingprocess_id and roles.buyer = true limit 1) as buyer,
+		(select parties.identifier_legalname from parties inner join roles on roles.parties_id = parties.id where parties.contractingprocess_id = contract.contractingprocess_id and roles.requestingunit = true limit 1) as requestingunit
         from contract
         where contract.contractingprocess_id = $1 order by id`;
 
     var implementationQuery = `select 'Ejecución' as stage, implementation.id, implementation.status,
         (select contract.contractid from contract where contract.id = implementation.contract_id order by datelastupdate desc limit 1) as contractid,
         (select (date_part('day', contract.datesigned) || '/' || date_part('month', contract.datesigned) || '/' || date_part('year', contract.datesigned)) from contract where contract.id = implementation.contract_id order by datelastupdate desc limit 1) as datesigned,
-        (select parties.identifier_legalname from parties inner join roles on roles.parties_id = parties.id where parties.contractingprocess_id = implementation.contractingprocess_id and roles.buyer = true limit 1) as buyer
+        (select parties.identifier_legalname from parties inner join roles on roles.parties_id = parties.id where parties.contractingprocess_id = implementation.contractingprocess_id and roles.buyer = true limit 1) as buyer,
+		(select parties.identifier_legalname from parties inner join roles on roles.parties_id = parties.id where parties.contractingprocess_id = implementation.contractingprocess_id and roles.requestingunit = true limit 1) as requestingunit
         from implementation
         where implementation.contractingprocess_id = $1 order by id`;
 
@@ -303,6 +303,10 @@ router.get('/contrato/:cpid/download', function (req, res) {
                                             from parties
                                             inner join roles on roles.parties_id = parties.id
                                             where roles.supplier = true and parties.contractingprocess_id = contractingprocess.id) as identifier_legalname_supplier,
+										(select string_agg(parties.identifier_legalname, '; ')
+                                            from parties
+                                            inner join roles on roles.parties_id = parties.id
+                                            where roles.requestingunit = true and parties.contractingprocess_id = contractingprocess.id) as identifier_legalname_requestingunit,
                                         (select count(*)
                                             from parties
                                             inner join roles on roles.parties_id = parties.id
@@ -588,7 +592,7 @@ router.get('/contrato/:cpid/:stage',function (req, res) {
                         //información general
                         this.one(qinfo, [ cpid ]),
                         this.oneOrNone( "select * from parties, roles where parties.id = roles.parties_id and roles.buyer=true and parties.contractingprocess_id=$1 limit 1",[ cpid ]), //cambia
-                        this.one(q1,[ 'tender', cpid ]),
+						this.one(q1,[ 'tender', cpid ]),
                         this.manyOrNone(q1,[ 'tenderitem', cpid ]),
                         this.manyOrNone(q1,[ 'tendermilestone', cpid ]),
                         this.manyOrNone(q1,[ 'tenderdocuments', cpid ]),
@@ -596,7 +600,8 @@ router.get('/contrato/:cpid/:stage',function (req, res) {
                         this.oneOrNone("select * from contractingprocess where id = $1",[ cpid ]),
                         this.oneOrNone("select * from links where contractingprocess_id = $1",[ cpid ]),
                         this.one(qstatus, [ cpid ]),
-                        this.manyOrNone("select parties.name from parties inner join roles on roles.parties_id = parties.id where parties.contractingprocess_id = $1 and roles.tenderer = true", [cpid])
+                        this.manyOrNone("select parties.name from parties inner join roles on roles.parties_id = parties.id where parties.contractingprocess_id = $1 and roles.tenderer = true", [cpid]),
+						this.oneOrNone( "select * from parties, roles where parties.id = roles.parties_id and roles.requestingunit=true and parties.contractingprocess_id=$1 limit 1",[ cpid ])
                     ]);
                 }).then(function (data) {
 
@@ -621,7 +626,8 @@ router.get('/contrato/:cpid/:stage',function (req, res) {
                         contractingprocess: data[7],
                         links: data[8],
                         status: data[9],
-                        tenderers: data[10]
+                        tenderers: data[10],
+						requestingunit: data[11]
                     });
                 }).catch(function (error) {
                     console.log("ERROR: ", error);
@@ -641,7 +647,8 @@ router.get('/contrato/:cpid/:stage',function (req, res) {
                         this.manyOrNone(q1 ,[ 'awardamendmentchanges', cpid ]),
                         this.oneOrNone("select * from contractingprocess where id = $1",[ cpid ]),
                         this.oneOrNone("select * from links where contractingprocess_id = $1",[ cpid ]),
-                        this.one(qstatus, [ cpid ])
+                        this.one(qstatus, [ cpid ]),
+					    this.oneOrNone("select * from parties, roles where parties.id = roles.parties_id and roles.requestingunit=true and parties.contractingprocess_id=$1 limit 1",[cpid ])
                     ]);
                 }).then(function (data) {
 
@@ -662,7 +669,8 @@ router.get('/contrato/:cpid/:stage',function (req, res) {
                         results: awards,
                         contractingprocess: data[7],
                         links: data[8],
-                        status: data[9]
+                        status: data[9],
+						requestingunit: data[10]
                     });
                 }).catch(function (error) {
                     console.log("ERROR: ", error);
@@ -674,14 +682,15 @@ router.get('/contrato/:cpid/:stage',function (req, res) {
                     return this.batch([
                         //información general
                         this.one(qinfo, [ cpid ]),
-                        this.oneOrNone("select * from parties, roles where parties.id = roles.parties_id and roles.buyer=true and parties.contractingprocess_id=$1 limit 1",[ cpid ]), //cambia
+                        this.oneOrNone("select * from parties, roles where parties.id = roles.parties_id and roles.buyer=true and parties.contractingprocess_id=$1 limit 1",[ cpid ]),
                         this.manyOrNone(q1 ,[ 'contract', cpid ]),
                         this.manyOrNone(q1 ,[ 'contractitem', cpid ]),
                         this.manyOrNone(q1 ,[ 'contractdocuments', cpid ]),
                         this.manyOrNone(q1 ,[ 'contractamendmentchanges', cpid ]),
                         this.oneOrNone("select * from contractingprocess where id = $1",[ cpid ]),
                         this.oneOrNone("select * from links where contractingprocess_id = $1",[ cpid ]),
-                        this.one(qstatus, [ cpid ])
+                        this.one(qstatus, [ cpid ]),
+					    this.oneOrNone("select * from parties, roles where parties.id = roles.parties_id and roles.requestingunit=true and parties.contractingprocess_id=$1 limit 1",[ cpid ])
                     ]);
                 }).then(function (data) {
                     data[5].map(x => x.amendments_date = convertDate(x.amendments_date));
@@ -695,7 +704,8 @@ router.get('/contrato/:cpid/:stage',function (req, res) {
                         changes : data[5],
                         contractingprocess : data[6],
                         links: data[7],
-                        status: data[8]
+                        status: data[8],
+						requestingunit: data[9]
                     });
                 }).catch(function (error) {
                     console.log("ERROR: ", error);
@@ -705,7 +715,7 @@ router.get('/contrato/:cpid/:stage',function (req, res) {
             case 'implementacion':
                 edca_db.task( function (t) {
                     return this.batch([
-                        //información general
+                        //Información general
                         this.one(qinfo, [ cpid ]),
                         this.oneOrNone("select * from parties, roles where parties.id = roles.parties_id and roles.buyer=true and parties.contractingprocess_id=$1 limit 1",[cpid ]),
                         this.manyOrNone('select implementation.*, contract.contractid, contract.datesigned from implementation inner join contract on contract.id = implementation.contract_id where implementation.contractingprocess_id = $1', [cpid]),
@@ -714,7 +724,8 @@ router.get('/contrato/:cpid/:stage',function (req, res) {
                         this.manyOrNone(q1, ['implementationdocuments', cpid ]),
                         this.oneOrNone("select * from contractingprocess where id = $1",[ cpid ]),
                         this.oneOrNone("select * from links where contractingprocess_id = $1",[ cpid ]),
-                        this.one(qstatus, [ cpid ])
+                        this.one(qstatus, [ cpid ]),
+						this.oneOrNone("select * from parties, roles where parties.id = roles.parties_id and roles.requestingunit=true and parties.contractingprocess_id=$1 limit 1",[cpid ])
                     ]);
                 }).then(function (data) {
                     data[4].map(x => {
@@ -733,7 +744,8 @@ router.get('/contrato/:cpid/:stage',function (req, res) {
                         documents: data[5],
                         contractingprocess : data[6],
                         links: data[7],
-                        status: data[8]
+                        status: data[8],
+						requestingunit: data[9]
                     });
                 }).catch(function (error) {
                     console.log("ERROR: ", error);
@@ -754,7 +766,8 @@ router.get('/contrato/:cpid/:stage',function (req, res) {
                         this.oneOrNone(qstatus, [ cpid ]),
                         this.manyOrNone("select quotes.*, to_char(period_enddate, 'DD/MM/YYYY') period_enddate,  to_char(period_startdate, 'DD/MM/YYYY') period_startdate, parties.name as supplier, to_char(date, 'DD/MM/YYYY'), value from quotes inner join requestforquotes on requestforquotes.id = quotes.requestforquotes_id inner join parties on parties.id = quotes.issuingsupplier_id where requestforquotes.contractingprocess_id = $1", [cpid]),
                         this.manyOrNone("select quotesitems.*, item.description as item, item.unit from quotesitems inner join quotes on quotes.id = quotesitems.quotes_id inner join requestforquotes on requestforquotes.id = quotes.requestforquotes_id inner join item on item.classificationid = quotesitems.itemid where requestforquotes.contractingprocess_id = $1", [cpid]),
-                        this.manyOrNone("select budgetbreakdown.*, parties.name as source from budgetbreakdown inner join parties on parties.id = budgetbreakdown.source_id where budgetbreakdown.contractingprocess_id = $1", [cpid])
+                        this.manyOrNone("select budgetbreakdown.*, parties.name as source from budgetbreakdown inner join parties on parties.id = budgetbreakdown.source_id where budgetbreakdown.contractingprocess_id = $1", [cpid]),
+						this.oneOrNone("select * from parties, roles where parties.id = roles.parties_id and roles.requestingunit=true and parties.contractingprocess_id=$1 limit 1", [cpid])
                     ]);
                 }).then(function (data) {
 
@@ -772,7 +785,8 @@ router.get('/contrato/:cpid/:stage',function (req, res) {
                         status: data[7],
                         quotes: data[8],
                         items: data[9],
-                        budgetBreakdown: data[10]
+                        budgetBreakdown: data[10],
+						requestingunit: data[11]
                     });
                 }).catch(function (error) {
                     console.log("ERROR: ", error);
@@ -795,11 +809,6 @@ router.get('/contrato/:cpid/:stage',function (req, res) {
 /* Gráfica: Contrataciones en el tiempo */
 
 router.post('/bubble-chart-data', function (req, res) {
-    /*var query = `select tender.contractingprocess_id, concat(substring(contract.title from 0 for 79), '...') as title, contract.datesigned,
-        (contract.period_enddate - contract.period_startdate) as vigencia, tender.procurementmethod_details, contract.value_amount
-        from contractingprocess, tender, contract
-        where  tender.contractingprocess_id = contractingprocess.id and tender.contractingprocess_id = contract.contractingprocess_id and
-        contract.period_startdate is not null and contract.period_enddate is not null and contract.datesigned is not null and tender.procurementmethod is not null`;*/
 
     var query = `select t.*
         from (select contractingprocess.id, tender.procurementmethod_details, tender.title as title,
@@ -813,8 +822,6 @@ router.post('/bubble-chart-data', function (req, res) {
         where t.datesigned is not null and t.vigencia is not null`
 
     if (req.body.year !== "" && req.body.year !== undefined) {
-        //query += " and date_part('year', contractingprocess.fecha_creacion) = $1";
-        //query += " and date_part('year', contract.datesigned) = $1";
         query += " and (select id from contract where contractingprocess_id = t.id and date_part('year', datesigned) = $1 limit 1) is not null";
     }
 
@@ -829,11 +836,6 @@ router.post('/bubble-chart-data', function (req, res) {
 /* Gráfica: Procedimiento de la contratación */
 
 router.post('/donut-chart-data', function (req, res) {
-    /*var query = `select tender.procurementmethod_details, sum(contract.exchangerate_amount),
-    concat(round(sum(contract.exchangerate_amount)/(select sum(exchangerate_amount) from contract) * 100, 1), '%') as percentage, count(*) as conteo
-    from contractingprocess, tender, contract
-    where tender.contractingprocess_id = contractingprocess.id and tender.contractingprocess_id = contract.contractingprocess_id and
-    tender.procurementmethod_details not like '' and tender.procurementmethod_details is not null`;*/
 
     var query = `select t.procurementmethod_details, count(*) as conteo, concat(round(sum(t.percentage), 1), '%') as percentage, sum(t.sum) as sum
     from (select tender.procurementmethod_details,
@@ -844,8 +846,7 @@ router.post('/donut-chart-data', function (req, res) {
         where tender.procurementmethod_details is not null and tender.procurementmethod_details != ''`;
 
     if (req.body.year !== "" && req.body.year !== undefined) {
-        //query += " and date_part('year', contractingprocess.fecha_creacion) = $1";
-        //query += " and date_part('year', contract.datesigned) = $1";
+
         query += " and (select id from contract where contractingprocess_id = contractingprocess.id and date_part('year', datesigned) = $1 limit 1) is not null";
     }
 
@@ -861,11 +862,6 @@ router.post('/donut-chart-data', function (req, res) {
 /* Gráfica: Destino de la contratación */
 
 router.post('/donut-chart2-data', function (req, res) {
-    /*var query = `select tender.additionalprocurementcategories, sum(contract.exchangerate_amount),
-    concat(round(sum(contract.exchangerate_amount)/(select sum(exchangerate_amount) from contract) * 100, 1), '%') as percentage, count(*) as conteo
-    from contractingprocess, tender, contract
-    where tender.contractingprocess_id = contractingprocess.id and tender.contractingprocess_id = contract.contractingprocess_id and
-    tender.additionalprocurementcategories not like '' and tender.additionalprocurementcategories is not null`;*/
 
     var query = `select t.additionalprocurementcategories, count(*) as conteo, concat(round(sum(t.percentage), 1), '%') as percentage, sum(t.sum) as sum
     from (select tender.additionalprocurementcategories,
@@ -876,8 +872,7 @@ router.post('/donut-chart2-data', function (req, res) {
         where tender.additionalprocurementcategories is not null and tender.additionalprocurementcategories != ''`;
 
     if (req.body.year !== "" && req.body.year !== undefined) {
-        //query += " and date_part('year', contractingprocess.fecha_creacion) = $1";
-        //query += " and date_part('year', contract.datesigned) = $1";
+
         query += " and (select id from contract where contractingprocess_id = contractingprocess.id and date_part('year', datesigned) = $1 limit 1) is not null";
     }
 
@@ -899,7 +894,6 @@ router.post('/stage-chart-data', function (req, res) {
         where 1 = 1`;
 
     if (req.body.year !== "" && req.body.year !== undefined) {
-        //query += " and date_part('year', contractingprocess.fecha_creacion) = $1";
         query += " and (select id from contract where contractingprocess_id = contractingprocess.id and date_part('year', datesigned) = $1 limit 1) is not null";
     }
 
@@ -918,7 +912,7 @@ router.post('/d3-bubble-chart-data', function (req, res) {
     var query = `select
     (select string_agg(partyid, '; ') from parties, roles where parties.id = roles.parties_id and roles.supplier = true and parties.contractingprocess_id = contractingprocess.id) as partyid,
     (select string_agg(name, '; ') from parties, roles where parties.id = roles.parties_id and roles.supplier = true and parties.contractingprocess_id = contractingprocess.id) as name,
-    (select string_agg(identifier_legalname, '; ') from parties, roles where parties.id = roles.parties_id and roles.buyer = true and parties.contractingprocess_id = contractingprocess.id) as identifier_legalname,
+    (select string_agg(identifier_legalname, '; ') from parties, roles where parties.id = roles.parties_id and roles.requestingunit = true and parties.contractingprocess_id = contractingprocess.id) as identifier_legalname,
     ocid, contract.title, tender.procurementmethod_details, tender.additionalprocurementcategories,
     concat(cast((DATE_PART('year', period_enddate) - DATE_PART('year', period_startdate)) * 12 + (DATE_PART('month', period_enddate) - DATE_PART('month', period_startdate)) as integer) / 12, ' año(s)') as vigencia,
     contract.exchangerate_amount, contract.contractingprocess_id as cpid
@@ -929,7 +923,6 @@ router.post('/d3-bubble-chart-data', function (req, res) {
     and (contract.period_enddate is not null and contract.period_startdate is not null)`;
 
     if (req.body.year !== "" && req.body.year !== undefined) {
-        //query += " and date_part('year', contractingprocess.fecha_creacion) = $1";
         query += " and date_part('year', contract.datesigned) = $1";
     }
 

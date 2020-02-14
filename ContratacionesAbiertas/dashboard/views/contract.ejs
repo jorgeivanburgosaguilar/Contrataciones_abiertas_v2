@@ -138,7 +138,55 @@ var indicador = generateIcons(status);
 
 	<style no-shim>
               
-        .navbar-default   { background-color: #FFFFFF; border: none; top: 70px; }
+        .navbar-default   { background-color: #FFFFFF; border: none; top: 158.5px; }
+        .menuTopBar{
+            text-align: center;
+            background-color: #00bfa5;
+            position: fixed;
+            z-index: 4;
+            top: 106.5px;
+            max-width: none;
+            width: 100%;
+            padding: 0 10% 0;
+        }
+
+        .menuTopBar a{
+            height: 52px;
+            text-decoration: none;
+            font-size: 15px;
+            vertical-align: middle;
+            color: #FFFFFF;
+        }
+        .menuTopBar .botonMenuTop:hover{
+            background-color: #008e76;
+        }
+        .menuTopBar .botonMenuTop{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background-color: #00bfa5;
+            color: #ffffff;
+        }
+        .marginContent{
+            margin-top: 50px;
+        }
+        @media (max-width: 991px) {
+            body {
+                margin: 150px 0 0;
+            }
+            .menuTopBarS{
+                padding: 0 0 0;
+                background-color: black;
+            }
+            .navbar-default{
+                margin-top: 0;
+            }
+            .marginContent{
+                margin-top: 0;
+            }
+        }
         
     </style>
 
@@ -148,6 +196,25 @@ var indicador = generateIcons(status);
     <body>
         <dgm-navbar></dgm-navbar>
          
+
+        <div class="menuTopBar menuTopBarS">
+                <div class="col-xs-3" style="padding: 0 0 0;">
+                    <a href="/contratacionesabiertas/contratos/" class="botonMenuTop">Inicio</a>
+                </div>
+                <div class="col-xs-3" style="padding: 0 0 0;">
+                    <a href="/contratacionesabiertas/politicadepublicacion" class="botonMenuTop">Política de publicación</a>
+                </div>
+                <div class="col-xs-3" style="padding: 0 0 0;">
+                    <a href="/contratacionesabiertas/implementa" class="botonMenuTop">Implementa el EDCA-MX</a>
+                </div>
+                <div class="col-xs-3" style="padding: 0 0 0;">
+                    <a href="https://datos.gob.mx/busca/organization/inai" class="botonMenuTop" target="_blank">Datos abiertos</a>
+                </div>
+        </div>
+
+
+
+
        <nav class="navbar navbar-default navbar-fixed-top hidden-sm hidden-xs">              
             <div class="container-fluid">   
                    		<ul class="breadcrumb">
@@ -160,7 +227,7 @@ var indicador = generateIcons(status);
         
         
         <br>
-        <div class="container">
+        <div class="container marginContent">
             <div class="row">
                 <div id="contract-sidebar" class="col-md-4 col-sm-4 col-xs-12 sidebar">
                     <div class="info">
@@ -247,7 +314,7 @@ var indicador = generateIcons(status);
         <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
         <script>
             // Token de acceso para utilizar mapbox
-            const MAPBOX_TOKEN = "<%= process.env.MAPTOKEN || 'pk.eyJ1IjoiZGFya3RpbGluIiwiYSI6ImNqcHppYThxMzBjYTc0NW14cWkwcngzMGoifQ.k_XR1BRighy6BNdENDfMIA' %>";
+            const MAPBOX_TOKEN = "<%= process.env.MAPTOKEN || 'pk.eyJ1IjoiamFtZzE0IiwiYSI6ImNqdTM4cW04aDBrbnQ0NG83ZnM4cWVnOGgifQ.d6L_McpNmO9s_MsPk5loOw' %>";
         </script>
         <script src="/contratacionesabiertas/static/javascripts/mapbox.js"></script>
         <script type="text/javascript">

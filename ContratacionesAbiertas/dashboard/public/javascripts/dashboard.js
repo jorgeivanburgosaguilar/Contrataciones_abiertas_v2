@@ -9,15 +9,7 @@ $(document).ready(function () {
         }, function (data) {
 
             var newData = [];
-            /*var colors = [
-                '#953579',  // Adhesiones y membresías (morado oscuro)
-                '#00cc99',  // Adjudicación directa Art 41           (verde)  
-                'gray', 	// Adjudicación directa Art 42           (gris)
-                '#00BFFF',  // Convenio de colaboración   (azul)
-                '#ff6600',  // Excepción al reglamento               (naranja)      			
-                '#663399',  // Invitación a cuando menos 3 personas  (morado)
-                '#ffcc00'   // Licitacion pública                    (amarillo)
-            ];*/
+
             var colors = [];
 
             if (data.length > 0) {
@@ -108,13 +100,7 @@ $(document).ready(function () {
         }, function (data) {
 
             var newData = [];
-            /*var colors = [
-                '#00cc99',  // Adquisición de bienes                        (verde)  
-                '#00BFFF',  // Obras públicas                               (azul)
-                '#ff6600',  // Servicios                                    (naranja)      			
-                '#663399',  // Arrendamiento de bienes                      (morado)
-                '#ffcc00'   // Servicios relacionados con obras públicas    (amarillo)
-            ];*/
+
             var colors = [];
 
             if (data.length > 0) {
@@ -237,17 +223,6 @@ $(document).ready(function () {
                         autoscale: true
                     }
                 },
-                /*legend: {
-                    renderer: ff.EnhancedLegendRenderer,
-                    show: true,
-                    placement: 'outsideGrid',
-                    location: 's',
-                    rendererOptions: {
-                        numberRows: '1',
-                        numberColumns: '5'
-                    },
-                    seriesToggle: true
-                },*/
                 grid: {
                     drawBorder: false,
                     drawGridLines: true,

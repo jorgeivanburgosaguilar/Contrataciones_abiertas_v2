@@ -27,10 +27,16 @@
 </div>
 
 <div class="row contract-stats">
-    <div class="col-md-12">
+    <div class="col-md-7">
         <p class="small">Comprador</p>
         <p class="semi-bold">
             <%= buyer !== null ? buyer.identifier_legalname : "No disponible" %>
+        </p>
+    </div>
+	<div class="col-md-5">
+        <p class="small">Área requirente</p>
+        <p class="semi-bold">
+            <%= requestingunit !== null ? requestingunit.identifier_legalname: "No disponible" %>
         </p>
     </div>
 </div>
