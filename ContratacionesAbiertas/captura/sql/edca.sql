@@ -49,7 +49,7 @@ trigger_timing_ text;
 trigger_events_ text; 
 trigger_orientation_ text;
 trigger_action_ text;
-owner_ text := 'user_front';
+owner_ text := 'prueba_dashboard';
 BEGIN
 	-- replace existing schema
 	EXECUTE 'DROP SCHEMA IF EXISTS ' || dest_schema || ' CASCADE';
@@ -129,7 +129,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: additionalcontactpoints; Type: TABLE; Schema: public; Owner: user_back
+-- Name: additionalcontactpoints; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.additionalcontactpoints (
@@ -148,10 +148,10 @@ CREATE TABLE public.additionalcontactpoints (
 );
 
 
-ALTER TABLE public.additionalcontactpoints OWNER TO user_back;
+ALTER TABLE public.additionalcontactpoints OWNER TO prueba_captura;
 
 --
--- Name: additionalcontactpoints_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: additionalcontactpoints_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.additionalcontactpoints_id_seq
@@ -162,17 +162,17 @@ CREATE SEQUENCE public.additionalcontactpoints_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.additionalcontactpoints_id_seq OWNER TO user_back;
+ALTER TABLE public.additionalcontactpoints_id_seq OWNER TO prueba_captura;
 
 --
--- Name: additionalcontactpoints_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: additionalcontactpoints_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.additionalcontactpoints_id_seq OWNED BY public.additionalcontactpoints.id;
 
 
 --
--- Name: award; Type: TABLE; Schema: public; Owner: user_back
+-- Name: award; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.award (
@@ -195,10 +195,10 @@ CREATE TABLE public.award (
 );
 
 
-ALTER TABLE public.award OWNER TO user_back;
+ALTER TABLE public.award OWNER TO prueba_captura;
 
 --
--- Name: award_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: award_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.award_id_seq
@@ -209,17 +209,17 @@ CREATE SEQUENCE public.award_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.award_id_seq OWNER TO user_back;
+ALTER TABLE public.award_id_seq OWNER TO prueba_captura;
 
 --
--- Name: award_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: award_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.award_id_seq OWNED BY public.award.id;
 
 
 --
--- Name: awardamendmentchanges; Type: TABLE; Schema: public; Owner: user_back
+-- Name: awardamendmentchanges; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.awardamendmentchanges (
@@ -235,10 +235,10 @@ CREATE TABLE public.awardamendmentchanges (
 );
 
 
-ALTER TABLE public.awardamendmentchanges OWNER TO user_back;
+ALTER TABLE public.awardamendmentchanges OWNER TO prueba_captura;
 
 --
--- Name: awardamendmentchanges_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: awardamendmentchanges_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.awardamendmentchanges_id_seq
@@ -249,17 +249,17 @@ CREATE SEQUENCE public.awardamendmentchanges_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.awardamendmentchanges_id_seq OWNER TO user_back;
+ALTER TABLE public.awardamendmentchanges_id_seq OWNER TO prueba_captura;
 
 --
--- Name: awardamendmentchanges_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: awardamendmentchanges_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.awardamendmentchanges_id_seq OWNED BY public.awardamendmentchanges.id;
 
 
 --
--- Name: awarddocuments; Type: TABLE; Schema: public; Owner: user_back
+-- Name: awarddocuments; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.awarddocuments (
@@ -278,10 +278,10 @@ CREATE TABLE public.awarddocuments (
 );
 
 
-ALTER TABLE public.awarddocuments OWNER TO user_back;
+ALTER TABLE public.awarddocuments OWNER TO prueba_captura;
 
 --
--- Name: awarddocuments_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: awarddocuments_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.awarddocuments_id_seq
@@ -292,17 +292,17 @@ CREATE SEQUENCE public.awarddocuments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.awarddocuments_id_seq OWNER TO user_back;
+ALTER TABLE public.awarddocuments_id_seq OWNER TO prueba_captura;
 
 --
--- Name: awarddocuments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: awarddocuments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.awarddocuments_id_seq OWNED BY public.awarddocuments.id;
 
 
 --
--- Name: awarditem; Type: TABLE; Schema: public; Owner: user_back
+-- Name: awarditem; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.awarditem (
@@ -330,10 +330,10 @@ CREATE TABLE public.awarditem (
 );
 
 
-ALTER TABLE public.awarditem OWNER TO user_back;
+ALTER TABLE public.awarditem OWNER TO prueba_captura;
 
 --
--- Name: awarditem_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: awarditem_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.awarditem_id_seq
@@ -344,17 +344,17 @@ CREATE SEQUENCE public.awarditem_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.awarditem_id_seq OWNER TO user_back;
+ALTER TABLE public.awarditem_id_seq OWNER TO prueba_captura;
 
 --
--- Name: awarditem_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: awarditem_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.awarditem_id_seq OWNED BY public.awarditem.id;
 
 
 --
--- Name: awarditemadditionalclassifications; Type: TABLE; Schema: public; Owner: user_back
+-- Name: awarditemadditionalclassifications; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.awarditemadditionalclassifications (
@@ -367,10 +367,10 @@ CREATE TABLE public.awarditemadditionalclassifications (
 );
 
 
-ALTER TABLE public.awarditemadditionalclassifications OWNER TO user_back;
+ALTER TABLE public.awarditemadditionalclassifications OWNER TO prueba_captura;
 
 --
--- Name: awarditemadditionalclassifications_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: awarditemadditionalclassifications_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.awarditemadditionalclassifications_id_seq
@@ -381,17 +381,17 @@ CREATE SEQUENCE public.awarditemadditionalclassifications_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.awarditemadditionalclassifications_id_seq OWNER TO user_back;
+ALTER TABLE public.awarditemadditionalclassifications_id_seq OWNER TO prueba_captura;
 
 --
--- Name: awarditemadditionalclassifications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: awarditemadditionalclassifications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.awarditemadditionalclassifications_id_seq OWNED BY public.awarditemadditionalclassifications.id;
 
 
 --
--- Name: awardsupplier; Type: TABLE; Schema: public; Owner: user_back
+-- Name: awardsupplier; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.awardsupplier (
@@ -401,10 +401,10 @@ CREATE TABLE public.awardsupplier (
 );
 
 
-ALTER TABLE public.awardsupplier OWNER TO user_back;
+ALTER TABLE public.awardsupplier OWNER TO prueba_captura;
 
 --
--- Name: awardsupplier_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: awardsupplier_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.awardsupplier_id_seq
@@ -415,17 +415,17 @@ CREATE SEQUENCE public.awardsupplier_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.awardsupplier_id_seq OWNER TO user_back;
+ALTER TABLE public.awardsupplier_id_seq OWNER TO prueba_captura;
 
 --
--- Name: awardsupplier_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: awardsupplier_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.awardsupplier_id_seq OWNED BY public.awardsupplier.id;
 
 
 --
--- Name: budget; Type: TABLE; Schema: public; Owner: user_back
+-- Name: budget; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.budget (
@@ -443,10 +443,10 @@ CREATE TABLE public.budget (
 );
 
 
-ALTER TABLE public.budget OWNER TO user_back;
+ALTER TABLE public.budget OWNER TO prueba_captura;
 
 --
--- Name: budget_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: budget_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.budget_id_seq
@@ -457,17 +457,17 @@ CREATE SEQUENCE public.budget_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.budget_id_seq OWNER TO user_back;
+ALTER TABLE public.budget_id_seq OWNER TO prueba_captura;
 
 --
--- Name: budget_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: budget_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.budget_id_seq OWNED BY public.budget.id;
 
 
 --
--- Name: budgetbreakdown; Type: TABLE; Schema: public; Owner: user_back
+-- Name: budgetbreakdown; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.budgetbreakdown (
@@ -485,10 +485,10 @@ CREATE TABLE public.budgetbreakdown (
 );
 
 
-ALTER TABLE public.budgetbreakdown OWNER TO user_back;
+ALTER TABLE public.budgetbreakdown OWNER TO prueba_captura;
 
 --
--- Name: budgetbreakdown_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: budgetbreakdown_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.budgetbreakdown_id_seq
@@ -499,17 +499,17 @@ CREATE SEQUENCE public.budgetbreakdown_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.budgetbreakdown_id_seq OWNER TO user_back;
+ALTER TABLE public.budgetbreakdown_id_seq OWNER TO prueba_captura;
 
 --
--- Name: budgetbreakdown_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: budgetbreakdown_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.budgetbreakdown_id_seq OWNED BY public.budgetbreakdown.id;
 
 
 --
--- Name: budgetclassifications; Type: TABLE; Schema: public; Owner: user_back
+-- Name: budgetclassifications; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.budgetclassifications (
@@ -540,10 +540,10 @@ CREATE TABLE public.budgetclassifications (
 );
 
 
-ALTER TABLE public.budgetclassifications OWNER TO user_back;
+ALTER TABLE public.budgetclassifications OWNER TO prueba_captura;
 
 --
--- Name: budgetclassifications_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: budgetclassifications_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.budgetclassifications_id_seq
@@ -554,17 +554,17 @@ CREATE SEQUENCE public.budgetclassifications_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.budgetclassifications_id_seq OWNER TO user_back;
+ALTER TABLE public.budgetclassifications_id_seq OWNER TO prueba_captura;
 
 --
--- Name: budgetclassifications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: budgetclassifications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.budgetclassifications_id_seq OWNED BY public.budgetclassifications.id;
 
 
 --
--- Name: clarificationmeeting; Type: TABLE; Schema: public; Owner: user_back
+-- Name: clarificationmeeting; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.clarificationmeeting (
@@ -575,10 +575,10 @@ CREATE TABLE public.clarificationmeeting (
 );
 
 
-ALTER TABLE public.clarificationmeeting OWNER TO user_back;
+ALTER TABLE public.clarificationmeeting OWNER TO prueba_captura;
 
 --
--- Name: clarificationmeeting_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: clarificationmeeting_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.clarificationmeeting_id_seq
@@ -589,17 +589,17 @@ CREATE SEQUENCE public.clarificationmeeting_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.clarificationmeeting_id_seq OWNER TO user_back;
+ALTER TABLE public.clarificationmeeting_id_seq OWNER TO prueba_captura;
 
 --
--- Name: clarificationmeeting_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: clarificationmeeting_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.clarificationmeeting_id_seq OWNED BY public.clarificationmeeting.id;
 
 
 --
--- Name: clarificationmeetingactor; Type: TABLE; Schema: public; Owner: user_back
+-- Name: clarificationmeetingactor; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.clarificationmeetingactor (
@@ -611,10 +611,10 @@ CREATE TABLE public.clarificationmeetingactor (
 );
 
 
-ALTER TABLE public.clarificationmeetingactor OWNER TO user_back;
+ALTER TABLE public.clarificationmeetingactor OWNER TO prueba_captura;
 
 --
--- Name: clarificationmeetingactor_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: clarificationmeetingactor_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.clarificationmeetingactor_id_seq
@@ -625,17 +625,17 @@ CREATE SEQUENCE public.clarificationmeetingactor_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.clarificationmeetingactor_id_seq OWNER TO user_back;
+ALTER TABLE public.clarificationmeetingactor_id_seq OWNER TO prueba_captura;
 
 --
--- Name: clarificationmeetingactor_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: clarificationmeetingactor_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.clarificationmeetingactor_id_seq OWNED BY public.clarificationmeetingactor.id;
 
 
 --
--- Name: contract; Type: TABLE; Schema: public; Owner: user_back
+-- Name: contract; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.contract (
@@ -664,10 +664,10 @@ CREATE TABLE public.contract (
 );
 
 
-ALTER TABLE public.contract OWNER TO user_back;
+ALTER TABLE public.contract OWNER TO prueba_captura;
 
 --
--- Name: contract_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: contract_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.contract_id_seq
@@ -678,17 +678,17 @@ CREATE SEQUENCE public.contract_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.contract_id_seq OWNER TO user_back;
+ALTER TABLE public.contract_id_seq OWNER TO prueba_captura;
 
 --
--- Name: contract_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: contract_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.contract_id_seq OWNED BY public.contract.id;
 
 
 --
--- Name: contractamendmentchanges; Type: TABLE; Schema: public; Owner: user_back
+-- Name: contractamendmentchanges; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.contractamendmentchanges (
@@ -702,10 +702,10 @@ CREATE TABLE public.contractamendmentchanges (
 );
 
 
-ALTER TABLE public.contractamendmentchanges OWNER TO user_back;
+ALTER TABLE public.contractamendmentchanges OWNER TO prueba_captura;
 
 --
--- Name: contractamendmentchanges_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: contractamendmentchanges_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.contractamendmentchanges_id_seq
@@ -716,17 +716,17 @@ CREATE SEQUENCE public.contractamendmentchanges_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.contractamendmentchanges_id_seq OWNER TO user_back;
+ALTER TABLE public.contractamendmentchanges_id_seq OWNER TO prueba_captura;
 
 --
--- Name: contractamendmentchanges_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: contractamendmentchanges_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.contractamendmentchanges_id_seq OWNED BY public.contractamendmentchanges.id;
 
 
 --
--- Name: contractdocuments; Type: TABLE; Schema: public; Owner: user_back
+-- Name: contractdocuments; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.contractdocuments (
@@ -745,10 +745,10 @@ CREATE TABLE public.contractdocuments (
 );
 
 
-ALTER TABLE public.contractdocuments OWNER TO user_back;
+ALTER TABLE public.contractdocuments OWNER TO prueba_captura;
 
 --
--- Name: contractdocuments_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: contractdocuments_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.contractdocuments_id_seq
@@ -759,17 +759,17 @@ CREATE SEQUENCE public.contractdocuments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.contractdocuments_id_seq OWNER TO user_back;
+ALTER TABLE public.contractdocuments_id_seq OWNER TO prueba_captura;
 
 --
--- Name: contractdocuments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: contractdocuments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.contractdocuments_id_seq OWNED BY public.contractdocuments.id;
 
 
 --
--- Name: contractingprocess; Type: TABLE; Schema: public; Owner: user_back
+-- Name: contractingprocess; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.contractingprocess (
@@ -802,10 +802,10 @@ CREATE TABLE public.contractingprocess (
 );
 
 
-ALTER TABLE public.contractingprocess OWNER TO user_back;
+ALTER TABLE public.contractingprocess OWNER TO prueba_captura;
 
 --
--- Name: contractingprocess_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: contractingprocess_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.contractingprocess_id_seq
@@ -816,17 +816,17 @@ CREATE SEQUENCE public.contractingprocess_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.contractingprocess_id_seq OWNER TO user_back;
+ALTER TABLE public.contractingprocess_id_seq OWNER TO prueba_captura;
 
 --
--- Name: contractingprocess_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: contractingprocess_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.contractingprocess_id_seq OWNED BY public.contractingprocess.id;
 
 
 --
--- Name: contractitem; Type: TABLE; Schema: public; Owner: user_back
+-- Name: contractitem; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.contractitem (
@@ -854,10 +854,10 @@ CREATE TABLE public.contractitem (
 );
 
 
-ALTER TABLE public.contractitem OWNER TO user_back;
+ALTER TABLE public.contractitem OWNER TO prueba_captura;
 
 --
--- Name: contractitem_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: contractitem_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.contractitem_id_seq
@@ -868,17 +868,17 @@ CREATE SEQUENCE public.contractitem_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.contractitem_id_seq OWNER TO user_back;
+ALTER TABLE public.contractitem_id_seq OWNER TO prueba_captura;
 
 --
--- Name: contractitem_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: contractitem_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.contractitem_id_seq OWNED BY public.contractitem.id;
 
 
 --
--- Name: contractitemadditionalclasifications; Type: TABLE; Schema: public; Owner: user_back
+-- Name: contractitemadditionalclasifications; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.contractitemadditionalclasifications (
@@ -892,10 +892,10 @@ CREATE TABLE public.contractitemadditionalclasifications (
 );
 
 
-ALTER TABLE public.contractitemadditionalclasifications OWNER TO user_back;
+ALTER TABLE public.contractitemadditionalclasifications OWNER TO prueba_captura;
 
 --
--- Name: contractitemadditionalclasifications_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: contractitemadditionalclasifications_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.contractitemadditionalclasifications_id_seq
@@ -906,17 +906,17 @@ CREATE SEQUENCE public.contractitemadditionalclasifications_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.contractitemadditionalclasifications_id_seq OWNER TO user_back;
+ALTER TABLE public.contractitemadditionalclasifications_id_seq OWNER TO prueba_captura;
 
 --
--- Name: contractitemadditionalclasifications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: contractitemadditionalclasifications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.contractitemadditionalclasifications_id_seq OWNED BY public.contractitemadditionalclasifications.id;
 
 
 --
--- Name: currency; Type: TABLE; Schema: public; Owner: user_back
+-- Name: currency; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.currency (
@@ -930,10 +930,10 @@ CREATE TABLE public.currency (
 );
 
 
-ALTER TABLE public.currency OWNER TO user_back;
+ALTER TABLE public.currency OWNER TO prueba_captura;
 
 --
--- Name: currency_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: currency_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.currency_id_seq
@@ -944,17 +944,17 @@ CREATE SEQUENCE public.currency_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.currency_id_seq OWNER TO user_back;
+ALTER TABLE public.currency_id_seq OWNER TO prueba_captura;
 
 --
--- Name: currency_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: currency_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.currency_id_seq OWNED BY public.currency.id;
 
 
 --
--- Name: documentformat; Type: TABLE; Schema: public; Owner: user_back
+-- Name: documentformat; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.documentformat (
@@ -966,10 +966,10 @@ CREATE TABLE public.documentformat (
 );
 
 
-ALTER TABLE public.documentformat OWNER TO user_back;
+ALTER TABLE public.documentformat OWNER TO prueba_captura;
 
 --
--- Name: documentformat_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: documentformat_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.documentformat_id_seq
@@ -980,17 +980,17 @@ CREATE SEQUENCE public.documentformat_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.documentformat_id_seq OWNER TO user_back;
+ALTER TABLE public.documentformat_id_seq OWNER TO prueba_captura;
 
 --
--- Name: documentformat_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: documentformat_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.documentformat_id_seq OWNED BY public.documentformat.id;
 
 
 --
--- Name: documentmanagement; Type: TABLE; Schema: public; Owner: user_back
+-- Name: documentmanagement; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.documentmanagement (
@@ -1004,10 +1004,10 @@ CREATE TABLE public.documentmanagement (
 );
 
 
-ALTER TABLE public.documentmanagement OWNER TO user_back;
+ALTER TABLE public.documentmanagement OWNER TO prueba_captura;
 
 --
--- Name: documentmanagement_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: documentmanagement_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.documentmanagement_id_seq
@@ -1018,17 +1018,17 @@ CREATE SEQUENCE public.documentmanagement_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.documentmanagement_id_seq OWNER TO user_back;
+ALTER TABLE public.documentmanagement_id_seq OWNER TO prueba_captura;
 
 --
--- Name: documentmanagement_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: documentmanagement_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.documentmanagement_id_seq OWNED BY public.documentmanagement.id;
 
 
 --
--- Name: documenttype; Type: TABLE; Schema: public; Owner: user_back
+-- Name: documenttype; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.documenttype (
@@ -1043,10 +1043,10 @@ CREATE TABLE public.documenttype (
 );
 
 
-ALTER TABLE public.documenttype OWNER TO user_back;
+ALTER TABLE public.documenttype OWNER TO prueba_captura;
 
 --
--- Name: documenttype_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: documenttype_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.documenttype_id_seq
@@ -1057,17 +1057,17 @@ CREATE SEQUENCE public.documenttype_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.documenttype_id_seq OWNER TO user_back;
+ALTER TABLE public.documenttype_id_seq OWNER TO prueba_captura;
 
 --
--- Name: documenttype_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: documenttype_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.documenttype_id_seq OWNED BY public.documenttype.id;
 
 
 --
--- Name: gdmx_dictionary; Type: TABLE; Schema: public; Owner: user_back
+-- Name: gdmx_dictionary; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.gdmx_dictionary (
@@ -1086,10 +1086,10 @@ CREATE TABLE public.gdmx_dictionary (
 );
 
 
-ALTER TABLE public.gdmx_dictionary OWNER TO user_back;
+ALTER TABLE public.gdmx_dictionary OWNER TO prueba_captura;
 
 --
--- Name: gdmx_dictionary_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: gdmx_dictionary_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.gdmx_dictionary_id_seq
@@ -1100,17 +1100,17 @@ CREATE SEQUENCE public.gdmx_dictionary_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.gdmx_dictionary_id_seq OWNER TO user_back;
+ALTER TABLE public.gdmx_dictionary_id_seq OWNER TO prueba_captura;
 
 --
--- Name: gdmx_dictionary_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: gdmx_dictionary_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.gdmx_dictionary_id_seq OWNED BY public.gdmx_dictionary.id;
 
 
 --
--- Name: gdmx_document; Type: TABLE; Schema: public; Owner: user_back
+-- Name: gdmx_document; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.gdmx_document (
@@ -1127,10 +1127,10 @@ CREATE TABLE public.gdmx_document (
 );
 
 
-ALTER TABLE public.gdmx_document OWNER TO user_back;
+ALTER TABLE public.gdmx_document OWNER TO prueba_captura;
 
 --
--- Name: gdmx_document_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: gdmx_document_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.gdmx_document_id_seq
@@ -1142,17 +1142,17 @@ CREATE SEQUENCE public.gdmx_document_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.gdmx_document_id_seq OWNER TO user_back;
+ALTER TABLE public.gdmx_document_id_seq OWNER TO prueba_captura;
 
 --
--- Name: gdmx_document_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: gdmx_document_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.gdmx_document_id_seq OWNED BY public.gdmx_document.id;
 
 
 --
--- Name: guarantees; Type: TABLE; Schema: public; Owner: user_back
+-- Name: guarantees; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.guarantees (
@@ -1171,10 +1171,10 @@ CREATE TABLE public.guarantees (
 );
 
 
-ALTER TABLE public.guarantees OWNER TO user_back;
+ALTER TABLE public.guarantees OWNER TO prueba_captura;
 
 --
--- Name: guarantees_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: guarantees_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.guarantees_id_seq
@@ -1185,17 +1185,17 @@ CREATE SEQUENCE public.guarantees_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.guarantees_id_seq OWNER TO user_back;
+ALTER TABLE public.guarantees_id_seq OWNER TO prueba_captura;
 
 --
--- Name: guarantees_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: guarantees_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.guarantees_id_seq OWNED BY public.guarantees.id;
 
 
 --
--- Name: implementation; Type: TABLE; Schema: public; Owner: user_back
+-- Name: implementation; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.implementation (
@@ -1207,10 +1207,10 @@ CREATE TABLE public.implementation (
 );
 
 
-ALTER TABLE public.implementation OWNER TO user_back;
+ALTER TABLE public.implementation OWNER TO prueba_captura;
 
 --
--- Name: implementation_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: implementation_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.implementation_id_seq
@@ -1221,17 +1221,17 @@ CREATE SEQUENCE public.implementation_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.implementation_id_seq OWNER TO user_back;
+ALTER TABLE public.implementation_id_seq OWNER TO prueba_captura;
 
 --
--- Name: implementation_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: implementation_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.implementation_id_seq OWNED BY public.implementation.id;
 
 
 --
--- Name: implementationdocuments; Type: TABLE; Schema: public; Owner: user_back
+-- Name: implementationdocuments; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.implementationdocuments (
@@ -1251,10 +1251,10 @@ CREATE TABLE public.implementationdocuments (
 );
 
 
-ALTER TABLE public.implementationdocuments OWNER TO user_back;
+ALTER TABLE public.implementationdocuments OWNER TO prueba_captura;
 
 --
--- Name: implementationdocuments_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: implementationdocuments_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.implementationdocuments_id_seq
@@ -1265,17 +1265,17 @@ CREATE SEQUENCE public.implementationdocuments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.implementationdocuments_id_seq OWNER TO user_back;
+ALTER TABLE public.implementationdocuments_id_seq OWNER TO prueba_captura;
 
 --
--- Name: implementationdocuments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: implementationdocuments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.implementationdocuments_id_seq OWNED BY public.implementationdocuments.id;
 
 
 --
--- Name: implementationmilestone; Type: TABLE; Schema: public; Owner: user_back
+-- Name: implementationmilestone; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.implementationmilestone (
@@ -1293,10 +1293,10 @@ CREATE TABLE public.implementationmilestone (
 );
 
 
-ALTER TABLE public.implementationmilestone OWNER TO user_back;
+ALTER TABLE public.implementationmilestone OWNER TO prueba_captura;
 
 --
--- Name: implementationmilestone_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: implementationmilestone_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.implementationmilestone_id_seq
@@ -1307,17 +1307,17 @@ CREATE SEQUENCE public.implementationmilestone_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.implementationmilestone_id_seq OWNER TO user_back;
+ALTER TABLE public.implementationmilestone_id_seq OWNER TO prueba_captura;
 
 --
--- Name: implementationmilestone_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: implementationmilestone_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.implementationmilestone_id_seq OWNED BY public.implementationmilestone.id;
 
 
 --
--- Name: implementationmilestonedocuments; Type: TABLE; Schema: public; Owner: user_back
+-- Name: implementationmilestonedocuments; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.implementationmilestonedocuments (
@@ -1337,10 +1337,10 @@ CREATE TABLE public.implementationmilestonedocuments (
 );
 
 
-ALTER TABLE public.implementationmilestonedocuments OWNER TO user_back;
+ALTER TABLE public.implementationmilestonedocuments OWNER TO prueba_captura;
 
 --
--- Name: implementationmilestonedocuments_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: implementationmilestonedocuments_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.implementationmilestonedocuments_id_seq
@@ -1351,17 +1351,17 @@ CREATE SEQUENCE public.implementationmilestonedocuments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.implementationmilestonedocuments_id_seq OWNER TO user_back;
+ALTER TABLE public.implementationmilestonedocuments_id_seq OWNER TO prueba_captura;
 
 --
--- Name: implementationmilestonedocuments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: implementationmilestonedocuments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.implementationmilestonedocuments_id_seq OWNED BY public.implementationmilestonedocuments.id;
 
 
 --
--- Name: implementationstatus; Type: TABLE; Schema: public; Owner: user_back
+-- Name: implementationstatus; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.implementationstatus (
@@ -1373,10 +1373,10 @@ CREATE TABLE public.implementationstatus (
 );
 
 
-ALTER TABLE public.implementationstatus OWNER TO user_back;
+ALTER TABLE public.implementationstatus OWNER TO prueba_captura;
 
 --
--- Name: implementationstatus_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: implementationstatus_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.implementationstatus_id_seq
@@ -1387,17 +1387,17 @@ CREATE SEQUENCE public.implementationstatus_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.implementationstatus_id_seq OWNER TO user_back;
+ALTER TABLE public.implementationstatus_id_seq OWNER TO prueba_captura;
 
 --
--- Name: implementationstatus_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: implementationstatus_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.implementationstatus_id_seq OWNED BY public.implementationstatus.id;
 
 
 --
--- Name: implementationtransactions; Type: TABLE; Schema: public; Owner: user_back
+-- Name: implementationtransactions; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.implementationtransactions (
@@ -1420,10 +1420,10 @@ CREATE TABLE public.implementationtransactions (
 );
 
 
-ALTER TABLE public.implementationtransactions OWNER TO user_back;
+ALTER TABLE public.implementationtransactions OWNER TO prueba_captura;
 
 --
--- Name: implementationtransactions_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: implementationtransactions_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.implementationtransactions_id_seq
@@ -1434,17 +1434,17 @@ CREATE SEQUENCE public.implementationtransactions_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.implementationtransactions_id_seq OWNER TO user_back;
+ALTER TABLE public.implementationtransactions_id_seq OWNER TO prueba_captura;
 
 --
--- Name: implementationtransactions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: implementationtransactions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.implementationtransactions_id_seq OWNED BY public.implementationtransactions.id;
 
 
 --
--- Name: item; Type: TABLE; Schema: public; Owner: user_back
+-- Name: item; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.item (
@@ -1455,10 +1455,10 @@ CREATE TABLE public.item (
 );
 
 
-ALTER TABLE public.item OWNER TO user_back;
+ALTER TABLE public.item OWNER TO prueba_captura;
 
 --
--- Name: item_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: item_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.item_id_seq
@@ -1469,17 +1469,17 @@ CREATE SEQUENCE public.item_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.item_id_seq OWNER TO user_back;
+ALTER TABLE public.item_id_seq OWNER TO prueba_captura;
 
 --
--- Name: item_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: item_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.item_id_seq OWNED BY public.item.id;
 
 
 --
--- Name: language; Type: TABLE; Schema: public; Owner: user_back
+-- Name: language; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.language (
@@ -1489,10 +1489,10 @@ CREATE TABLE public.language (
 );
 
 
-ALTER TABLE public.language OWNER TO user_back;
+ALTER TABLE public.language OWNER TO prueba_captura;
 
 --
--- Name: language_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: language_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.language_id_seq
@@ -1503,17 +1503,17 @@ CREATE SEQUENCE public.language_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.language_id_seq OWNER TO user_back;
+ALTER TABLE public.language_id_seq OWNER TO prueba_captura;
 
 --
--- Name: language_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: language_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.language_id_seq OWNED BY public.language.id;
 
 
 --
--- Name: links; Type: TABLE; Schema: public; Owner: user_back
+-- Name: links; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.links (
@@ -1525,10 +1525,10 @@ CREATE TABLE public.links (
 );
 
 
-ALTER TABLE public.links OWNER TO user_back;
+ALTER TABLE public.links OWNER TO prueba_captura;
 
 --
--- Name: links_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: links_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.links_id_seq
@@ -1539,17 +1539,17 @@ CREATE SEQUENCE public.links_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.links_id_seq OWNER TO user_back;
+ALTER TABLE public.links_id_seq OWNER TO prueba_captura;
 
 --
--- Name: links_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: links_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.links_id_seq OWNED BY public.links.id;
 
 
 --
--- Name: log_gdmx; Type: TABLE; Schema: public; Owner: user_back
+-- Name: log_gdmx; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.log_gdmx (
@@ -1561,10 +1561,10 @@ CREATE TABLE public.log_gdmx (
 );
 
 
-ALTER TABLE public.log_gdmx OWNER TO user_back;
+ALTER TABLE public.log_gdmx OWNER TO prueba_captura;
 
 --
--- Name: log_gdmx_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: log_gdmx_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.log_gdmx_id_seq
@@ -1575,17 +1575,17 @@ CREATE SEQUENCE public.log_gdmx_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.log_gdmx_id_seq OWNER TO user_back;
+ALTER TABLE public.log_gdmx_id_seq OWNER TO prueba_captura;
 
 --
--- Name: log_gdmx_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: log_gdmx_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.log_gdmx_id_seq OWNED BY public.log_gdmx.id;
 
 
 --
--- Name: logs; Type: TABLE; Schema: public; Owner: user_back
+-- Name: logs; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.logs (
@@ -1602,10 +1602,10 @@ CREATE TABLE public.logs (
 );
 
 
-ALTER TABLE public.logs OWNER TO user_back;
+ALTER TABLE public.logs OWNER TO prueba_captura;
 
 --
--- Name: logs_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: logs_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.logs_id_seq
@@ -1616,17 +1616,17 @@ CREATE SEQUENCE public.logs_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.logs_id_seq OWNER TO user_back;
+ALTER TABLE public.logs_id_seq OWNER TO prueba_captura;
 
 --
--- Name: logs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: logs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.logs_id_seq OWNED BY public.logs.id;
 
 
 --
--- Name: memberof; Type: TABLE; Schema: public; Owner: user_back
+-- Name: memberof; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.memberof (
@@ -1637,10 +1637,10 @@ CREATE TABLE public.memberof (
 );
 
 
-ALTER TABLE public.memberof OWNER TO user_back;
+ALTER TABLE public.memberof OWNER TO prueba_captura;
 
 --
--- Name: memberof_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: memberof_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.memberof_id_seq
@@ -1651,17 +1651,17 @@ CREATE SEQUENCE public.memberof_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.memberof_id_seq OWNER TO user_back;
+ALTER TABLE public.memberof_id_seq OWNER TO prueba_captura;
 
 --
--- Name: memberof_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: memberof_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.memberof_id_seq OWNED BY public.memberof.id;
 
 
 --
--- Name: metadata; Type: TABLE; Schema: public; Owner: user_back
+-- Name: metadata; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.metadata (
@@ -1670,10 +1670,10 @@ CREATE TABLE public.metadata (
 );
 
 
-ALTER TABLE public.metadata OWNER TO user_back;
+ALTER TABLE public.metadata OWNER TO prueba_captura;
 
 --
--- Name: milestonetype; Type: TABLE; Schema: public; Owner: user_back
+-- Name: milestonetype; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.milestonetype (
@@ -1684,10 +1684,10 @@ CREATE TABLE public.milestonetype (
 );
 
 
-ALTER TABLE public.milestonetype OWNER TO user_back;
+ALTER TABLE public.milestonetype OWNER TO prueba_captura;
 
 --
--- Name: milestonetype_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: milestonetype_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.milestonetype_id_seq
@@ -1698,17 +1698,17 @@ CREATE SEQUENCE public.milestonetype_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.milestonetype_id_seq OWNER TO user_back;
+ALTER TABLE public.milestonetype_id_seq OWNER TO prueba_captura;
 
 --
--- Name: milestonetype_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: milestonetype_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.milestonetype_id_seq OWNED BY public.milestonetype.id;
 
 
 --
--- Name: parties; Type: TABLE; Schema: public; Owner: user_back
+-- Name: parties; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.parties (
@@ -1744,10 +1744,10 @@ CREATE TABLE public.parties (
 );
 
 
-ALTER TABLE public.parties OWNER TO user_back;
+ALTER TABLE public.parties OWNER TO prueba_captura;
 
 --
--- Name: parties_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: parties_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.parties_id_seq
@@ -1758,17 +1758,17 @@ CREATE SEQUENCE public.parties_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.parties_id_seq OWNER TO user_back;
+ALTER TABLE public.parties_id_seq OWNER TO prueba_captura;
 
 --
--- Name: parties_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: parties_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.parties_id_seq OWNED BY public.parties.id;
 
 
 --
--- Name: partiesadditionalidentifiers; Type: TABLE; Schema: public; Owner: user_back
+-- Name: partiesadditionalidentifiers; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.partiesadditionalidentifiers (
@@ -1781,10 +1781,10 @@ CREATE TABLE public.partiesadditionalidentifiers (
 );
 
 
-ALTER TABLE public.partiesadditionalidentifiers OWNER TO user_back;
+ALTER TABLE public.partiesadditionalidentifiers OWNER TO prueba_captura;
 
 --
--- Name: partiesadditionalidentifiers_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: partiesadditionalidentifiers_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.partiesadditionalidentifiers_id_seq
@@ -1795,17 +1795,17 @@ CREATE SEQUENCE public.partiesadditionalidentifiers_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.partiesadditionalidentifiers_id_seq OWNER TO user_back;
+ALTER TABLE public.partiesadditionalidentifiers_id_seq OWNER TO prueba_captura;
 
 --
--- Name: partiesadditionalidentifiers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: partiesadditionalidentifiers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.partiesadditionalidentifiers_id_seq OWNED BY public.partiesadditionalidentifiers.id;
 
 
 --
--- Name: paymentmethod; Type: TABLE; Schema: public; Owner: user_back
+-- Name: paymentmethod; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.paymentmethod (
@@ -1816,10 +1816,10 @@ CREATE TABLE public.paymentmethod (
 );
 
 
-ALTER TABLE public.paymentmethod OWNER TO user_back;
+ALTER TABLE public.paymentmethod OWNER TO prueba_captura;
 
 --
--- Name: paymentmethod_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: paymentmethod_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.paymentmethod_id_seq
@@ -1830,17 +1830,17 @@ CREATE SEQUENCE public.paymentmethod_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.paymentmethod_id_seq OWNER TO user_back;
+ALTER TABLE public.paymentmethod_id_seq OWNER TO prueba_captura;
 
 --
--- Name: paymentmethod_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: paymentmethod_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.paymentmethod_id_seq OWNED BY public.paymentmethod.id;
 
 
 --
--- Name: planning; Type: TABLE; Schema: public; Owner: user_back
+-- Name: planning; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.planning (
@@ -1851,10 +1851,10 @@ CREATE TABLE public.planning (
 );
 
 
-ALTER TABLE public.planning OWNER TO user_back;
+ALTER TABLE public.planning OWNER TO prueba_captura;
 
 --
--- Name: planning_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: planning_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.planning_id_seq
@@ -1865,17 +1865,17 @@ CREATE SEQUENCE public.planning_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.planning_id_seq OWNER TO user_back;
+ALTER TABLE public.planning_id_seq OWNER TO prueba_captura;
 
 --
--- Name: planning_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: planning_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.planning_id_seq OWNED BY public.planning.id;
 
 
 --
--- Name: planningdocuments; Type: TABLE; Schema: public; Owner: user_back
+-- Name: planningdocuments; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.planningdocuments (
@@ -1894,10 +1894,10 @@ CREATE TABLE public.planningdocuments (
 );
 
 
-ALTER TABLE public.planningdocuments OWNER TO user_back;
+ALTER TABLE public.planningdocuments OWNER TO prueba_captura;
 
 --
--- Name: planningdocuments_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: planningdocuments_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.planningdocuments_id_seq
@@ -1908,17 +1908,17 @@ CREATE SEQUENCE public.planningdocuments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.planningdocuments_id_seq OWNER TO user_back;
+ALTER TABLE public.planningdocuments_id_seq OWNER TO prueba_captura;
 
 --
--- Name: planningdocuments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: planningdocuments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.planningdocuments_id_seq OWNED BY public.planningdocuments.id;
 
 
 --
--- Name: pntreference; Type: TABLE; Schema: public; Owner: user_back
+-- Name: pntreference; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.pntreference (
@@ -1936,10 +1936,10 @@ CREATE TABLE public.pntreference (
 );
 
 
-ALTER TABLE public.pntreference OWNER TO user_back;
+ALTER TABLE public.pntreference OWNER TO prueba_captura;
 
 --
--- Name: pntreference_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: pntreference_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.pntreference_id_seq
@@ -1950,17 +1950,17 @@ CREATE SEQUENCE public.pntreference_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.pntreference_id_seq OWNER TO user_back;
+ALTER TABLE public.pntreference_id_seq OWNER TO prueba_captura;
 
 --
--- Name: pntreference_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: pntreference_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.pntreference_id_seq OWNED BY public.pntreference.id;
 
 
 --
--- Name: prefixocid; Type: TABLE; Schema: public; Owner: user_back
+-- Name: prefixocid; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.prefixocid (
@@ -1969,10 +1969,10 @@ CREATE TABLE public.prefixocid (
 );
 
 
-ALTER TABLE public.prefixocid OWNER TO user_back;
+ALTER TABLE public.prefixocid OWNER TO prueba_captura;
 
 --
--- Name: prefixocid_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: prefixocid_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.prefixocid_id_seq
@@ -1983,17 +1983,17 @@ CREATE SEQUENCE public.prefixocid_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.prefixocid_id_seq OWNER TO user_back;
+ALTER TABLE public.prefixocid_id_seq OWNER TO prueba_captura;
 
 --
--- Name: prefixocid_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: prefixocid_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.prefixocid_id_seq OWNED BY public.prefixocid.id;
 
 
 --
--- Name: programaticstructure; Type: TABLE; Schema: public; Owner: user_back
+-- Name: programaticstructure; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.programaticstructure (
@@ -2038,10 +2038,10 @@ CREATE TABLE public.programaticstructure (
 );
 
 
-ALTER TABLE public.programaticstructure OWNER TO user_back;
+ALTER TABLE public.programaticstructure OWNER TO prueba_captura;
 
 --
--- Name: programaticstructure_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: programaticstructure_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.programaticstructure_id_seq
@@ -2052,17 +2052,17 @@ CREATE SEQUENCE public.programaticstructure_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.programaticstructure_id_seq OWNER TO user_back;
+ALTER TABLE public.programaticstructure_id_seq OWNER TO prueba_captura;
 
 --
--- Name: programaticstructure_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: programaticstructure_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.programaticstructure_id_seq OWNED BY public.programaticstructure.id;
 
 
 --
--- Name: publisher; Type: TABLE; Schema: public; Owner: user_back
+-- Name: publisher; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.publisher (
@@ -2075,10 +2075,10 @@ CREATE TABLE public.publisher (
 );
 
 
-ALTER TABLE public.publisher OWNER TO user_back;
+ALTER TABLE public.publisher OWNER TO prueba_captura;
 
 --
--- Name: publisher_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: publisher_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.publisher_id_seq
@@ -2089,17 +2089,17 @@ CREATE SEQUENCE public.publisher_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.publisher_id_seq OWNER TO user_back;
+ALTER TABLE public.publisher_id_seq OWNER TO prueba_captura;
 
 --
--- Name: publisher_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: publisher_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.publisher_id_seq OWNED BY public.publisher.id;
 
 
 --
--- Name: quotes; Type: TABLE; Schema: public; Owner: user_back
+-- Name: quotes; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.quotes (
@@ -2115,10 +2115,10 @@ CREATE TABLE public.quotes (
 );
 
 
-ALTER TABLE public.quotes OWNER TO user_back;
+ALTER TABLE public.quotes OWNER TO prueba_captura;
 
 --
--- Name: quotes_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: quotes_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.quotes_id_seq
@@ -2129,17 +2129,17 @@ CREATE SEQUENCE public.quotes_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.quotes_id_seq OWNER TO user_back;
+ALTER TABLE public.quotes_id_seq OWNER TO prueba_captura;
 
 --
--- Name: quotes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: quotes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.quotes_id_seq OWNED BY public.quotes.id;
 
 
 --
--- Name: quotesitems; Type: TABLE; Schema: public; Owner: user_back
+-- Name: quotesitems; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.quotesitems (
@@ -2151,10 +2151,10 @@ CREATE TABLE public.quotesitems (
 );
 
 
-ALTER TABLE public.quotesitems OWNER TO user_back;
+ALTER TABLE public.quotesitems OWNER TO prueba_captura;
 
 --
--- Name: quotesitems_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: quotesitems_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.quotesitems_id_seq
@@ -2165,17 +2165,17 @@ CREATE SEQUENCE public.quotesitems_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.quotesitems_id_seq OWNER TO user_back;
+ALTER TABLE public.quotesitems_id_seq OWNER TO prueba_captura;
 
 --
--- Name: quotesitems_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: quotesitems_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.quotesitems_id_seq OWNED BY public.quotesitems.id;
 
 
 --
--- Name: relatedprocedure; Type: TABLE; Schema: public; Owner: user_back
+-- Name: relatedprocedure; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.relatedprocedure (
@@ -2190,10 +2190,10 @@ CREATE TABLE public.relatedprocedure (
 );
 
 
-ALTER TABLE public.relatedprocedure OWNER TO user_back;
+ALTER TABLE public.relatedprocedure OWNER TO prueba_captura;
 
 --
--- Name: relatedprocedure_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: relatedprocedure_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.relatedprocedure_id_seq
@@ -2204,17 +2204,17 @@ CREATE SEQUENCE public.relatedprocedure_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.relatedprocedure_id_seq OWNER TO user_back;
+ALTER TABLE public.relatedprocedure_id_seq OWNER TO prueba_captura;
 
 --
--- Name: relatedprocedure_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: relatedprocedure_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.relatedprocedure_id_seq OWNED BY public.relatedprocedure.id;
 
 
 --
--- Name: requestforquotes; Type: TABLE; Schema: public; Owner: user_back
+-- Name: requestforquotes; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.requestforquotes (
@@ -2229,10 +2229,10 @@ CREATE TABLE public.requestforquotes (
 );
 
 
-ALTER TABLE public.requestforquotes OWNER TO user_back;
+ALTER TABLE public.requestforquotes OWNER TO prueba_captura;
 
 --
--- Name: requestforquotes_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: requestforquotes_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.requestforquotes_id_seq
@@ -2243,17 +2243,17 @@ CREATE SEQUENCE public.requestforquotes_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.requestforquotes_id_seq OWNER TO user_back;
+ALTER TABLE public.requestforquotes_id_seq OWNER TO prueba_captura;
 
 --
--- Name: requestforquotes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: requestforquotes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.requestforquotes_id_seq OWNED BY public.requestforquotes.id;
 
 
 --
--- Name: requestforquotesinvitedsuppliers; Type: TABLE; Schema: public; Owner: user_back
+-- Name: requestforquotesinvitedsuppliers; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.requestforquotesinvitedsuppliers (
@@ -2263,10 +2263,10 @@ CREATE TABLE public.requestforquotesinvitedsuppliers (
 );
 
 
-ALTER TABLE public.requestforquotesinvitedsuppliers OWNER TO user_back;
+ALTER TABLE public.requestforquotesinvitedsuppliers OWNER TO prueba_captura;
 
 --
--- Name: requestforquotesinvitedsuppliers_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: requestforquotesinvitedsuppliers_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.requestforquotesinvitedsuppliers_id_seq
@@ -2277,17 +2277,17 @@ CREATE SEQUENCE public.requestforquotesinvitedsuppliers_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.requestforquotesinvitedsuppliers_id_seq OWNER TO user_back;
+ALTER TABLE public.requestforquotesinvitedsuppliers_id_seq OWNER TO prueba_captura;
 
 --
--- Name: requestforquotesinvitedsuppliers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: requestforquotesinvitedsuppliers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.requestforquotesinvitedsuppliers_id_seq OWNED BY public.requestforquotesinvitedsuppliers.id;
 
 
 --
--- Name: requestforquotesitems; Type: TABLE; Schema: public; Owner: user_back
+-- Name: requestforquotesitems; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.requestforquotesitems (
@@ -2299,10 +2299,10 @@ CREATE TABLE public.requestforquotesitems (
 );
 
 
-ALTER TABLE public.requestforquotesitems OWNER TO user_back;
+ALTER TABLE public.requestforquotesitems OWNER TO prueba_captura;
 
 --
--- Name: requestforquotesitems_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: requestforquotesitems_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.requestforquotesitems_id_seq
@@ -2313,17 +2313,17 @@ CREATE SEQUENCE public.requestforquotesitems_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.requestforquotesitems_id_seq OWNER TO user_back;
+ALTER TABLE public.requestforquotesitems_id_seq OWNER TO prueba_captura;
 
 --
--- Name: requestforquotesitems_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: requestforquotesitems_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.requestforquotesitems_id_seq OWNED BY public.requestforquotesitems.id;
 
 
 --
--- Name: rolecatalog; Type: TABLE; Schema: public; Owner: user_back
+-- Name: rolecatalog; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.rolecatalog (
@@ -2334,10 +2334,10 @@ CREATE TABLE public.rolecatalog (
 );
 
 
-ALTER TABLE public.rolecatalog OWNER TO user_back;
+ALTER TABLE public.rolecatalog OWNER TO prueba_captura;
 
 --
--- Name: rolecatalog_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: rolecatalog_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.rolecatalog_id_seq
@@ -2348,17 +2348,17 @@ CREATE SEQUENCE public.rolecatalog_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.rolecatalog_id_seq OWNER TO user_back;
+ALTER TABLE public.rolecatalog_id_seq OWNER TO prueba_captura;
 
 --
--- Name: rolecatalog_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: rolecatalog_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.rolecatalog_id_seq OWNED BY public.rolecatalog.id;
 
 
 --
--- Name: roles; Type: TABLE; Schema: public; Owner: user_back
+-- Name: roles; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.roles (
@@ -2385,10 +2385,10 @@ CREATE TABLE public.roles (
 );
 
 
-ALTER TABLE public.roles OWNER TO user_back;
+ALTER TABLE public.roles OWNER TO prueba_captura;
 
 --
--- Name: roles_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: roles_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.roles_id_seq
@@ -2399,17 +2399,17 @@ CREATE SEQUENCE public.roles_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.roles_id_seq OWNER TO user_back;
+ALTER TABLE public.roles_id_seq OWNER TO prueba_captura;
 
 --
--- Name: roles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: roles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.roles_id_seq OWNED BY public.roles.id;
 
 
 --
--- Name: tags; Type: TABLE; Schema: public; Owner: user_back
+-- Name: tags; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.tags (
@@ -2436,10 +2436,10 @@ CREATE TABLE public.tags (
 );
 
 
-ALTER TABLE public.tags OWNER TO user_back;
+ALTER TABLE public.tags OWNER TO prueba_captura;
 
 --
--- Name: tags_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: tags_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.tags_id_seq
@@ -2450,17 +2450,17 @@ CREATE SEQUENCE public.tags_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.tags_id_seq OWNER TO user_back;
+ALTER TABLE public.tags_id_seq OWNER TO prueba_captura;
 
 --
--- Name: tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.tags_id_seq OWNED BY public.tags.id;
 
 
 --
--- Name: tender; Type: TABLE; Schema: public; Owner: user_back
+-- Name: tender; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.tender (
@@ -2498,10 +2498,10 @@ CREATE TABLE public.tender (
 );
 
 
-ALTER TABLE public.tender OWNER TO user_back;
+ALTER TABLE public.tender OWNER TO prueba_captura;
 
 --
--- Name: tender_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: tender_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.tender_id_seq
@@ -2512,17 +2512,17 @@ CREATE SEQUENCE public.tender_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.tender_id_seq OWNER TO user_back;
+ALTER TABLE public.tender_id_seq OWNER TO prueba_captura;
 
 --
--- Name: tender_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: tender_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.tender_id_seq OWNED BY public.tender.id;
 
 
 --
--- Name: tenderamendmentchanges; Type: TABLE; Schema: public; Owner: user_back
+-- Name: tenderamendmentchanges; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.tenderamendmentchanges (
@@ -2538,10 +2538,10 @@ CREATE TABLE public.tenderamendmentchanges (
 );
 
 
-ALTER TABLE public.tenderamendmentchanges OWNER TO user_back;
+ALTER TABLE public.tenderamendmentchanges OWNER TO prueba_captura;
 
 --
--- Name: tenderamendmentchanges_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: tenderamendmentchanges_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.tenderamendmentchanges_id_seq
@@ -2552,17 +2552,17 @@ CREATE SEQUENCE public.tenderamendmentchanges_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.tenderamendmentchanges_id_seq OWNER TO user_back;
+ALTER TABLE public.tenderamendmentchanges_id_seq OWNER TO prueba_captura;
 
 --
--- Name: tenderamendmentchanges_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: tenderamendmentchanges_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.tenderamendmentchanges_id_seq OWNED BY public.tenderamendmentchanges.id;
 
 
 --
--- Name: tenderdocuments; Type: TABLE; Schema: public; Owner: user_back
+-- Name: tenderdocuments; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.tenderdocuments (
@@ -2581,10 +2581,10 @@ CREATE TABLE public.tenderdocuments (
 );
 
 
-ALTER TABLE public.tenderdocuments OWNER TO user_back;
+ALTER TABLE public.tenderdocuments OWNER TO prueba_captura;
 
 --
--- Name: tenderdocuments_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: tenderdocuments_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.tenderdocuments_id_seq
@@ -2595,17 +2595,17 @@ CREATE SEQUENCE public.tenderdocuments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.tenderdocuments_id_seq OWNER TO user_back;
+ALTER TABLE public.tenderdocuments_id_seq OWNER TO prueba_captura;
 
 --
--- Name: tenderdocuments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: tenderdocuments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.tenderdocuments_id_seq OWNED BY public.tenderdocuments.id;
 
 
 --
--- Name: tenderitem; Type: TABLE; Schema: public; Owner: user_back
+-- Name: tenderitem; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.tenderitem (
@@ -2633,10 +2633,10 @@ CREATE TABLE public.tenderitem (
 );
 
 
-ALTER TABLE public.tenderitem OWNER TO user_back;
+ALTER TABLE public.tenderitem OWNER TO prueba_captura;
 
 --
--- Name: tenderitem_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: tenderitem_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.tenderitem_id_seq
@@ -2647,17 +2647,17 @@ CREATE SEQUENCE public.tenderitem_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.tenderitem_id_seq OWNER TO user_back;
+ALTER TABLE public.tenderitem_id_seq OWNER TO prueba_captura;
 
 --
--- Name: tenderitem_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: tenderitem_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.tenderitem_id_seq OWNED BY public.tenderitem.id;
 
 
 --
--- Name: tenderitemadditionalclassifications; Type: TABLE; Schema: public; Owner: user_back
+-- Name: tenderitemadditionalclassifications; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.tenderitemadditionalclassifications (
@@ -2670,10 +2670,10 @@ CREATE TABLE public.tenderitemadditionalclassifications (
 );
 
 
-ALTER TABLE public.tenderitemadditionalclassifications OWNER TO user_back;
+ALTER TABLE public.tenderitemadditionalclassifications OWNER TO prueba_captura;
 
 --
--- Name: tenderitemadditionalclassifications_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: tenderitemadditionalclassifications_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.tenderitemadditionalclassifications_id_seq
@@ -2684,17 +2684,17 @@ CREATE SEQUENCE public.tenderitemadditionalclassifications_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.tenderitemadditionalclassifications_id_seq OWNER TO user_back;
+ALTER TABLE public.tenderitemadditionalclassifications_id_seq OWNER TO prueba_captura;
 
 --
--- Name: tenderitemadditionalclassifications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: tenderitemadditionalclassifications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.tenderitemadditionalclassifications_id_seq OWNED BY public.tenderitemadditionalclassifications.id;
 
 
 --
--- Name: tendermilestone; Type: TABLE; Schema: public; Owner: user_back
+-- Name: tendermilestone; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.tendermilestone (
@@ -2711,10 +2711,10 @@ CREATE TABLE public.tendermilestone (
 );
 
 
-ALTER TABLE public.tendermilestone OWNER TO user_back;
+ALTER TABLE public.tendermilestone OWNER TO prueba_captura;
 
 --
--- Name: tendermilestone_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: tendermilestone_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.tendermilestone_id_seq
@@ -2725,17 +2725,17 @@ CREATE SEQUENCE public.tendermilestone_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.tendermilestone_id_seq OWNER TO user_back;
+ALTER TABLE public.tendermilestone_id_seq OWNER TO prueba_captura;
 
 --
--- Name: tendermilestone_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: tendermilestone_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.tendermilestone_id_seq OWNED BY public.tendermilestone.id;
 
 
 --
--- Name: tendermilestonedocuments; Type: TABLE; Schema: public; Owner: user_back
+-- Name: tendermilestonedocuments; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.tendermilestonedocuments (
@@ -2755,10 +2755,10 @@ CREATE TABLE public.tendermilestonedocuments (
 );
 
 
-ALTER TABLE public.tendermilestonedocuments OWNER TO user_back;
+ALTER TABLE public.tendermilestonedocuments OWNER TO prueba_captura;
 
 --
--- Name: tendermilestonedocuments_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: tendermilestonedocuments_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.tendermilestonedocuments_id_seq
@@ -2769,17 +2769,17 @@ CREATE SEQUENCE public.tendermilestonedocuments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.tendermilestonedocuments_id_seq OWNER TO user_back;
+ALTER TABLE public.tendermilestonedocuments_id_seq OWNER TO prueba_captura;
 
 --
--- Name: tendermilestonedocuments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: tendermilestonedocuments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.tendermilestonedocuments_id_seq OWNED BY public.tendermilestonedocuments.id;
 
 
 --
--- Name: user_contractingprocess; Type: TABLE; Schema: public; Owner: user_back
+-- Name: user_contractingprocess; Type: TABLE; Schema: public; Owner: prueba_captura
 --
 
 CREATE TABLE public.user_contractingprocess (
@@ -2789,10 +2789,10 @@ CREATE TABLE public.user_contractingprocess (
 );
 
 
-ALTER TABLE public.user_contractingprocess OWNER TO user_back;
+ALTER TABLE public.user_contractingprocess OWNER TO prueba_captura;
 
 --
--- Name: user_contractingprocess_id_seq; Type: SEQUENCE; Schema: public; Owner: user_back
+-- Name: user_contractingprocess_id_seq; Type: SEQUENCE; Schema: public; Owner: prueba_captura
 --
 
 CREATE SEQUENCE public.user_contractingprocess_id_seq
@@ -2803,465 +2803,465 @@ CREATE SEQUENCE public.user_contractingprocess_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.user_contractingprocess_id_seq OWNER TO user_back;
+ALTER TABLE public.user_contractingprocess_id_seq OWNER TO prueba_captura;
 
 --
--- Name: user_contractingprocess_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user_back
+-- Name: user_contractingprocess_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: prueba_captura
 --
 
 ALTER SEQUENCE public.user_contractingprocess_id_seq OWNED BY public.user_contractingprocess.id;
 
 
 --
--- Name: additionalcontactpoints id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: additionalcontactpoints id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.additionalcontactpoints ALTER COLUMN id SET DEFAULT nextval('public.additionalcontactpoints_id_seq'::regclass);
 
 
 --
--- Name: award id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: award id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.award ALTER COLUMN id SET DEFAULT nextval('public.award_id_seq'::regclass);
 
 
 --
--- Name: awardamendmentchanges id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: awardamendmentchanges id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.awardamendmentchanges ALTER COLUMN id SET DEFAULT nextval('public.awardamendmentchanges_id_seq'::regclass);
 
 
 --
--- Name: awarddocuments id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: awarddocuments id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.awarddocuments ALTER COLUMN id SET DEFAULT nextval('public.awarddocuments_id_seq'::regclass);
 
 
 --
--- Name: awarditem id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: awarditem id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.awarditem ALTER COLUMN id SET DEFAULT nextval('public.awarditem_id_seq'::regclass);
 
 
 --
--- Name: awarditemadditionalclassifications id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: awarditemadditionalclassifications id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.awarditemadditionalclassifications ALTER COLUMN id SET DEFAULT nextval('public.awarditemadditionalclassifications_id_seq'::regclass);
 
 
 --
--- Name: awardsupplier id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: awardsupplier id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.awardsupplier ALTER COLUMN id SET DEFAULT nextval('public.awardsupplier_id_seq'::regclass);
 
 
 --
--- Name: budget id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: budget id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.budget ALTER COLUMN id SET DEFAULT nextval('public.budget_id_seq'::regclass);
 
 
 --
--- Name: budgetbreakdown id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: budgetbreakdown id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.budgetbreakdown ALTER COLUMN id SET DEFAULT nextval('public.budgetbreakdown_id_seq'::regclass);
 
 
 --
--- Name: budgetclassifications id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: budgetclassifications id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.budgetclassifications ALTER COLUMN id SET DEFAULT nextval('public.budgetclassifications_id_seq'::regclass);
 
 
 --
--- Name: clarificationmeeting id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: clarificationmeeting id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.clarificationmeeting ALTER COLUMN id SET DEFAULT nextval('public.clarificationmeeting_id_seq'::regclass);
 
 
 --
--- Name: clarificationmeetingactor id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: clarificationmeetingactor id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.clarificationmeetingactor ALTER COLUMN id SET DEFAULT nextval('public.clarificationmeetingactor_id_seq'::regclass);
 
 
 --
--- Name: contract id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: contract id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contract ALTER COLUMN id SET DEFAULT nextval('public.contract_id_seq'::regclass);
 
 
 --
--- Name: contractamendmentchanges id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: contractamendmentchanges id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contractamendmentchanges ALTER COLUMN id SET DEFAULT nextval('public.contractamendmentchanges_id_seq'::regclass);
 
 
 --
--- Name: contractdocuments id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: contractdocuments id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contractdocuments ALTER COLUMN id SET DEFAULT nextval('public.contractdocuments_id_seq'::regclass);
 
 
 --
--- Name: contractingprocess id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: contractingprocess id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contractingprocess ALTER COLUMN id SET DEFAULT nextval('public.contractingprocess_id_seq'::regclass);
 
 
 --
--- Name: contractitem id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: contractitem id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contractitem ALTER COLUMN id SET DEFAULT nextval('public.contractitem_id_seq'::regclass);
 
 
 --
--- Name: contractitemadditionalclasifications id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: contractitemadditionalclasifications id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contractitemadditionalclasifications ALTER COLUMN id SET DEFAULT nextval('public.contractitemadditionalclasifications_id_seq'::regclass);
 
 
 --
--- Name: currency id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: currency id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.currency ALTER COLUMN id SET DEFAULT nextval('public.currency_id_seq'::regclass);
 
 
 --
--- Name: documentformat id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: documentformat id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.documentformat ALTER COLUMN id SET DEFAULT nextval('public.documentformat_id_seq'::regclass);
 
 
 --
--- Name: documentmanagement id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: documentmanagement id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.documentmanagement ALTER COLUMN id SET DEFAULT nextval('public.documentmanagement_id_seq'::regclass);
 
 
 --
--- Name: documenttype id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: documenttype id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.documenttype ALTER COLUMN id SET DEFAULT nextval('public.documenttype_id_seq'::regclass);
 
 
 --
--- Name: gdmx_dictionary id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: gdmx_dictionary id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.gdmx_dictionary ALTER COLUMN id SET DEFAULT nextval('public.gdmx_dictionary_id_seq'::regclass);
 
 
 --
--- Name: gdmx_document id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: gdmx_document id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.gdmx_document ALTER COLUMN id SET DEFAULT nextval('public.gdmx_document_id_seq'::regclass);
 
 
 --
--- Name: guarantees id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: guarantees id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.guarantees ALTER COLUMN id SET DEFAULT nextval('public.guarantees_id_seq'::regclass);
 
 
 --
--- Name: implementation id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: implementation id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementation ALTER COLUMN id SET DEFAULT nextval('public.implementation_id_seq'::regclass);
 
 
 --
--- Name: implementationdocuments id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: implementationdocuments id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationdocuments ALTER COLUMN id SET DEFAULT nextval('public.implementationdocuments_id_seq'::regclass);
 
 
 --
--- Name: implementationmilestone id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: implementationmilestone id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationmilestone ALTER COLUMN id SET DEFAULT nextval('public.implementationmilestone_id_seq'::regclass);
 
 
 --
--- Name: implementationmilestonedocuments id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: implementationmilestonedocuments id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationmilestonedocuments ALTER COLUMN id SET DEFAULT nextval('public.implementationmilestonedocuments_id_seq'::regclass);
 
 
 --
--- Name: implementationstatus id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: implementationstatus id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationstatus ALTER COLUMN id SET DEFAULT nextval('public.implementationstatus_id_seq'::regclass);
 
 
 --
--- Name: implementationtransactions id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: implementationtransactions id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationtransactions ALTER COLUMN id SET DEFAULT nextval('public.implementationtransactions_id_seq'::regclass);
 
 
 --
--- Name: item id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: item id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.item ALTER COLUMN id SET DEFAULT nextval('public.item_id_seq'::regclass);
 
 
 --
--- Name: language id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: language id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.language ALTER COLUMN id SET DEFAULT nextval('public.language_id_seq'::regclass);
 
 
 --
--- Name: links id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: links id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.links ALTER COLUMN id SET DEFAULT nextval('public.links_id_seq'::regclass);
 
 
 --
--- Name: log_gdmx id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: log_gdmx id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.log_gdmx ALTER COLUMN id SET DEFAULT nextval('public.log_gdmx_id_seq'::regclass);
 
 
 --
--- Name: logs id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: logs id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.logs ALTER COLUMN id SET DEFAULT nextval('public.logs_id_seq'::regclass);
 
 
 --
--- Name: memberof id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: memberof id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.memberof ALTER COLUMN id SET DEFAULT nextval('public.memberof_id_seq'::regclass);
 
 
 --
--- Name: milestonetype id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: milestonetype id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.milestonetype ALTER COLUMN id SET DEFAULT nextval('public.milestonetype_id_seq'::regclass);
 
 
 --
--- Name: parties id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: parties id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.parties ALTER COLUMN id SET DEFAULT nextval('public.parties_id_seq'::regclass);
 
 
 --
--- Name: partiesadditionalidentifiers id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: partiesadditionalidentifiers id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.partiesadditionalidentifiers ALTER COLUMN id SET DEFAULT nextval('public.partiesadditionalidentifiers_id_seq'::regclass);
 
 
 --
--- Name: paymentmethod id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: paymentmethod id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.paymentmethod ALTER COLUMN id SET DEFAULT nextval('public.paymentmethod_id_seq'::regclass);
 
 
 --
--- Name: planning id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: planning id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.planning ALTER COLUMN id SET DEFAULT nextval('public.planning_id_seq'::regclass);
 
 
 --
--- Name: planningdocuments id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: planningdocuments id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.planningdocuments ALTER COLUMN id SET DEFAULT nextval('public.planningdocuments_id_seq'::regclass);
 
 
 --
--- Name: pntreference id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: pntreference id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.pntreference ALTER COLUMN id SET DEFAULT nextval('public.pntreference_id_seq'::regclass);
 
 
 --
--- Name: prefixocid id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: prefixocid id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.prefixocid ALTER COLUMN id SET DEFAULT nextval('public.prefixocid_id_seq'::regclass);
 
 
 --
--- Name: programaticstructure id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: programaticstructure id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.programaticstructure ALTER COLUMN id SET DEFAULT nextval('public.programaticstructure_id_seq'::regclass);
 
 
 --
--- Name: publisher id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: publisher id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.publisher ALTER COLUMN id SET DEFAULT nextval('public.publisher_id_seq'::regclass);
 
 
 --
--- Name: quotes id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: quotes id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.quotes ALTER COLUMN id SET DEFAULT nextval('public.quotes_id_seq'::regclass);
 
 
 --
--- Name: quotesitems id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: quotesitems id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.quotesitems ALTER COLUMN id SET DEFAULT nextval('public.quotesitems_id_seq'::regclass);
 
 
 --
--- Name: relatedprocedure id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: relatedprocedure id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.relatedprocedure ALTER COLUMN id SET DEFAULT nextval('public.relatedprocedure_id_seq'::regclass);
 
 
 --
--- Name: requestforquotes id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: requestforquotes id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.requestforquotes ALTER COLUMN id SET DEFAULT nextval('public.requestforquotes_id_seq'::regclass);
 
 
 --
--- Name: requestforquotesinvitedsuppliers id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: requestforquotesinvitedsuppliers id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.requestforquotesinvitedsuppliers ALTER COLUMN id SET DEFAULT nextval('public.requestforquotesinvitedsuppliers_id_seq'::regclass);
 
 
 --
--- Name: requestforquotesitems id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: requestforquotesitems id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.requestforquotesitems ALTER COLUMN id SET DEFAULT nextval('public.requestforquotesitems_id_seq'::regclass);
 
 
 --
--- Name: rolecatalog id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: rolecatalog id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.rolecatalog ALTER COLUMN id SET DEFAULT nextval('public.rolecatalog_id_seq'::regclass);
 
 
 --
--- Name: roles id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: roles id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.roles ALTER COLUMN id SET DEFAULT nextval('public.roles_id_seq'::regclass);
 
 
 --
--- Name: tags id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: tags id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tags ALTER COLUMN id SET DEFAULT nextval('public.tags_id_seq'::regclass);
 
 
 --
--- Name: tender id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: tender id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tender ALTER COLUMN id SET DEFAULT nextval('public.tender_id_seq'::regclass);
 
 
 --
--- Name: tenderamendmentchanges id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: tenderamendmentchanges id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tenderamendmentchanges ALTER COLUMN id SET DEFAULT nextval('public.tenderamendmentchanges_id_seq'::regclass);
 
 
 --
--- Name: tenderdocuments id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: tenderdocuments id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tenderdocuments ALTER COLUMN id SET DEFAULT nextval('public.tenderdocuments_id_seq'::regclass);
 
 
 --
--- Name: tenderitem id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: tenderitem id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tenderitem ALTER COLUMN id SET DEFAULT nextval('public.tenderitem_id_seq'::regclass);
 
 
 --
--- Name: tenderitemadditionalclassifications id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: tenderitemadditionalclassifications id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tenderitemadditionalclassifications ALTER COLUMN id SET DEFAULT nextval('public.tenderitemadditionalclassifications_id_seq'::regclass);
 
 
 --
--- Name: tendermilestone id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: tendermilestone id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tendermilestone ALTER COLUMN id SET DEFAULT nextval('public.tendermilestone_id_seq'::regclass);
 
 
 --
--- Name: tendermilestonedocuments id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: tendermilestonedocuments id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tendermilestonedocuments ALTER COLUMN id SET DEFAULT nextval('public.tendermilestonedocuments_id_seq'::regclass);
 
 
 --
--- Name: user_contractingprocess id; Type: DEFAULT; Schema: public; Owner: user_back
+-- Name: user_contractingprocess id; Type: DEFAULT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.user_contractingprocess ALTER COLUMN id SET DEFAULT nextval('public.user_contractingprocess_id_seq'::regclass);
 
 
 --
--- Data for Name: additionalcontactpoints; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: additionalcontactpoints; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.additionalcontactpoints (id, party_id, type, name, givenname, surname, additionalsurname, email, telephone, faxnumber, url, language) FROM stdin;
@@ -3269,7 +3269,7 @@ COPY public.additionalcontactpoints (id, party_id, type, name, givenname, surnam
 
 
 --
--- Data for Name: award; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: award; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.award (id, contractingprocess_id, awardid, title, description, rationale, status, award_date, value_amount, value_currency, contractperiod_startdate, contractperiod_enddate, amendment_date, amendment_rationale, value_amountnet, datelastupdate) FROM stdin;
@@ -3277,7 +3277,7 @@ COPY public.award (id, contractingprocess_id, awardid, title, description, ratio
 
 
 --
--- Data for Name: awardamendmentchanges; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: awardamendmentchanges; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.awardamendmentchanges (id, contractingprocess_id, award_id, property, former_value, amendments_date, amendments_rationale, amendments_id, amendments_description) FROM stdin;
@@ -3285,7 +3285,7 @@ COPY public.awardamendmentchanges (id, contractingprocess_id, award_id, property
 
 
 --
--- Data for Name: awarddocuments; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: awarddocuments; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.awarddocuments (id, contractingprocess_id, award_id, document_type, documentid, title, description, url, date_published, date_modified, format, language) FROM stdin;
@@ -3293,7 +3293,7 @@ COPY public.awarddocuments (id, contractingprocess_id, award_id, document_type, 
 
 
 --
--- Data for Name: awarditem; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: awarditem; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.awarditem (id, contractingprocess_id, award_id, itemid, description, classification_scheme, classification_id, classification_description, classification_uri, quantity, unit_name, unit_value_amount, unit_value_currency, unit_value_amountnet, latitude, longitude, location_postalcode, location_countryname, location_streetaddress, location_region, location_locality) FROM stdin;
@@ -3301,7 +3301,7 @@ COPY public.awarditem (id, contractingprocess_id, award_id, itemid, description,
 
 
 --
--- Data for Name: awarditemadditionalclassifications; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: awarditemadditionalclassifications; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.awarditemadditionalclassifications (id, award_id, awarditem_id, scheme, description, uri) FROM stdin;
@@ -3309,7 +3309,7 @@ COPY public.awarditemadditionalclassifications (id, award_id, awarditem_id, sche
 
 
 --
--- Data for Name: awardsupplier; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: awardsupplier; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.awardsupplier (id, award_id, parties_id) FROM stdin;
@@ -3317,7 +3317,7 @@ COPY public.awardsupplier (id, award_id, parties_id) FROM stdin;
 
 
 --
--- Data for Name: budget; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: budget; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.budget (id, contractingprocess_id, planning_id, budget_source, budget_budgetid, budget_description, budget_amount, budget_currency, budget_project, budget_projectid, budget_uri) FROM stdin;
@@ -3325,7 +3325,7 @@ COPY public.budget (id, contractingprocess_id, planning_id, budget_source, budge
 
 
 --
--- Data for Name: budgetbreakdown; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: budgetbreakdown; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.budgetbreakdown (id, contractingprocess_id, planning_id, budgetbreakdown_id, description, amount, currency, url, budgetbreakdownperiod_startdate, budgetbreakdownperiod_enddate, source_id) FROM stdin;
@@ -3333,7 +3333,7 @@ COPY public.budgetbreakdown (id, contractingprocess_id, planning_id, budgetbreak
 
 
 --
--- Data for Name: budgetclassifications; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: budgetclassifications; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.budgetclassifications (id, budgetbreakdown_id, year, branch, responsibleunit, finality, function, subfunction, institutionalactivity, budgetprogram, strategicobjective, requestingunit, specificactivity, spendingobject, spendingtype, budgetsource, region, portfoliokey, cve, approved, modified, executed, committed, reserved) FROM stdin;
@@ -3341,7 +3341,7 @@ COPY public.budgetclassifications (id, budgetbreakdown_id, year, branch, respons
 
 
 --
--- Data for Name: clarificationmeeting; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: clarificationmeeting; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.clarificationmeeting (id, clarificationmeetingid, contractingprocess_id, date) FROM stdin;
@@ -3349,7 +3349,7 @@ COPY public.clarificationmeeting (id, clarificationmeetingid, contractingprocess
 
 
 --
--- Data for Name: clarificationmeetingactor; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: clarificationmeetingactor; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.clarificationmeetingactor (id, clarificationmeeting_id, parties_id, attender, official) FROM stdin;
@@ -3357,7 +3357,7 @@ COPY public.clarificationmeetingactor (id, clarificationmeeting_id, parties_id, 
 
 
 --
--- Data for Name: contract; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: contract; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.contract (id, contractingprocess_id, awardid, contractid, title, description, status, period_startdate, period_enddate, value_amount, value_currency, datesigned, amendment_date, amendment_rationale, value_amountnet, exchangerate_rate, exchangerate_amount, exchangerate_currency, exchangerate_date, exchangerate_source, datelastupdate, surveillancemechanisms) FROM stdin;
@@ -3365,7 +3365,7 @@ COPY public.contract (id, contractingprocess_id, awardid, contractid, title, des
 
 
 --
--- Data for Name: contractamendmentchanges; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: contractamendmentchanges; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.contractamendmentchanges (id, contractingprocess_id, contract_id, amendments_date, amendments_rationale, amendments_id, amendments_description) FROM stdin;
@@ -3373,7 +3373,7 @@ COPY public.contractamendmentchanges (id, contractingprocess_id, contract_id, am
 
 
 --
--- Data for Name: contractdocuments; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: contractdocuments; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.contractdocuments (id, contractingprocess_id, contract_id, document_type, documentid, title, description, url, date_published, date_modified, format, language) FROM stdin;
@@ -3381,7 +3381,7 @@ COPY public.contractdocuments (id, contractingprocess_id, contract_id, document_
 
 
 --
--- Data for Name: contractingprocess; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: contractingprocess; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.contractingprocess (id, ocid, description, destino, fecha_creacion, hora_creacion, stage, uri, publicationpolicy, license, awardstatus, contractstatus, implementationstatus, published, valid, date_published, requirepntupdate, pnt_dateupdate, publisher, updated, updated_date, updated_version, published_version, pnt_published, pnt_version, pnt_date) FROM stdin;
@@ -3389,7 +3389,7 @@ COPY public.contractingprocess (id, ocid, description, destino, fecha_creacion, 
 
 
 --
--- Data for Name: contractitem; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: contractitem; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.contractitem (id, contractingprocess_id, contract_id, itemid, description, classification_scheme, classification_id, classification_description, classification_uri, quantity, unit_name, unit_value_amount, unit_value_currency, unit_value_amountnet, latitude, longitude, location_postalcode, location_countryname, location_streetaddress, location_region, location_locality) FROM stdin;
@@ -3397,7 +3397,7 @@ COPY public.contractitem (id, contractingprocess_id, contract_id, itemid, descri
 
 
 --
--- Data for Name: contractitemadditionalclasifications; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: contractitemadditionalclasifications; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.contractitemadditionalclasifications (id, contractingprocess_id, contract_id, contractitem_id, scheme, description, uri) FROM stdin;
@@ -3405,7 +3405,7 @@ COPY public.contractitemadditionalclasifications (id, contractingprocess_id, con
 
 
 --
--- Data for Name: currency; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: currency; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.currency (id, entity, currency, currency_eng, alphabetic_code, numeric_code, minor_unit) FROM stdin;
@@ -3678,7 +3678,7 @@ COPY public.currency (id, entity, currency, currency_eng, alphabetic_code, numer
 
 
 --
--- Data for Name: documentformat; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: documentformat; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.documentformat (id, category, name, template, reference) FROM stdin;
@@ -4876,7 +4876,7 @@ COPY public.documentformat (id, category, name, template, reference) FROM stdin;
 
 
 --
--- Data for Name: documentmanagement; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: documentmanagement; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.documentmanagement (id, contractingprocess_id, origin, document, instance_id, type, register_date) FROM stdin;
@@ -4884,7 +4884,7 @@ COPY public.documentmanagement (id, contractingprocess_id, origin, document, ins
 
 
 --
--- Data for Name: documenttype; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: documenttype; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.documenttype (id, category, code, title, title_esp, description, source, stage) FROM stdin;
@@ -4928,7 +4928,7 @@ COPY public.documenttype (id, category, code, title, title_esp, description, sou
 
 
 --
--- Data for Name: gdmx_dictionary; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: gdmx_dictionary; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.gdmx_dictionary (id, document, variable, tablename, field, parent, type, index, classification, catalog, catalog_field, storeprocedure) FROM stdin;
@@ -4936,7 +4936,7 @@ COPY public.gdmx_dictionary (id, document, variable, tablename, field, parent, t
 
 
 --
--- Data for Name: gdmx_document; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: gdmx_document; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.gdmx_document (id, name, stage, type, tablename, identifier, title, description, language, format) FROM stdin;
@@ -4944,7 +4944,7 @@ COPY public.gdmx_document (id, name, stage, type, tablename, identifier, title, 
 
 
 --
--- Data for Name: guarantees; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: guarantees; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.guarantees (id, contractingprocess_id, contract_id, guarantee_id, guaranteetype, date, guaranteedobligations, value, guarantor, guaranteeperiod_startdate, guaranteeperiod_enddate, currency) FROM stdin;
@@ -4952,7 +4952,7 @@ COPY public.guarantees (id, contractingprocess_id, contract_id, guarantee_id, gu
 
 
 --
--- Data for Name: implementation; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: implementation; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.implementation (id, contractingprocess_id, contract_id, status, datelastupdate) FROM stdin;
@@ -4960,7 +4960,7 @@ COPY public.implementation (id, contractingprocess_id, contract_id, status, date
 
 
 --
--- Data for Name: implementationdocuments; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: implementationdocuments; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.implementationdocuments (id, contractingprocess_id, contract_id, implementation_id, document_type, documentid, title, description, url, date_published, date_modified, format, language) FROM stdin;
@@ -4968,7 +4968,7 @@ COPY public.implementationdocuments (id, contractingprocess_id, contract_id, imp
 
 
 --
--- Data for Name: implementationmilestone; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: implementationmilestone; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.implementationmilestone (id, contractingprocess_id, contract_id, implementation_id, milestoneid, title, description, duedate, date_modified, status, type) FROM stdin;
@@ -4976,7 +4976,7 @@ COPY public.implementationmilestone (id, contractingprocess_id, contract_id, imp
 
 
 --
--- Data for Name: implementationmilestonedocuments; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: implementationmilestonedocuments; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.implementationmilestonedocuments (id, contractingprocess_id, contract_id, implementation_id, document_type, documentid, title, description, url, date_published, date_modified, format, language) FROM stdin;
@@ -4984,7 +4984,7 @@ COPY public.implementationmilestonedocuments (id, contractingprocess_id, contrac
 
 
 --
--- Data for Name: implementationstatus; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: implementationstatus; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.implementationstatus (id, code, title, title_esp, description) FROM stdin;
@@ -4992,7 +4992,7 @@ COPY public.implementationstatus (id, code, title, title_esp, description) FROM 
 
 
 --
--- Data for Name: implementationtransactions; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: implementationtransactions; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.implementationtransactions (id, contractingprocess_id, contract_id, implementation_id, transactionid, source, implementation_date, value_amount, value_currency, payment_method, uri, payer_name, payer_id, payee_name, payee_id, value_amountnet) FROM stdin;
@@ -5000,7 +5000,7 @@ COPY public.implementationtransactions (id, contractingprocess_id, contract_id, 
 
 
 --
--- Data for Name: item; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: item; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.item (id, classificationid, description, unit) FROM stdin;
@@ -16478,7 +16478,7 @@ COPY public.item (id, classificationid, description, unit) FROM stdin;
 
 
 --
--- Data for Name: language; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: language; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.language (id, alpha2, name) FROM stdin;
@@ -16670,7 +16670,7 @@ COPY public.language (id, alpha2, name) FROM stdin;
 
 
 --
--- Data for Name: links; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: links; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.links (id, json, xlsx, pdf, contractingprocess_id) FROM stdin;
@@ -16678,7 +16678,7 @@ COPY public.links (id, json, xlsx, pdf, contractingprocess_id) FROM stdin;
 
 
 --
--- Data for Name: log_gdmx; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: log_gdmx; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.log_gdmx (id, date, cp, recordid, record) FROM stdin;
@@ -16686,7 +16686,7 @@ COPY public.log_gdmx (id, date, cp, recordid, record) FROM stdin;
 
 
 --
--- Data for Name: logs; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: logs; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.logs (id, version, update_date, publisher, release_file, release_json, record_json, contractingprocess_id, version_json, published) FROM stdin;
@@ -16694,7 +16694,7 @@ COPY public.logs (id, version, update_date, publisher, release_file, release_jso
 
 
 --
--- Data for Name: memberof; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: memberof; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.memberof (id, memberofid, principal_parties_id, parties_id) FROM stdin;
@@ -16702,7 +16702,7 @@ COPY public.memberof (id, memberofid, principal_parties_id, parties_id) FROM std
 
 
 --
--- Data for Name: metadata; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: metadata; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.metadata (field_name, value) FROM stdin;
@@ -16710,7 +16710,7 @@ COPY public.metadata (field_name, value) FROM stdin;
 
 
 --
--- Data for Name: milestonetype; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: milestonetype; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.milestonetype (id, code, title, description) FROM stdin;
@@ -16726,7 +16726,7 @@ COPY public.milestonetype (id, code, title, description) FROM stdin;
 
 
 --
--- Data for Name: parties; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: parties; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.parties (contractingprocess_id, id, partyid, name, "position", identifier_scheme, identifier_id, identifier_legalname, identifier_uri, address_streetaddress, address_locality, address_region, address_postalcode, address_countryname, contactpoint_name, contactpoint_email, contactpoint_telephone, contactpoint_faxnumber, contactpoint_url, details, naturalperson, contactpoint_type, contactpoint_language, surname, additionalsurname, contactpoint_surname, contactpoint_additionalsurname, givenname, contactpoint_givenname) FROM stdin;
@@ -16734,7 +16734,7 @@ COPY public.parties (contractingprocess_id, id, partyid, name, "position", ident
 
 
 --
--- Data for Name: partiesadditionalidentifiers; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: partiesadditionalidentifiers; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.partiesadditionalidentifiers (id, contractingprocess_id, parties_id, scheme, legalname, uri) FROM stdin;
@@ -16742,7 +16742,7 @@ COPY public.partiesadditionalidentifiers (id, contractingprocess_id, parties_id,
 
 
 --
--- Data for Name: paymentmethod; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: paymentmethod; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.paymentmethod (id, code, title, description) FROM stdin;
@@ -16750,7 +16750,7 @@ COPY public.paymentmethod (id, code, title, description) FROM stdin;
 
 
 --
--- Data for Name: planning; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: planning; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.planning (id, contractingprocess_id, hasquotes, rationale) FROM stdin;
@@ -16758,7 +16758,7 @@ COPY public.planning (id, contractingprocess_id, hasquotes, rationale) FROM stdi
 
 
 --
--- Data for Name: planningdocuments; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: planningdocuments; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.planningdocuments (id, contractingprocess_id, planning_id, documentid, document_type, title, description, url, date_published, date_modified, format, language) FROM stdin;
@@ -16766,7 +16766,7 @@ COPY public.planningdocuments (id, contractingprocess_id, planning_id, documenti
 
 
 --
--- Data for Name: pntreference; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: pntreference; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.pntreference (id, contractingprocess_id, contractid, format, record_id, "position", field_id, reference_id, date, isroot, error) FROM stdin;
@@ -16774,7 +16774,7 @@ COPY public.pntreference (id, contractingprocess_id, contractid, format, record_
 
 
 --
--- Data for Name: prefixocid; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: prefixocid; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.prefixocid (id, value) FROM stdin;
@@ -16782,7 +16782,7 @@ COPY public.prefixocid (id, value) FROM stdin;
 
 
 --
--- Data for Name: programaticstructure; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: programaticstructure; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.programaticstructure (id, cve, year, trimester, branch, branch_desc, finality, finality_desc, function, function_desc, subfunction, subfunction_desc, institutionalactivity, institutionalactivity_desc, budgetprogram, budgetprogram_desc, strategicobjective, strategicobjective_desc, responsibleunit, responsibleunit_desc, requestingunit, requestingunit_desc, spendingtype, spendingtype_desc, specificactivity, specificactivity_desc, spendingobject, spendingobject_desc, region, region_desc, budgetsource, budgetsource_desc, portfoliokey, approvedamount, modifiedamount, executedamount, committedamount, reservedamount) FROM stdin;
@@ -16790,7 +16790,7 @@ COPY public.programaticstructure (id, cve, year, trimester, branch, branch_desc,
 
 
 --
--- Data for Name: publisher; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: publisher; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.publisher (id, contractingprocess_id, name, scheme, uid, uri) FROM stdin;
@@ -16798,7 +16798,7 @@ COPY public.publisher (id, contractingprocess_id, name, scheme, uid, uri) FROM s
 
 
 --
--- Data for Name: quotes; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: quotes; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.quotes (id, requestforquotes_id, quotes_id, description, date, value, quoteperiod_startdate, quoteperiod_enddate, issuingsupplier_id) FROM stdin;
@@ -16806,7 +16806,7 @@ COPY public.quotes (id, requestforquotes_id, quotes_id, description, date, value
 
 
 --
--- Data for Name: quotesitems; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: quotesitems; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.quotesitems (id, quotes_id, itemid, item, quantity) FROM stdin;
@@ -16814,7 +16814,7 @@ COPY public.quotesitems (id, quotes_id, itemid, item, quantity) FROM stdin;
 
 
 --
--- Data for Name: relatedprocedure; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: relatedprocedure; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.relatedprocedure (id, contractingprocess_id, relatedprocedure_id, relationship_type, title, identifier_scheme, relatedprocedure_identifier, url) FROM stdin;
@@ -16822,7 +16822,7 @@ COPY public.relatedprocedure (id, contractingprocess_id, relatedprocedure_id, re
 
 
 --
--- Data for Name: requestforquotes; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: requestforquotes; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.requestforquotes (id, contractingprocess_id, planning_id, requestforquotes_id, title, description, period_startdate, period_enddate) FROM stdin;
@@ -16830,7 +16830,7 @@ COPY public.requestforquotes (id, contractingprocess_id, planning_id, requestfor
 
 
 --
--- Data for Name: requestforquotesinvitedsuppliers; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: requestforquotesinvitedsuppliers; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.requestforquotesinvitedsuppliers (id, requestforquotes_id, parties_id) FROM stdin;
@@ -16838,7 +16838,7 @@ COPY public.requestforquotesinvitedsuppliers (id, requestforquotes_id, parties_i
 
 
 --
--- Data for Name: requestforquotesitems; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: requestforquotesitems; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.requestforquotesitems (id, requestforquotes_id, itemid, item, quantity) FROM stdin;
@@ -16846,7 +16846,7 @@ COPY public.requestforquotesitems (id, requestforquotes_id, itemid, item, quanti
 
 
 --
--- Data for Name: rolecatalog; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: rolecatalog; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.rolecatalog (id, code, title, description) FROM stdin;
@@ -16854,7 +16854,7 @@ COPY public.rolecatalog (id, code, title, description) FROM stdin;
 
 
 --
--- Data for Name: roles; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: roles; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.roles (contractingprocess_id, parties_id, id, buyer, procuringentity, supplier, tenderer, funder, enquirer, payer, payee, reviewbody, clarificationmeetingattendee, clarificationmeetingofficial, invitedsupplier, issuingsupplier, guarantor, requestingunit, contractingunit, technicalunit) FROM stdin;
@@ -16862,7 +16862,7 @@ COPY public.roles (contractingprocess_id, parties_id, id, buyer, procuringentity
 
 
 --
--- Data for Name: tags; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: tags; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.tags (id, contractingprocess_id, planning, planningupdate, tender, tenderamendment, tenderupdate, tendercancellation, award, awardupdate, awardcancellation, contract, contractupdate, contractamendment, implementation, implementationupdate, contracttermination, compiled, stage, register_date) FROM stdin;
@@ -16870,7 +16870,7 @@ COPY public.tags (id, contractingprocess_id, planning, planningupdate, tender, t
 
 
 --
--- Data for Name: tender; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: tender; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.tender (id, contractingprocess_id, tenderid, title, description, status, minvalue_amount, minvalue_currency, value_amount, value_currency, procurementmethod, procurementmethod_details, procurementmethod_rationale, mainprocurementcategory, additionalprocurementcategories, awardcriteria, awardcriteria_details, submissionmethod, submissionmethod_details, tenderperiod_startdate, tenderperiod_enddate, enquiryperiod_startdate, enquiryperiod_enddate, hasenquiries, eligibilitycriteria, awardperiod_startdate, awardperiod_enddate, numberoftenderers, amendment_date, amendment_rationale, procurementmethod_rationale_id) FROM stdin;
@@ -16878,7 +16878,7 @@ COPY public.tender (id, contractingprocess_id, tenderid, title, description, sta
 
 
 --
--- Data for Name: tenderamendmentchanges; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: tenderamendmentchanges; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.tenderamendmentchanges (id, contractingprocess_id, tender_id, property, former_value, amendments_date, amendments_rationale, amendments_id, amendments_description) FROM stdin;
@@ -16886,7 +16886,7 @@ COPY public.tenderamendmentchanges (id, contractingprocess_id, tender_id, proper
 
 
 --
--- Data for Name: tenderdocuments; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: tenderdocuments; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.tenderdocuments (id, contractingprocess_id, tender_id, document_type, documentid, title, description, url, date_published, date_modified, format, language) FROM stdin;
@@ -16894,7 +16894,7 @@ COPY public.tenderdocuments (id, contractingprocess_id, tender_id, document_type
 
 
 --
--- Data for Name: tenderitem; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: tenderitem; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.tenderitem (id, contractingprocess_id, tender_id, itemid, description, classification_scheme, classification_id, classification_description, classification_uri, quantity, unit_name, unit_value_amount, unit_value_currency, unit_value_amountnet, latitude, longitude, location_postalcode, location_countryname, location_streetaddress, location_region, location_locality) FROM stdin;
@@ -16902,7 +16902,7 @@ COPY public.tenderitem (id, contractingprocess_id, tender_id, itemid, descriptio
 
 
 --
--- Data for Name: tenderitemadditionalclassifications; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: tenderitemadditionalclassifications; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.tenderitemadditionalclassifications (id, contractingprocess_id, tenderitem_id, scheme, description, uri) FROM stdin;
@@ -16910,7 +16910,7 @@ COPY public.tenderitemadditionalclassifications (id, contractingprocess_id, tend
 
 
 --
--- Data for Name: tendermilestone; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: tendermilestone; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.tendermilestone (id, contractingprocess_id, tender_id, milestoneid, title, description, duedate, date_modified, status, type) FROM stdin;
@@ -16918,7 +16918,7 @@ COPY public.tendermilestone (id, contractingprocess_id, tender_id, milestoneid, 
 
 
 --
--- Data for Name: tendermilestonedocuments; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: tendermilestonedocuments; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.tendermilestonedocuments (id, contractingprocess_id, tender_id, milestone_id, document_type, documentid, title, description, url, date_published, date_modified, format, language) FROM stdin;
@@ -16926,7 +16926,7 @@ COPY public.tendermilestonedocuments (id, contractingprocess_id, tender_id, mile
 
 
 --
--- Data for Name: user_contractingprocess; Type: TABLE DATA; Schema: public; Owner: user_back
+-- Data for Name: user_contractingprocess; Type: TABLE DATA; Schema: public; Owner: prueba_captura
 --
 
 COPY public.user_contractingprocess (id, user_id, contractingprocess_id) FROM stdin;
@@ -16934,455 +16934,455 @@ COPY public.user_contractingprocess (id, user_id, contractingprocess_id) FROM st
 
 
 --
--- Name: additionalcontactpoints_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: additionalcontactpoints_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.additionalcontactpoints_id_seq', 1, false);
 
 
 --
--- Name: award_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: award_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.award_id_seq', 1, false);
 
 
 --
--- Name: awardamendmentchanges_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: awardamendmentchanges_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.awardamendmentchanges_id_seq', 1, false);
 
 
 --
--- Name: awarddocuments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: awarddocuments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.awarddocuments_id_seq', 1, false);
 
 
 --
--- Name: awarditem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: awarditem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.awarditem_id_seq', 1, false);
 
 
 --
--- Name: awarditemadditionalclassifications_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: awarditemadditionalclassifications_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.awarditemadditionalclassifications_id_seq', 1, false);
 
 
 --
--- Name: awardsupplier_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: awardsupplier_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.awardsupplier_id_seq', 1, false);
 
 
 --
--- Name: budget_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: budget_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.budget_id_seq', 1, false);
 
 
 --
--- Name: budgetbreakdown_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: budgetbreakdown_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.budgetbreakdown_id_seq', 1, false);
 
 
 --
--- Name: budgetclassifications_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: budgetclassifications_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.budgetclassifications_id_seq', 1, false);
 
 
 --
--- Name: clarificationmeeting_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: clarificationmeeting_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.clarificationmeeting_id_seq', 1, false);
 
 
 --
--- Name: clarificationmeetingactor_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: clarificationmeetingactor_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.clarificationmeetingactor_id_seq', 1, false);
 
 
 --
--- Name: contract_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: contract_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.contract_id_seq', 1, false);
 
 
 --
--- Name: contractamendmentchanges_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: contractamendmentchanges_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.contractamendmentchanges_id_seq', 1, false);
 
 
 --
--- Name: contractdocuments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: contractdocuments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.contractdocuments_id_seq', 1, false);
 
 
 --
--- Name: contractingprocess_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: contractingprocess_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.contractingprocess_id_seq', 1, false);
 
 
 --
--- Name: contractitem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: contractitem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.contractitem_id_seq', 1, false);
 
 
 --
--- Name: contractitemadditionalclasifications_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: contractitemadditionalclasifications_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.contractitemadditionalclasifications_id_seq', 1, false);
 
 
 --
--- Name: currency_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: currency_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.currency_id_seq', 265, true);
 
 
 --
--- Name: documentformat_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: documentformat_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.documentformat_id_seq', 1190, true);
 
 
 --
--- Name: documentmanagement_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: documentmanagement_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.documentmanagement_id_seq', 1, false);
 
 
 --
--- Name: documenttype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: documenttype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.documenttype_id_seq', 1, false);
 
 
 --
--- Name: gdmx_dictionary_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: gdmx_dictionary_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.gdmx_dictionary_id_seq', 1, false);
 
 
 --
--- Name: gdmx_document_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: gdmx_document_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.gdmx_document_id_seq', 1, false);
 
 
 --
--- Name: guarantees_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: guarantees_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.guarantees_id_seq', 1, false);
 
 
 --
--- Name: implementation_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: implementation_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.implementation_id_seq', 1, false);
 
 
 --
--- Name: implementationdocuments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: implementationdocuments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.implementationdocuments_id_seq', 1, false);
 
 
 --
--- Name: implementationmilestone_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: implementationmilestone_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.implementationmilestone_id_seq', 1, false);
 
 
 --
--- Name: implementationmilestonedocuments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: implementationmilestonedocuments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.implementationmilestonedocuments_id_seq', 1, false);
 
 
 --
--- Name: implementationstatus_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: implementationstatus_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.implementationstatus_id_seq', 1, false);
 
 
 --
--- Name: implementationtransactions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: implementationtransactions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.implementationtransactions_id_seq', 1, false);
 
 
 --
--- Name: item_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: item_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.item_id_seq', 1, false);
 
 
 --
--- Name: language_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: language_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.language_id_seq', 184, true);
 
 
 --
--- Name: links_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: links_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.links_id_seq', 1, false);
 
 
 --
--- Name: log_gdmx_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: log_gdmx_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.log_gdmx_id_seq', 1, false);
 
 
 --
--- Name: logs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: logs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.logs_id_seq', 1, false);
 
 
 --
--- Name: memberof_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: memberof_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.memberof_id_seq', 1, false);
 
 
 --
--- Name: milestonetype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: milestonetype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.milestonetype_id_seq', 8, true);
 
 
 --
--- Name: parties_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: parties_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.parties_id_seq', 1, false);
 
 
 --
--- Name: partiesadditionalidentifiers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: partiesadditionalidentifiers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.partiesadditionalidentifiers_id_seq', 1, false);
 
 
 --
--- Name: paymentmethod_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: paymentmethod_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.paymentmethod_id_seq', 1, false);
 
 
 --
--- Name: planning_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: planning_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.planning_id_seq', 1, false);
 
 
 --
--- Name: planningdocuments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: planningdocuments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.planningdocuments_id_seq', 1, false);
 
 
 --
--- Name: pntreference_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: pntreference_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.pntreference_id_seq', 1, false);
 
 
 --
--- Name: prefixocid_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: prefixocid_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.prefixocid_id_seq', 1, false);
 
 
 --
--- Name: programaticstructure_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: programaticstructure_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.programaticstructure_id_seq', 1, false);
 
 
 --
--- Name: publisher_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: publisher_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.publisher_id_seq', 1, false);
 
 
 --
--- Name: quotes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: quotes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.quotes_id_seq', 1, false);
 
 
 --
--- Name: quotesitems_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: quotesitems_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.quotesitems_id_seq', 1, false);
 
 
 --
--- Name: relatedprocedure_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: relatedprocedure_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.relatedprocedure_id_seq', 1, false);
 
 
 --
--- Name: requestforquotes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: requestforquotes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.requestforquotes_id_seq', 1, false);
 
 
 --
--- Name: requestforquotesinvitedsuppliers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: requestforquotesinvitedsuppliers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.requestforquotesinvitedsuppliers_id_seq', 1, false);
 
 
 --
--- Name: requestforquotesitems_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: requestforquotesitems_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.requestforquotesitems_id_seq', 1, false);
 
 
 --
--- Name: rolecatalog_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: rolecatalog_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.rolecatalog_id_seq', 1, false);
 
 
 --
--- Name: roles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: roles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.roles_id_seq', 1, false);
 
 
 --
--- Name: tags_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: tags_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.tags_id_seq', 1, false);
 
 
 --
--- Name: tender_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: tender_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.tender_id_seq', 1, false);
 
 
 --
--- Name: tenderamendmentchanges_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: tenderamendmentchanges_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.tenderamendmentchanges_id_seq', 1, false);
 
 
 --
--- Name: tenderdocuments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: tenderdocuments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.tenderdocuments_id_seq', 1, false);
 
 
 --
--- Name: tenderitem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: tenderitem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.tenderitem_id_seq', 1, false);
 
 
 --
--- Name: tenderitemadditionalclassifications_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: tenderitemadditionalclassifications_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.tenderitemadditionalclassifications_id_seq', 1, false);
 
 
 --
--- Name: tendermilestone_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: tendermilestone_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.tendermilestone_id_seq', 1, false);
 
 
 --
--- Name: tendermilestonedocuments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: tendermilestonedocuments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.tendermilestonedocuments_id_seq', 1, false);
 
 
 --
--- Name: user_contractingprocess_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_back
+-- Name: user_contractingprocess_id_seq; Type: SEQUENCE SET; Schema: public; Owner: prueba_captura
 --
 
 SELECT pg_catalog.setval('public.user_contractingprocess_id_seq', 1, false);
 
 
 --
--- Name: additionalcontactpoints additionalcontactpoints_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: additionalcontactpoints additionalcontactpoints_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.additionalcontactpoints
@@ -17390,7 +17390,7 @@ ALTER TABLE ONLY public.additionalcontactpoints
 
 
 --
--- Name: award award_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: award award_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.award
@@ -17398,7 +17398,7 @@ ALTER TABLE ONLY public.award
 
 
 --
--- Name: awardamendmentchanges awardamendmentchanges_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: awardamendmentchanges awardamendmentchanges_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.awardamendmentchanges
@@ -17406,7 +17406,7 @@ ALTER TABLE ONLY public.awardamendmentchanges
 
 
 --
--- Name: awarddocuments awarddocuments_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: awarddocuments awarddocuments_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.awarddocuments
@@ -17414,7 +17414,7 @@ ALTER TABLE ONLY public.awarddocuments
 
 
 --
--- Name: awarditem awarditem_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: awarditem awarditem_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.awarditem
@@ -17422,7 +17422,7 @@ ALTER TABLE ONLY public.awarditem
 
 
 --
--- Name: awarditemadditionalclassifications awarditemadditionalclassifications_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: awarditemadditionalclassifications awarditemadditionalclassifications_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.awarditemadditionalclassifications
@@ -17430,7 +17430,7 @@ ALTER TABLE ONLY public.awarditemadditionalclassifications
 
 
 --
--- Name: awardsupplier awardsupplier_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: awardsupplier awardsupplier_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.awardsupplier
@@ -17438,7 +17438,7 @@ ALTER TABLE ONLY public.awardsupplier
 
 
 --
--- Name: budget budget_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: budget budget_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.budget
@@ -17446,7 +17446,7 @@ ALTER TABLE ONLY public.budget
 
 
 --
--- Name: budgetbreakdown budgetbreakdown_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: budgetbreakdown budgetbreakdown_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.budgetbreakdown
@@ -17454,7 +17454,7 @@ ALTER TABLE ONLY public.budgetbreakdown
 
 
 --
--- Name: budgetclassifications budgetclassifications_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: budgetclassifications budgetclassifications_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.budgetclassifications
@@ -17462,7 +17462,7 @@ ALTER TABLE ONLY public.budgetclassifications
 
 
 --
--- Name: clarificationmeeting clarificationmeeting_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: clarificationmeeting clarificationmeeting_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.clarificationmeeting
@@ -17470,7 +17470,7 @@ ALTER TABLE ONLY public.clarificationmeeting
 
 
 --
--- Name: clarificationmeetingactor clarificationmeetingactor_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: clarificationmeetingactor clarificationmeetingactor_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.clarificationmeetingactor
@@ -17478,7 +17478,7 @@ ALTER TABLE ONLY public.clarificationmeetingactor
 
 
 --
--- Name: contract contract_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: contract contract_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contract
@@ -17486,7 +17486,7 @@ ALTER TABLE ONLY public.contract
 
 
 --
--- Name: contractamendmentchanges contractamendmentchanges_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: contractamendmentchanges contractamendmentchanges_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contractamendmentchanges
@@ -17494,7 +17494,7 @@ ALTER TABLE ONLY public.contractamendmentchanges
 
 
 --
--- Name: contractdocuments contractdocuments_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: contractdocuments contractdocuments_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contractdocuments
@@ -17502,7 +17502,7 @@ ALTER TABLE ONLY public.contractdocuments
 
 
 --
--- Name: contractingprocess contractingprocess_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: contractingprocess contractingprocess_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contractingprocess
@@ -17510,7 +17510,7 @@ ALTER TABLE ONLY public.contractingprocess
 
 
 --
--- Name: contractitem contractitem_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: contractitem contractitem_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contractitem
@@ -17518,7 +17518,7 @@ ALTER TABLE ONLY public.contractitem
 
 
 --
--- Name: contractitemadditionalclasifications contractitemadditionalclasifications_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: contractitemadditionalclasifications contractitemadditionalclasifications_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contractitemadditionalclasifications
@@ -17526,7 +17526,7 @@ ALTER TABLE ONLY public.contractitemadditionalclasifications
 
 
 --
--- Name: currency currency_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: currency currency_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.currency
@@ -17534,7 +17534,7 @@ ALTER TABLE ONLY public.currency
 
 
 --
--- Name: documentformat documentformat_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: documentformat documentformat_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.documentformat
@@ -17542,7 +17542,7 @@ ALTER TABLE ONLY public.documentformat
 
 
 --
--- Name: documentmanagement documentmanagement_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: documentmanagement documentmanagement_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.documentmanagement
@@ -17550,7 +17550,7 @@ ALTER TABLE ONLY public.documentmanagement
 
 
 --
--- Name: documenttype documenttype_code_key; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: documenttype documenttype_code_key; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.documenttype
@@ -17558,7 +17558,7 @@ ALTER TABLE ONLY public.documenttype
 
 
 --
--- Name: documenttype documenttype_code_key1; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: documenttype documenttype_code_key1; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.documenttype
@@ -17566,7 +17566,7 @@ ALTER TABLE ONLY public.documenttype
 
 
 --
--- Name: documenttype documenttype_code_key2; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: documenttype documenttype_code_key2; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.documenttype
@@ -17574,7 +17574,7 @@ ALTER TABLE ONLY public.documenttype
 
 
 --
--- Name: documenttype documenttype_code_key3; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: documenttype documenttype_code_key3; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.documenttype
@@ -17582,7 +17582,7 @@ ALTER TABLE ONLY public.documenttype
 
 
 --
--- Name: documenttype documenttype_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: documenttype documenttype_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.documenttype
@@ -17590,7 +17590,7 @@ ALTER TABLE ONLY public.documenttype
 
 
 --
--- Name: gdmx_dictionary gdmx_dictionary_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: gdmx_dictionary gdmx_dictionary_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.gdmx_dictionary
@@ -17598,7 +17598,7 @@ ALTER TABLE ONLY public.gdmx_dictionary
 
 
 --
--- Name: gdmx_document gdmx_document_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: gdmx_document gdmx_document_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.gdmx_document
@@ -17606,7 +17606,7 @@ ALTER TABLE ONLY public.gdmx_document
 
 
 --
--- Name: guarantees guarantees_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: guarantees guarantees_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.guarantees
@@ -17614,7 +17614,7 @@ ALTER TABLE ONLY public.guarantees
 
 
 --
--- Name: implementation implementation_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: implementation implementation_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementation
@@ -17622,7 +17622,7 @@ ALTER TABLE ONLY public.implementation
 
 
 --
--- Name: implementationdocuments implementationdocuments_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: implementationdocuments implementationdocuments_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationdocuments
@@ -17630,7 +17630,7 @@ ALTER TABLE ONLY public.implementationdocuments
 
 
 --
--- Name: implementationmilestone implementationmilestone_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: implementationmilestone implementationmilestone_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationmilestone
@@ -17638,7 +17638,7 @@ ALTER TABLE ONLY public.implementationmilestone
 
 
 --
--- Name: implementationmilestonedocuments implementationmilestonedocuments_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: implementationmilestonedocuments implementationmilestonedocuments_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationmilestonedocuments
@@ -17646,7 +17646,7 @@ ALTER TABLE ONLY public.implementationmilestonedocuments
 
 
 --
--- Name: implementationstatus implementationstatus_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: implementationstatus implementationstatus_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationstatus
@@ -17654,7 +17654,7 @@ ALTER TABLE ONLY public.implementationstatus
 
 
 --
--- Name: implementationtransactions implementationtransactions_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: implementationtransactions implementationtransactions_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationtransactions
@@ -17662,7 +17662,7 @@ ALTER TABLE ONLY public.implementationtransactions
 
 
 --
--- Name: item item_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: item item_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.item
@@ -17670,7 +17670,7 @@ ALTER TABLE ONLY public.item
 
 
 --
--- Name: language language_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: language language_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.language
@@ -17678,7 +17678,7 @@ ALTER TABLE ONLY public.language
 
 
 --
--- Name: links links_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: links links_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.links
@@ -17686,7 +17686,7 @@ ALTER TABLE ONLY public.links
 
 
 --
--- Name: log_gdmx log_gdmx_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: log_gdmx log_gdmx_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.log_gdmx
@@ -17694,7 +17694,7 @@ ALTER TABLE ONLY public.log_gdmx
 
 
 --
--- Name: logs logs_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: logs logs_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.logs
@@ -17702,7 +17702,7 @@ ALTER TABLE ONLY public.logs
 
 
 --
--- Name: memberof memberof_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: memberof memberof_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.memberof
@@ -17710,7 +17710,7 @@ ALTER TABLE ONLY public.memberof
 
 
 --
--- Name: milestonetype milestonetype_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: milestonetype milestonetype_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.milestonetype
@@ -17718,7 +17718,7 @@ ALTER TABLE ONLY public.milestonetype
 
 
 --
--- Name: parties parties_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: parties parties_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.parties
@@ -17726,7 +17726,7 @@ ALTER TABLE ONLY public.parties
 
 
 --
--- Name: partiesadditionalidentifiers partiesadditionalidentifiers_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: partiesadditionalidentifiers partiesadditionalidentifiers_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.partiesadditionalidentifiers
@@ -17734,7 +17734,7 @@ ALTER TABLE ONLY public.partiesadditionalidentifiers
 
 
 --
--- Name: paymentmethod paymentmethod_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: paymentmethod paymentmethod_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.paymentmethod
@@ -17742,7 +17742,7 @@ ALTER TABLE ONLY public.paymentmethod
 
 
 --
--- Name: metadata pk_metadata_id; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: metadata pk_metadata_id; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.metadata
@@ -17750,7 +17750,7 @@ ALTER TABLE ONLY public.metadata
 
 
 --
--- Name: planning planning_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: planning planning_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.planning
@@ -17758,7 +17758,7 @@ ALTER TABLE ONLY public.planning
 
 
 --
--- Name: planningdocuments planningdocuments_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: planningdocuments planningdocuments_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.planningdocuments
@@ -17766,7 +17766,7 @@ ALTER TABLE ONLY public.planningdocuments
 
 
 --
--- Name: pntreference pntreference_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: pntreference pntreference_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.pntreference
@@ -17774,7 +17774,7 @@ ALTER TABLE ONLY public.pntreference
 
 
 --
--- Name: prefixocid prefixocid_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: prefixocid prefixocid_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.prefixocid
@@ -17782,7 +17782,7 @@ ALTER TABLE ONLY public.prefixocid
 
 
 --
--- Name: programaticstructure programaticstructure_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: programaticstructure programaticstructure_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.programaticstructure
@@ -17790,7 +17790,7 @@ ALTER TABLE ONLY public.programaticstructure
 
 
 --
--- Name: publisher publisher_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: publisher publisher_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.publisher
@@ -17798,7 +17798,7 @@ ALTER TABLE ONLY public.publisher
 
 
 --
--- Name: quotes quotes_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: quotes quotes_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.quotes
@@ -17806,7 +17806,7 @@ ALTER TABLE ONLY public.quotes
 
 
 --
--- Name: quotesitems quotesitems_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: quotesitems quotesitems_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.quotesitems
@@ -17814,7 +17814,7 @@ ALTER TABLE ONLY public.quotesitems
 
 
 --
--- Name: relatedprocedure relatedprocedure_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: relatedprocedure relatedprocedure_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.relatedprocedure
@@ -17822,7 +17822,7 @@ ALTER TABLE ONLY public.relatedprocedure
 
 
 --
--- Name: requestforquotes requestforquotes_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: requestforquotes requestforquotes_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.requestforquotes
@@ -17830,7 +17830,7 @@ ALTER TABLE ONLY public.requestforquotes
 
 
 --
--- Name: requestforquotesinvitedsuppliers requestforquotesinvitedsuppliers_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: requestforquotesinvitedsuppliers requestforquotesinvitedsuppliers_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.requestforquotesinvitedsuppliers
@@ -17838,7 +17838,7 @@ ALTER TABLE ONLY public.requestforquotesinvitedsuppliers
 
 
 --
--- Name: requestforquotesitems requestforquotesitems_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: requestforquotesitems requestforquotesitems_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.requestforquotesitems
@@ -17846,7 +17846,7 @@ ALTER TABLE ONLY public.requestforquotesitems
 
 
 --
--- Name: rolecatalog rolecatalog_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: rolecatalog rolecatalog_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.rolecatalog
@@ -17854,7 +17854,7 @@ ALTER TABLE ONLY public.rolecatalog
 
 
 --
--- Name: roles roles_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: roles roles_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.roles
@@ -17862,7 +17862,7 @@ ALTER TABLE ONLY public.roles
 
 
 --
--- Name: tags tags_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tags tags_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tags
@@ -17870,7 +17870,7 @@ ALTER TABLE ONLY public.tags
 
 
 --
--- Name: tender tender_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tender tender_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tender
@@ -17878,7 +17878,7 @@ ALTER TABLE ONLY public.tender
 
 
 --
--- Name: tenderamendmentchanges tenderamendmentchanges_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tenderamendmentchanges tenderamendmentchanges_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tenderamendmentchanges
@@ -17886,7 +17886,7 @@ ALTER TABLE ONLY public.tenderamendmentchanges
 
 
 --
--- Name: tenderdocuments tenderdocuments_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tenderdocuments tenderdocuments_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tenderdocuments
@@ -17894,7 +17894,7 @@ ALTER TABLE ONLY public.tenderdocuments
 
 
 --
--- Name: tenderitem tenderitem_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tenderitem tenderitem_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tenderitem
@@ -17902,7 +17902,7 @@ ALTER TABLE ONLY public.tenderitem
 
 
 --
--- Name: tenderitemadditionalclassifications tenderitemadditionalclassifications_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tenderitemadditionalclassifications tenderitemadditionalclassifications_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tenderitemadditionalclassifications
@@ -17910,7 +17910,7 @@ ALTER TABLE ONLY public.tenderitemadditionalclassifications
 
 
 --
--- Name: tendermilestone tendermilestone_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tendermilestone tendermilestone_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tendermilestone
@@ -17918,7 +17918,7 @@ ALTER TABLE ONLY public.tendermilestone
 
 
 --
--- Name: tendermilestonedocuments tendermilestonedocuments_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tendermilestonedocuments tendermilestonedocuments_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tendermilestonedocuments
@@ -17926,7 +17926,7 @@ ALTER TABLE ONLY public.tendermilestonedocuments
 
 
 --
--- Name: user_contractingprocess user_contractingprocess_pkey; Type: CONSTRAINT; Schema: public; Owner: user_back
+-- Name: user_contractingprocess user_contractingprocess_pkey; Type: CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.user_contractingprocess
@@ -17934,7 +17934,7 @@ ALTER TABLE ONLY public.user_contractingprocess
 
 
 --
--- Name: award award_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: award award_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.award
@@ -17942,7 +17942,7 @@ ALTER TABLE ONLY public.award
 
 
 --
--- Name: awardamendmentchanges awardamendmentchanges_award_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: awardamendmentchanges awardamendmentchanges_award_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.awardamendmentchanges
@@ -17950,7 +17950,7 @@ ALTER TABLE ONLY public.awardamendmentchanges
 
 
 --
--- Name: awardamendmentchanges awardamendmentchanges_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: awardamendmentchanges awardamendmentchanges_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.awardamendmentchanges
@@ -17958,7 +17958,7 @@ ALTER TABLE ONLY public.awardamendmentchanges
 
 
 --
--- Name: awarddocuments awarddocuments_award_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: awarddocuments awarddocuments_award_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.awarddocuments
@@ -17966,7 +17966,7 @@ ALTER TABLE ONLY public.awarddocuments
 
 
 --
--- Name: awarddocuments awarddocuments_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: awarddocuments awarddocuments_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.awarddocuments
@@ -17974,7 +17974,7 @@ ALTER TABLE ONLY public.awarddocuments
 
 
 --
--- Name: awarditem awarditem_award_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: awarditem awarditem_award_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.awarditem
@@ -17982,7 +17982,7 @@ ALTER TABLE ONLY public.awarditem
 
 
 --
--- Name: awarditem awarditem_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: awarditem awarditem_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.awarditem
@@ -17990,7 +17990,7 @@ ALTER TABLE ONLY public.awarditem
 
 
 --
--- Name: awarditemadditionalclassifications awarditemadditionalclassifications_award_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: awarditemadditionalclassifications awarditemadditionalclassifications_award_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.awarditemadditionalclassifications
@@ -17998,7 +17998,7 @@ ALTER TABLE ONLY public.awarditemadditionalclassifications
 
 
 --
--- Name: awarditemadditionalclassifications awarditemadditionalclassifications_awarditem_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: awarditemadditionalclassifications awarditemadditionalclassifications_awarditem_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.awarditemadditionalclassifications
@@ -18006,7 +18006,7 @@ ALTER TABLE ONLY public.awarditemadditionalclassifications
 
 
 --
--- Name: awardsupplier awardsupplier_award_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: awardsupplier awardsupplier_award_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.awardsupplier
@@ -18014,7 +18014,7 @@ ALTER TABLE ONLY public.awardsupplier
 
 
 --
--- Name: awardsupplier awardsupplier_parties_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: awardsupplier awardsupplier_parties_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.awardsupplier
@@ -18022,7 +18022,7 @@ ALTER TABLE ONLY public.awardsupplier
 
 
 --
--- Name: budget budget_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: budget budget_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.budget
@@ -18030,7 +18030,7 @@ ALTER TABLE ONLY public.budget
 
 
 --
--- Name: budget budget_planning_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: budget budget_planning_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.budget
@@ -18038,7 +18038,7 @@ ALTER TABLE ONLY public.budget
 
 
 --
--- Name: clarificationmeeting clarificationmeeting_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: clarificationmeeting clarificationmeeting_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.clarificationmeeting
@@ -18046,7 +18046,7 @@ ALTER TABLE ONLY public.clarificationmeeting
 
 
 --
--- Name: clarificationmeetingactor clarificationmeetingactor_clarificationmeeting_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: clarificationmeetingactor clarificationmeetingactor_clarificationmeeting_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.clarificationmeetingactor
@@ -18054,7 +18054,7 @@ ALTER TABLE ONLY public.clarificationmeetingactor
 
 
 --
--- Name: clarificationmeetingactor clarificationmeetingactor_parties_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: clarificationmeetingactor clarificationmeetingactor_parties_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.clarificationmeetingactor
@@ -18062,7 +18062,7 @@ ALTER TABLE ONLY public.clarificationmeetingactor
 
 
 --
--- Name: contract contract_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: contract contract_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contract
@@ -18070,7 +18070,7 @@ ALTER TABLE ONLY public.contract
 
 
 --
--- Name: contractamendmentchanges contractamendmentchanges_contract_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: contractamendmentchanges contractamendmentchanges_contract_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contractamendmentchanges
@@ -18078,7 +18078,7 @@ ALTER TABLE ONLY public.contractamendmentchanges
 
 
 --
--- Name: contractamendmentchanges contractamendmentchanges_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: contractamendmentchanges contractamendmentchanges_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contractamendmentchanges
@@ -18086,7 +18086,7 @@ ALTER TABLE ONLY public.contractamendmentchanges
 
 
 --
--- Name: contractdocuments contractdocuments_contract_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: contractdocuments contractdocuments_contract_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contractdocuments
@@ -18094,7 +18094,7 @@ ALTER TABLE ONLY public.contractdocuments
 
 
 --
--- Name: contractdocuments contractdocuments_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: contractdocuments contractdocuments_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contractdocuments
@@ -18102,7 +18102,7 @@ ALTER TABLE ONLY public.contractdocuments
 
 
 --
--- Name: contractitem contractitem_contract_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: contractitem contractitem_contract_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contractitem
@@ -18110,7 +18110,7 @@ ALTER TABLE ONLY public.contractitem
 
 
 --
--- Name: contractitem contractitem_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: contractitem contractitem_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contractitem
@@ -18118,7 +18118,7 @@ ALTER TABLE ONLY public.contractitem
 
 
 --
--- Name: contractitemadditionalclasifications contractitemadditionalclasifications_contract_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: contractitemadditionalclasifications contractitemadditionalclasifications_contract_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contractitemadditionalclasifications
@@ -18126,7 +18126,7 @@ ALTER TABLE ONLY public.contractitemadditionalclasifications
 
 
 --
--- Name: contractitemadditionalclasifications contractitemadditionalclasifications_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: contractitemadditionalclasifications contractitemadditionalclasifications_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contractitemadditionalclasifications
@@ -18134,7 +18134,7 @@ ALTER TABLE ONLY public.contractitemadditionalclasifications
 
 
 --
--- Name: contractitemadditionalclasifications contractitemadditionalclasifications_contractitem_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: contractitemadditionalclasifications contractitemadditionalclasifications_contractitem_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.contractitemadditionalclasifications
@@ -18142,7 +18142,7 @@ ALTER TABLE ONLY public.contractitemadditionalclasifications
 
 
 --
--- Name: implementation implementation_contract_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: implementation implementation_contract_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementation
@@ -18150,7 +18150,7 @@ ALTER TABLE ONLY public.implementation
 
 
 --
--- Name: implementation implementation_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: implementation implementation_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementation
@@ -18158,7 +18158,7 @@ ALTER TABLE ONLY public.implementation
 
 
 --
--- Name: implementationdocuments implementationdocuments_contract_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: implementationdocuments implementationdocuments_contract_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationdocuments
@@ -18166,7 +18166,7 @@ ALTER TABLE ONLY public.implementationdocuments
 
 
 --
--- Name: implementationdocuments implementationdocuments_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: implementationdocuments implementationdocuments_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationdocuments
@@ -18174,7 +18174,7 @@ ALTER TABLE ONLY public.implementationdocuments
 
 
 --
--- Name: implementationdocuments implementationdocuments_implementation_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: implementationdocuments implementationdocuments_implementation_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationdocuments
@@ -18182,7 +18182,7 @@ ALTER TABLE ONLY public.implementationdocuments
 
 
 --
--- Name: implementationmilestone implementationmilestone_contract_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: implementationmilestone implementationmilestone_contract_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationmilestone
@@ -18190,7 +18190,7 @@ ALTER TABLE ONLY public.implementationmilestone
 
 
 --
--- Name: implementationmilestone implementationmilestone_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: implementationmilestone implementationmilestone_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationmilestone
@@ -18198,7 +18198,7 @@ ALTER TABLE ONLY public.implementationmilestone
 
 
 --
--- Name: implementationmilestone implementationmilestone_implementation_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: implementationmilestone implementationmilestone_implementation_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationmilestone
@@ -18206,7 +18206,7 @@ ALTER TABLE ONLY public.implementationmilestone
 
 
 --
--- Name: implementationmilestonedocuments implementationmilestonedocuments_contract_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: implementationmilestonedocuments implementationmilestonedocuments_contract_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationmilestonedocuments
@@ -18214,7 +18214,7 @@ ALTER TABLE ONLY public.implementationmilestonedocuments
 
 
 --
--- Name: implementationmilestonedocuments implementationmilestonedocuments_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: implementationmilestonedocuments implementationmilestonedocuments_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationmilestonedocuments
@@ -18222,7 +18222,7 @@ ALTER TABLE ONLY public.implementationmilestonedocuments
 
 
 --
--- Name: implementationmilestonedocuments implementationmilestonedocuments_implementation_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: implementationmilestonedocuments implementationmilestonedocuments_implementation_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationmilestonedocuments
@@ -18230,7 +18230,7 @@ ALTER TABLE ONLY public.implementationmilestonedocuments
 
 
 --
--- Name: implementationtransactions implementationtransactions_contract_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: implementationtransactions implementationtransactions_contract_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationtransactions
@@ -18238,7 +18238,7 @@ ALTER TABLE ONLY public.implementationtransactions
 
 
 --
--- Name: implementationtransactions implementationtransactions_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: implementationtransactions implementationtransactions_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationtransactions
@@ -18246,7 +18246,7 @@ ALTER TABLE ONLY public.implementationtransactions
 
 
 --
--- Name: implementationtransactions implementationtransactions_implementation_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: implementationtransactions implementationtransactions_implementation_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.implementationtransactions
@@ -18254,7 +18254,7 @@ ALTER TABLE ONLY public.implementationtransactions
 
 
 --
--- Name: links links_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: links links_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.links
@@ -18262,7 +18262,7 @@ ALTER TABLE ONLY public.links
 
 
 --
--- Name: memberof memberof_parties_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: memberof memberof_parties_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.memberof
@@ -18270,7 +18270,7 @@ ALTER TABLE ONLY public.memberof
 
 
 --
--- Name: memberof memberof_principal_parties_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: memberof memberof_principal_parties_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.memberof
@@ -18278,7 +18278,7 @@ ALTER TABLE ONLY public.memberof
 
 
 --
--- Name: parties parties_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: parties parties_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.parties
@@ -18286,7 +18286,7 @@ ALTER TABLE ONLY public.parties
 
 
 --
--- Name: partiesadditionalidentifiers partiesadditionalidentifiers_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: partiesadditionalidentifiers partiesadditionalidentifiers_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.partiesadditionalidentifiers
@@ -18294,7 +18294,7 @@ ALTER TABLE ONLY public.partiesadditionalidentifiers
 
 
 --
--- Name: partiesadditionalidentifiers partiesadditionalidentifiers_parties_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: partiesadditionalidentifiers partiesadditionalidentifiers_parties_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.partiesadditionalidentifiers
@@ -18302,7 +18302,7 @@ ALTER TABLE ONLY public.partiesadditionalidentifiers
 
 
 --
--- Name: planning planning_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: planning planning_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.planning
@@ -18310,7 +18310,7 @@ ALTER TABLE ONLY public.planning
 
 
 --
--- Name: planningdocuments planningdocuments_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: planningdocuments planningdocuments_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.planningdocuments
@@ -18318,7 +18318,7 @@ ALTER TABLE ONLY public.planningdocuments
 
 
 --
--- Name: planningdocuments planningdocuments_planning_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: planningdocuments planningdocuments_planning_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.planningdocuments
@@ -18326,7 +18326,7 @@ ALTER TABLE ONLY public.planningdocuments
 
 
 --
--- Name: publisher publisher_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: publisher publisher_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.publisher
@@ -18334,7 +18334,7 @@ ALTER TABLE ONLY public.publisher
 
 
 --
--- Name: quotes quotes_issuingsupplier_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: quotes quotes_issuingsupplier_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.quotes
@@ -18342,7 +18342,7 @@ ALTER TABLE ONLY public.quotes
 
 
 --
--- Name: quotes quotes_requestforquotes_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: quotes quotes_requestforquotes_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.quotes
@@ -18350,7 +18350,7 @@ ALTER TABLE ONLY public.quotes
 
 
 --
--- Name: quotesitems quotesitems_quotes_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: quotesitems quotesitems_quotes_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.quotesitems
@@ -18358,7 +18358,7 @@ ALTER TABLE ONLY public.quotesitems
 
 
 --
--- Name: requestforquotes requestforquotes_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: requestforquotes requestforquotes_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.requestforquotes
@@ -18366,7 +18366,7 @@ ALTER TABLE ONLY public.requestforquotes
 
 
 --
--- Name: requestforquotesinvitedsuppliers requestforquotesinvitedsuppliers_parties_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: requestforquotesinvitedsuppliers requestforquotesinvitedsuppliers_parties_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.requestforquotesinvitedsuppliers
@@ -18374,7 +18374,7 @@ ALTER TABLE ONLY public.requestforquotesinvitedsuppliers
 
 
 --
--- Name: requestforquotesinvitedsuppliers requestforquotesinvitedsuppliers_requestforquotes_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: requestforquotesinvitedsuppliers requestforquotesinvitedsuppliers_requestforquotes_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.requestforquotesinvitedsuppliers
@@ -18382,7 +18382,7 @@ ALTER TABLE ONLY public.requestforquotesinvitedsuppliers
 
 
 --
--- Name: requestforquotesitems requestforquotesitems_requestforquotes_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: requestforquotesitems requestforquotesitems_requestforquotes_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.requestforquotesitems
@@ -18390,7 +18390,7 @@ ALTER TABLE ONLY public.requestforquotesitems
 
 
 --
--- Name: roles roles_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: roles roles_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.roles
@@ -18398,7 +18398,7 @@ ALTER TABLE ONLY public.roles
 
 
 --
--- Name: roles roles_parties_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: roles roles_parties_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.roles
@@ -18406,7 +18406,7 @@ ALTER TABLE ONLY public.roles
 
 
 --
--- Name: tags tags_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tags tags_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tags
@@ -18414,7 +18414,7 @@ ALTER TABLE ONLY public.tags
 
 
 --
--- Name: tender tender_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tender tender_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tender
@@ -18422,7 +18422,7 @@ ALTER TABLE ONLY public.tender
 
 
 --
--- Name: tenderamendmentchanges tenderamendmentchanges_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tenderamendmentchanges tenderamendmentchanges_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tenderamendmentchanges
@@ -18430,7 +18430,7 @@ ALTER TABLE ONLY public.tenderamendmentchanges
 
 
 --
--- Name: tenderamendmentchanges tenderamendmentchanges_tender_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tenderamendmentchanges tenderamendmentchanges_tender_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tenderamendmentchanges
@@ -18438,7 +18438,7 @@ ALTER TABLE ONLY public.tenderamendmentchanges
 
 
 --
--- Name: tenderdocuments tenderdocuments_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tenderdocuments tenderdocuments_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tenderdocuments
@@ -18446,7 +18446,7 @@ ALTER TABLE ONLY public.tenderdocuments
 
 
 --
--- Name: tenderdocuments tenderdocuments_tender_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tenderdocuments tenderdocuments_tender_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tenderdocuments
@@ -18454,7 +18454,7 @@ ALTER TABLE ONLY public.tenderdocuments
 
 
 --
--- Name: tenderitem tenderitem_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tenderitem tenderitem_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tenderitem
@@ -18462,7 +18462,7 @@ ALTER TABLE ONLY public.tenderitem
 
 
 --
--- Name: tenderitem tenderitem_tender_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tenderitem tenderitem_tender_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tenderitem
@@ -18470,7 +18470,7 @@ ALTER TABLE ONLY public.tenderitem
 
 
 --
--- Name: tenderitemadditionalclassifications tenderitemadditionalclassifications_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tenderitemadditionalclassifications tenderitemadditionalclassifications_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tenderitemadditionalclassifications
@@ -18478,7 +18478,7 @@ ALTER TABLE ONLY public.tenderitemadditionalclassifications
 
 
 --
--- Name: tenderitemadditionalclassifications tenderitemadditionalclassifications_tenderitem_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tenderitemadditionalclassifications tenderitemadditionalclassifications_tenderitem_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tenderitemadditionalclassifications
@@ -18486,7 +18486,7 @@ ALTER TABLE ONLY public.tenderitemadditionalclassifications
 
 
 --
--- Name: tendermilestone tendermilestone_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tendermilestone tendermilestone_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tendermilestone
@@ -18494,7 +18494,7 @@ ALTER TABLE ONLY public.tendermilestone
 
 
 --
--- Name: tendermilestone tendermilestone_tender_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tendermilestone tendermilestone_tender_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tendermilestone
@@ -18502,7 +18502,7 @@ ALTER TABLE ONLY public.tendermilestone
 
 
 --
--- Name: tendermilestonedocuments tendermilestonedocuments_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tendermilestonedocuments tendermilestonedocuments_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tendermilestonedocuments
@@ -18510,7 +18510,7 @@ ALTER TABLE ONLY public.tendermilestonedocuments
 
 
 --
--- Name: tendermilestonedocuments tendermilestonedocuments_milestone_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tendermilestonedocuments tendermilestonedocuments_milestone_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tendermilestonedocuments
@@ -18518,7 +18518,7 @@ ALTER TABLE ONLY public.tendermilestonedocuments
 
 
 --
--- Name: tendermilestonedocuments tendermilestonedocuments_tender_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: tendermilestonedocuments tendermilestonedocuments_tender_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.tendermilestonedocuments
@@ -18526,7 +18526,7 @@ ALTER TABLE ONLY public.tendermilestonedocuments
 
 
 --
--- Name: user_contractingprocess user_contractingprocess_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_back
+-- Name: user_contractingprocess user_contractingprocess_contractingprocess_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: prueba_captura
 --
 
 ALTER TABLE ONLY public.user_contractingprocess
