@@ -6,7 +6,7 @@
 
 ### Hardware
 ```
-· Almacenamiento en disco duro o unidad de estado sólido: 60 Gigabytes o superior
+· Almacenamiento en disco duro o unidad de estado sólido: 250 Gigabytes o superior
 · Memoria RAM: 4 Gigabytes o superior
 · Velocidad de procesador: 2Ghz o superior
 ```
