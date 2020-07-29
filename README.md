@@ -12,7 +12,7 @@
 ```
 ### Software
 ```
-· Sistema operativo RedHat 7
+· Sistema operativo CentOS 7
 · Base de datos relacional: PostgreSQL 10
 · Base de datos de documentos: MongoDB v3
 · Lenguaje de programación: Nodejs v9
